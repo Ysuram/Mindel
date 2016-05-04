@@ -12,7 +12,7 @@ import vista.interfaz;
 public class controlador implements ActionListener, MouseListener {
 
     /**
-     * instancia nuestra (s) interfaz (ces)
+     * instancia nuestra (s) interfaz 
      */
     interfaz vista;
     /**
