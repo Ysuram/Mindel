@@ -27,22 +27,56 @@ public class Seccion extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
+        btnAnadirProducto = new javax.swing.JButton();
         jComboBoxSecciones = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablaProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jButton2.setText("Atrassss");
-        getContentPane().add(jButton2, new java.awt.GridBagConstraints());
+        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png"))); // NOI18N
+        btnAtras.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnAtras.setPreferredSize(new java.awt.Dimension(50, 50));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        getContentPane().add(btnAtras, gridBagConstraints);
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new java.awt.GridBagConstraints());
+        btnAnadirProducto.setText("Añadir");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(17, 14, 17, 14);
+        getContentPane().add(btnAnadirProducto, gridBagConstraints);
 
         jComboBoxSecciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBoxSecciones, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 138);
+        getContentPane().add(jComboBoxSecciones, gridBagConstraints);
+
+        jTablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTablaProductos);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,8 +124,10 @@ public class Seccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAnadirProducto;
+    private javax.swing.JButton btnAtras;
     private javax.swing.JComboBox jComboBoxSecciones;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTablaProductos;
     // End of variables declaration//GEN-END:variables
 }
