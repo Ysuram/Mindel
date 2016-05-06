@@ -45,11 +45,11 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         getContentPane().add(btnAtras, gridBagConstraints);
 
-        btnAnadirProducto.setText("Añadir");
+        btnAnadirProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/anadirCarro.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(17, 14, 17, 14);
+        gridBagConstraints.insets = new java.awt.Insets(13, 13, 13, 13);
         getContentPane().add(btnAnadirProducto, gridBagConstraints);
 
         jComboBoxSecciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
