@@ -32,27 +32,28 @@ public class Carro extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAceptar = new javax.swing.JButton();
+        btnAceptarCarro = new javax.swing.JButton();
         btnCancelarCarro = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablaCarro = new javax.swing.JTable();
+        btnEliminarCarro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAceptar.setText("Aceptar");
+        btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 77);
-        getContentPane().add(btnAceptar, gridBagConstraints);
+        getContentPane().add(btnAceptarCarro, gridBagConstraints);
 
-        btnCancelarCarro.setText("Cancelar");
+        btnCancelarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/cancelarCompra.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(btnCancelarCarro, gridBagConstraints);
 
@@ -72,8 +73,14 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPane2, gridBagConstraints);
+
+        btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/quitarCarro.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(btnEliminarCarro, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -118,8 +125,9 @@ public class Carro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAceptarCarro;
     public javax.swing.JButton btnCancelarCarro;
+    public javax.swing.JButton btnEliminarCarro;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTablaCarro;
     // End of variables declaration//GEN-END:variables

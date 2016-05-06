@@ -20,6 +20,13 @@ public class controlador implements ActionListener, MouseListener {
      */
     modelo modelo = new modelo();
 
+    public enum AccionMVC
+    {
+        btnAceptarCarro, btnCancelarCarro, btnEliminarCarro, 
+        btnContratarProveedor, btnCancelarProveedor,
+        btnCrearOferta, btnCancelarOferta
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

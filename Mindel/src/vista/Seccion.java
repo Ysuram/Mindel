@@ -29,35 +29,35 @@ public class Seccion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAtras = new javax.swing.JButton();
-        btnAnadirProducto = new javax.swing.JButton();
-        jComboBoxSecciones = new javax.swing.JComboBox();
+        btnAtrasSeccion = new javax.swing.JButton();
+        btnAnadirSeccion = new javax.swing.JButton();
+        cbSeccion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProductos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png"))); // NOI18N
-        btnAtras.setMinimumSize(new java.awt.Dimension(50, 50));
-        btnAtras.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnAtrasSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png"))); // NOI18N
+        btnAtrasSeccion.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnAtrasSeccion.setPreferredSize(new java.awt.Dimension(50, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        getContentPane().add(btnAtras, gridBagConstraints);
+        getContentPane().add(btnAtrasSeccion, gridBagConstraints);
 
-        btnAnadirProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/anadirCarro.png"))); // NOI18N
+        btnAnadirSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/anadirCarro.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(13, 13, 13, 13);
-        getContentPane().add(btnAnadirProducto, gridBagConstraints);
+        getContentPane().add(btnAnadirSeccion, gridBagConstraints);
 
-        jComboBoxSecciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 138);
-        getContentPane().add(jComboBoxSecciones, gridBagConstraints);
+        getContentPane().add(cbSeccion, gridBagConstraints);
 
         jTablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,9 +124,9 @@ public class Seccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnadirProducto;
-    private javax.swing.JButton btnAtras;
-    private javax.swing.JComboBox jComboBoxSecciones;
+    private javax.swing.JButton btnAnadirSeccion;
+    private javax.swing.JButton btnAtrasSeccion;
+    private javax.swing.JComboBox cbSeccion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaProductos;
     // End of variables declaration//GEN-END:variables
