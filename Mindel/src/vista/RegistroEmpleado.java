@@ -44,10 +44,10 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         etiUserEmpleado = new javax.swing.JLabel();
         etiDNIEmpleado = new javax.swing.JLabel();
         txtDNIEmpleado = new javax.swing.JTextField();
-        btnRegistrarEmpleado = new javax.swing.JButton();
+        btnAceptarRegistrarEmp = new javax.swing.JButton();
         txtUserEmpleado = new javax.swing.JTextField();
         etiDomicilioEmpleado = new javax.swing.JLabel();
-        btnCancelarRegistro = new javax.swing.JButton();
+        btnCancelarRegistroEmp = new javax.swing.JButton();
         etiContrasenia1 = new javax.swing.JLabel();
         txtDomicilioEmpleado = new javax.swing.JTextField();
         jpfContrasenia1 = new javax.swing.JPasswordField();
@@ -79,11 +79,11 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiDNIEmpleado.setText("DNI: ");
 
-        btnRegistrarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnAceptarRegistrarEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
 
         etiDomicilioEmpleado.setText("Domicilio: ");
 
-        btnCancelarRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarRegistroEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
 
         etiContrasenia1.setText("Password: ");
 
@@ -141,9 +141,9 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                         .addComponent(btnBuscarFoto))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btnRegistrarEmpleado)
+                        .addComponent(btnAceptarRegistrarEmp)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCancelarRegistro))
+                        .addComponent(btnCancelarRegistroEmp))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(etiSeccion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -198,8 +198,8 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                         .addComponent(etiFoto1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarEmpleado)
-                    .addComponent(btnCancelarRegistro))
+                    .addComponent(btnAceptarRegistrarEmp)
+                    .addComponent(btnCancelarRegistroEmp))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -246,9 +246,9 @@ public class RegistroEmpleado extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAceptarRegistrarEmp;
     public javax.swing.JButton btnBuscarFoto;
-    public javax.swing.JButton btnCancelarRegistro;
-    public javax.swing.JButton btnRegistrarEmpleado;
+    public javax.swing.JButton btnCancelarRegistroEmp;
     public javax.swing.JLabel etiCPEmpleado;
     public javax.swing.JLabel etiContrasenia1;
     public javax.swing.JLabel etiContrasenia2;

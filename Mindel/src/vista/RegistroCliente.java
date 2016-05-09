@@ -50,8 +50,8 @@ public class RegistroCliente extends javax.swing.JDialog {
         etiFoto1 = new javax.swing.JLabel();
         etiFotoCliente = new javax.swing.JLabel();
         btnBuscarFoto = new javax.swing.JButton();
-        btnRegistrarCliente = new javax.swing.JButton();
-        btnCancelarRegistro = new javax.swing.JButton();
+        btnAceptarRegistrarCli = new javax.swing.JButton();
+        btnCancelarRegistroCli = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Clientes");
@@ -82,9 +82,9 @@ public class RegistroCliente extends javax.swing.JDialog {
 
         btnBuscarFoto.setText("Buscar...");
 
-        btnRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnAceptarRegistrarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
 
-        btnCancelarRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarRegistroCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,9 +136,9 @@ public class RegistroCliente extends javax.swing.JDialog {
                                 .addComponent(btnBuscarFoto))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addComponent(btnRegistrarCliente)))
+                                .addComponent(btnAceptarRegistrarCli)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelarRegistro)))
+                        .addComponent(btnCancelarRegistroCli)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,8 +185,8 @@ public class RegistroCliente extends javax.swing.JDialog {
                         .addComponent(etiFoto1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCancelarRegistro)
-                    .addComponent(btnRegistrarCliente))
+                    .addComponent(btnCancelarRegistroCli)
+                    .addComponent(btnAceptarRegistrarCli))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -233,9 +233,9 @@ public class RegistroCliente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAceptarRegistrarCli;
     public javax.swing.JButton btnBuscarFoto;
-    public javax.swing.JButton btnCancelarRegistro;
-    public javax.swing.JButton btnRegistrarCliente;
+    public javax.swing.JButton btnCancelarRegistroCli;
     public javax.swing.JLabel etiCPCliente;
     public javax.swing.JLabel etiContrasenia1;
     public javax.swing.JLabel etiContrasenia2;

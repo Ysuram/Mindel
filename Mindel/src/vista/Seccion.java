@@ -29,7 +29,7 @@ public class Seccion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAtrasSeccion = new javax.swing.JButton();
+        btnCancelarSeccion = new javax.swing.JButton();
         btnAnadirSeccion = new javax.swing.JButton();
         cbSeccion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -38,12 +38,12 @@ public class Seccion extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAtrasSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png"))); // NOI18N
-        btnAtrasSeccion.setMinimumSize(new java.awt.Dimension(50, 50));
-        btnAtrasSeccion.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnCancelarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png"))); // NOI18N
+        btnCancelarSeccion.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnCancelarSeccion.setPreferredSize(new java.awt.Dimension(50, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-        getContentPane().add(btnAtrasSeccion, gridBagConstraints);
+        getContentPane().add(btnCancelarSeccion, gridBagConstraints);
 
         btnAnadirSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/anadirCarro.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -125,7 +125,7 @@ public class Seccion extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnadirSeccion;
-    private javax.swing.JButton btnAtrasSeccion;
+    private javax.swing.JButton btnCancelarSeccion;
     private javax.swing.JComboBox cbSeccion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablaProductos;

@@ -24,7 +24,14 @@ public class controlador implements ActionListener, MouseListener {
     {
         btnAceptarCarro, btnCancelarCarro, btnEliminarCarro, 
         btnContratarProveedor, btnCancelarProveedor,
-        btnCrearOferta, btnCancelarOferta
+        btnCrearOferta, btnCancelarOferta,
+        btnEnviar, btnCancelarEnvio,
+        btnAceptarOfertaA, btnCancelarOfertaA,
+        btnRegistrarCliente, btnRegistrarEmpleado,
+        btnAceptarRegistrarCli, btnCancelarRegistrarCli,
+        btnAceptarRegistrarEmp, btnCancelarRegistrarEmp,
+        btnCancelarSeccion, btnAnadirSeccion,
+        btnEntrar, btnRegistrar
     }
     
     @Override

@@ -82,11 +82,11 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="btnRegistrarCliente" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAceptarRegistrarCli" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCancelarRegistro" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancelarRegistroCli" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -146,8 +146,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCancelarRegistro" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRegistrarCliente" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCancelarRegistroCli" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAceptarRegistrarCli" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
@@ -298,7 +298,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRegistrarCliente">
+    <Component class="javax.swing.JButton" name="btnAceptarRegistrarCli">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Archivos/Vverde.png"/>
@@ -308,7 +308,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCancelarRegistro">
+    <Component class="javax.swing.JButton" name="btnCancelarRegistroCli">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Archivos/Xrojo.png"/>

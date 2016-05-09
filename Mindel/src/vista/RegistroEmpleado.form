@@ -81,9 +81,9 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                      <Component id="btnRegistrarEmpleado" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAceptarRegistrarEmp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnCancelarRegistro" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCancelarRegistroEmp" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="etiSeccion" min="-2" max="-2" attributes="0"/>
@@ -153,8 +153,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnRegistrarEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelarRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAceptarRegistrarEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCancelarRegistroEmp" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
@@ -266,7 +266,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRegistrarEmpleado">
+    <Component class="javax.swing.JButton" name="btnAceptarRegistrarEmp">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Archivos/Vverde.png"/>
@@ -289,7 +289,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCancelarRegistro">
+    <Component class="javax.swing.JButton" name="btnCancelarRegistroEmp">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Archivos/Xrojo.png"/>
