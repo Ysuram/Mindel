@@ -5,7 +5,18 @@ import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import vista.Carro;
+import vista.ContratarProveedor;
+import vista.CreacionOferta;
+import vista.EnvioProveedorTienda;
+import vista.OfertaAplicada;
+import vista.ProveedorProductos;
+import vista.Registro;
+import vista.RegistroCliente;
+import vista.RegistroEmpleado;
+import vista.Seccion;
 import vista.interfaz;
+import vista.menu;
 
 public class main {
 
@@ -18,6 +29,8 @@ public class main {
         } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new controlador(new interfaz()).iniciar();
+        new controlador(new interfaz(), new Carro(), ContratarProveedor cp, CreacionOferta co, 
+            EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r, 
+            RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m).iniciar();
     }
 }
