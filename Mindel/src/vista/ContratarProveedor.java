@@ -54,9 +54,9 @@ public class ContratarProveedor extends javax.swing.JDialog {
 
         jLabel4.setText("Codigo Postal Proveedor/Empresa: ");
 
-        btnContratarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnContratarProveedor.setText("contratar");
 
-        btnCancelarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarProveedor.setText("cancelar");
         btnCancelarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarProveedorActionPerformed(evt);

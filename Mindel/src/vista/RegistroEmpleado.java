@@ -79,11 +79,11 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiDNIEmpleado.setText("DNI: ");
 
-        btnAceptarRegistrarEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnAceptarRegistrarEmp.setText("Aceptar");
 
         etiDomicilioEmpleado.setText("Domicilio: ");
 
-        btnCancelarRegistroEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarRegistroEmp.setText("Cancelar");
 
         etiContrasenia1.setText("Password: ");
 
@@ -200,7 +200,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptarRegistrarEmp)
                     .addComponent(btnCancelarRegistroEmp))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();

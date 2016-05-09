@@ -134,9 +134,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnContratarProveedor">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Archivos/Vverde.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="contratar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -144,9 +142,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelarProveedor">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Archivos/Xrojo.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="cancelar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarProveedorActionPerformed"/>

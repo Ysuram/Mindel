@@ -50,9 +50,9 @@ public class CreacionOferta extends javax.swing.JDialog {
 
         jLabel3.setText("Descripción: ");
 
-        btnCrearOferta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnCrearOferta.setText("crear");
 
-        btnCancelarOferta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarOferta.setText("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

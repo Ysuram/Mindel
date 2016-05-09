@@ -71,9 +71,9 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
 
         jLabel6.setText("Cantidad: ");
 
-        btnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flecha-verde.png"))); // NOI18N
+        btnEnviar.setText("enviar");
 
-        btnCancelarEnvio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarEnvio.setText("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

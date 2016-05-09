@@ -40,17 +40,18 @@ public class Carro extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png"))); // NOI18N
+        btnAceptarCarro.setText("verificar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 77);
         getContentPane().add(btnAceptarCarro, gridBagConstraints);
 
-        btnCancelarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/cancelarCompra.png"))); // NOI18N
+        btnCancelarCarro.setText("cancelar compra");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -76,7 +77,7 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPane2, gridBagConstraints);
 
-        btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/quitarCarro.png"))); // NOI18N
+        btnEliminarCarro.setText("Eliminar del carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;

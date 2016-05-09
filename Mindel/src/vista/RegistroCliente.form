@@ -149,7 +149,7 @@
                   <Component id="btnCancelarRegistroCli" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAceptarRegistrarCli" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -300,9 +300,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAceptarRegistrarCli">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Archivos/Vverde.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -310,9 +308,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelarRegistroCli">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Archivos/Xrojo.png"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

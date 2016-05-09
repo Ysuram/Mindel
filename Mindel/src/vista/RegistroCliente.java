@@ -82,9 +82,9 @@ public class RegistroCliente extends javax.swing.JDialog {
 
         btnBuscarFoto.setText("Buscar...");
 
-        btnAceptarRegistrarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnAceptarRegistrarCli.setText("Aceptar");
 
-        btnCancelarRegistroCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarRegistroCli.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,7 +187,7 @@ public class RegistroCliente extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelarRegistroCli)
                     .addComponent(btnAceptarRegistrarCli))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();

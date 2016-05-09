@@ -68,9 +68,9 @@ public class OfertaAplicada extends javax.swing.JDialog {
 
         jLabel6.setText("Fecha de finalización: ");
 
-        btnAceptarOfertaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
+        btnAceptarOfertaA.setText("aceptar");
 
-        btnCancelarOfertaA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
+        btnCancelarOfertaA.setText("cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +137,7 @@ public class OfertaAplicada extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(dateChooserFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAceptarOfertaA)
                     .addComponent(btnCancelarOfertaA))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
