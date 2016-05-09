@@ -53,7 +53,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         jpfContrasenia1 = new javax.swing.JPasswordField();
         etiProvinciaEmpleado = new javax.swing.JLabel();
         etiSeccion = new javax.swing.JLabel();
-        jcbSeccion = new javax.swing.JComboBox<>();
+        jcbSeccion = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Empleados");
@@ -79,11 +79,11 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiDNIEmpleado.setText("DNI: ");
 
-        btnRegistrarEmpleado.setText("Registrar");
+        btnRegistrarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Vverde.png"))); // NOI18N
 
         etiDomicilioEmpleado.setText("Domicilio: ");
 
-        btnCancelarRegistro.setText("Cancelar");
+        btnCancelarRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png"))); // NOI18N
 
         etiContrasenia1.setText("Password: ");
 
@@ -91,7 +91,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiSeccion.setText("Sección: ");
 
-        jcbSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,7 +200,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarEmpleado)
                     .addComponent(btnCancelarRegistro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();

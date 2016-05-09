@@ -77,7 +77,7 @@ public class CreacionOferta extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(btnCancelarOferta)))))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
