@@ -20,8 +20,6 @@ import vista.menu;
 
 public class main {
 
-   
-
     public static void main(String[] args) throws ClassNotFoundException {
         try {
             //ejecuta el controlador y este la vista
@@ -29,8 +27,11 @@ public class main {
         } catch (InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        new controlador(new interfaz(), new Carro(), ContratarProveedor cp, CreacionOferta co, 
-            EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r, 
-            RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m).iniciar();
+        new controlador(new interfaz(), new Carro(new interfaz(), true),
+                new ContratarProveedor(new interfaz(), true), new CreacionOferta(new interfaz(), true),
+                new EnvioProveedorTienda(new interfaz(), true), new OfertaAplicada(new interfaz(), true),
+                new ProveedorProductos(new interfaz(), true), new Registro(new interfaz(), true),
+                new RegistroCliente(new interfaz(), true), new RegistroEmpleado(new interfaz(), true),
+                new Seccion(new interfaz(), true), new menu(new interfaz(), true)).iniciar();
     }
 }

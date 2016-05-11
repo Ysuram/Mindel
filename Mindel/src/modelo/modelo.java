@@ -1,8 +1,12 @@
 package modelo;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class modelo extends database {
@@ -86,4 +90,37 @@ public class modelo extends database {
         }
         return tablemodel;
     }
+    
+    public boolean guardarImagen(String ruta, String nombre, String tipo) {
+        String insert = "INSERT INTO campeon(nombre,tipo,imagen) VALUES(?,?,?)";
+        FileInputStream fis = null;
+        PreparedStatement ps = null;
+        try {
+            this.getConexion().setAutoCommit(false);
+            File file = new File(ruta);
+            fis = new FileInputStream(file);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setString(1, nombre);
+            ps.setString(2, tipo);
+            ps.setBinaryStream(3, fis, (int) file.length());
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+                fis.close();
+
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
 }

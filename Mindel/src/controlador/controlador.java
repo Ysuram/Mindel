@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -38,6 +40,8 @@ public class controlador implements ActionListener, MouseListener {
     RegistroEmpleado re; 
     Seccion s; 
     menu m;
+    JFileChooser dlg;
+    int option;
     /**
      * instancia a nuestro(s) modelo(s)
      */
@@ -51,68 +55,103 @@ public class controlador implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
 
         switch (AccionProyecto.valueOf(e.getActionCommand())) {
-            case btnAceptarCarro:
+            case _btnAceptarCarro:
 
                 break;
-            case btnCancelarCarro:
+            case _btnCancelarCarro:
 
                 break;
-            case btnEliminarCarro:
+            case _btnEliminarCarro:
 
                 break;
-            case btnContratarProveedor:
+            case _btnContratarProveedor:
 
                 break;
-            case btnCancelarProveedor:
+            case _btnCancelarProveedor:
 
                 break;
-            case btnCrearOferta:
+            case _btnCrearOferta:
 
                 break;
-            case btnCancelarOferta:
+            case _btnCancelarOferta:
 
                 break;
-            case btnEnviar:
+            case _btnEnviar:
 
                 break;
-            case btnCancelarEnvio:
+            case _btnCancelarEnvio:
 
                 break;
-            case btnAceptarOfertaA:
+            case _btnAceptarOfertaA:
 
                 break;
-            case btnCancelarOfertaA:
+            case _btnCancelarOfertaA:
 
                 break;
-            case btnRegistrarCliente:
+            case _btnRegistrarCliente:
+                this.r.setVisible(false);
+                this.rc.setVisible(true);
+                this.rc.setModal(true);
+                break;
+            case _btnRegistrarEmpleado:
+                this.r.setVisible(false);
+                this.re.setVisible(true);
+                this.re.setModal(true);
+                break;
+            case _buscarFotoCli:
+                dlg = new JFileChooser(); //Objeto dialogo JFileChooser 
+                option = dlg.showOpenDialog(this.rc); //Abre la ventana de dialogo
+                if (option == JFileChooser.APPROVE_OPTION) { //Si click en abrir 
+                    String file = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
+                    //si solo quisiera el nombre, se usa getName()
+
+                    this.rc.etiFotoCliente.getPreferredSize();
+                    this.rc.etiFotoCliente.setIcon(new ImageIcon(file)); //Carga el archivo imagen en la etiqueta del label central
+                    this.rc.pack();
+                }
+                break;
+            case _btnAceptarRegistrarCli:
+                
+                this.rc.dispose();
+                this.r.dispose();
+                break;
+            case _btnCancelarRegistrarCli:
+                this.rc.dispose();
+                this.r.setVisible(true);
+                break;
+            case _buscarFotoEmp:
+                dlg = new JFileChooser(); //Objeto dialogo JFileChooser 
+                option = dlg.showOpenDialog(this.re); //Abre la ventana de dialogo
+                if (option == JFileChooser.APPROVE_OPTION) { //Si click en abrir 
+                    String file = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
+                    //si solo quisiera el nombre, se usa getName()
+
+                    this.re.etiFotoEmpleado.getPreferredSize();
+                    this.re.etiFotoEmpleado.setIcon(new ImageIcon(file)); //Carga el archivo imagen en la etiqueta del label central
+                    this.re.pack();
+                }
+                break;
+            case _btnAceptarRegistrarEmp:
+                
+                this.re.dispose();
+                this.r.dispose();
+                break;
+            case _btnCancelarRegistrarEmp:
+                this.re.dispose();
+                this.r.setVisible(true);
+                break;
+            case _btnCancelarSeccion:
 
                 break;
-            case btnRegistrarEmpleado:
+            case _btnAnadirSeccion:
 
                 break;
-            case btnAceptarRegistrarCli:
+            case _btnEntrar:
 
                 break;
-            case btnCancelarRegistrarCli:
-
-                break;
-            case btnAceptarRegistrarEmp:
-
-                break;
-            case btnCancelarRegistrarEmp:
-
-                break;
-            case btnCancelarSeccion:
-
-                break;
-            case btnAnadirSeccion:
-
-                break;
-            case btnEntrar:
-
-                break;
-            case btnRegistrar:
-
+            case _btnRegistrar:
+                this.r.setVisible(true);
+                this.r.setModal(true);
                 break;
         }
     }
@@ -147,16 +186,16 @@ public class controlador implements ActionListener, MouseListener {
      */
     public enum AccionProyecto {
 
-        btnAceptarCarro, btnCancelarCarro, btnEliminarCarro, //vista.carro
-        btnContratarProveedor, btnCancelarProveedor, //vista.ContratarProveedor
-        btnCrearOferta, btnCancelarOferta, //vista.CreacionOferta
-        btnEnviar, btnCancelarEnvio, //vista.EnvioProveedorTienda
-        btnAceptarOfertaA, btnCancelarOfertaA, //vista.OfertaAplicada
-        btnRegistrarCliente, btnRegistrarEmpleado, //vista.Registro
-        btnAceptarRegistrarCli, btnCancelarRegistrarCli, //vista.RegistroCliente
-        btnAceptarRegistrarEmp, btnCancelarRegistrarEmp, //vista.RegistroEmpleado
-        btnCancelarSeccion, btnAnadirSeccion, //vista.Seccion
-        btnEntrar, btnRegistrar                                 //vista.interfaz
+        _btnAceptarCarro, _btnCancelarCarro, _btnEliminarCarro, //vista.carro
+        _btnContratarProveedor, _btnCancelarProveedor, //vista.ContratarProveedor
+        _btnCrearOferta, _btnCancelarOferta, //vista.CreacionOferta
+        _btnEnviar, _btnCancelarEnvio, //vista.EnvioProveedorTienda
+        _btnAceptarOfertaA, _btnCancelarOfertaA, //vista.OfertaAplicada
+        _btnRegistrarCliente, _btnRegistrarEmpleado, _buscarFotoEmp, //vista.Registro
+        _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
+        _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
+        _btnCancelarSeccion, _btnAnadirSeccion, //vista.Seccion
+        _btnEntrar, _btnRegistrar                                 //vista.interfaz
     }
 
     /**
@@ -168,6 +207,9 @@ public class controlador implements ActionListener, MouseListener {
             EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r, 
             RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m) {
         this.vista = vista;
+        this.r = r;
+        this.re = re;
+        this.rc = rc;
     }
 
     /**
@@ -179,19 +221,36 @@ public class controlador implements ActionListener, MouseListener {
         SwingUtilities.updateComponentTreeUI(vista);
         this.vista.setVisible(true);
 
-        this.carro.btnAceptarCarro.setActionCommand("btnAceptarCarro");
-        this.carro.btnAceptarCarro.addActionListener(this);
+        this.vista.btnRegistrar.setActionCommand("_btnRegistrar");
+        this.vista.btnRegistrar.addActionListener(this);
         
-        this.carro.btnAceptarCarro.setActionCommand("btnAceptarCarro");
-        this.carro.btnAceptarCarro.addActionListener(this);
+        this.vista.btnEntrar.setActionCommand("_btnEntrar");
+        this.vista.btnEntrar.addActionListener(this);
         
-        this.carro.btnAceptarCarro.setActionCommand("btnAceptarCarro");
-        this.carro.btnAceptarCarro.addActionListener(this);
+        this.r.btnRegistrarEmpleado.setActionCommand("_btnRegistrarEmpleado");
+        this.r.btnRegistrarEmpleado.addActionListener(this);
         
-        this.carro.btnAceptarCarro.setActionCommand("btnAceptarCarro");
-        this.carro.btnAceptarCarro.addActionListener(this);
+        this.r.btnRegistrarCliente.setActionCommand("_btnRegistrarCliente");
+        this.r.btnRegistrarCliente.addActionListener(this);
         
-        this.carro.btnAceptarCarro.setActionCommand("btnAceptarCarro");
-        this.carro.btnAceptarCarro.addActionListener(this);
+        this.rc.btnAceptarRegistrarCli.setActionCommand("_btnAceptarRegistrarCli");
+        this.rc.btnAceptarRegistrarCli.addActionListener(this);
+        
+        this.rc.btnCancelarRegistroCli.setActionCommand("_btnCancelarRegistrarCli");
+        this.rc.btnCancelarRegistroCli.addActionListener(this);
+        
+        this.rc.btnBuscarFotoCli.setActionCommand("_buscarFotoCli");
+        this.rc.btnBuscarFotoCli.addActionListener(this);
+        
+        this.re.btnAceptarRegistrarEmp.setActionCommand("_btnAceptarRegistrarEmp");
+        this.re.btnAceptarRegistrarEmp.addActionListener(this);
+        
+        this.re.btnCancelarRegistroEmp.setActionCommand("_btnCancelarRegistrarEmp");
+        this.re.btnCancelarRegistroEmp.addActionListener(this);
+        
+        this.re.btnBuscarFotoEmp.setActionCommand("_buscarFotoEmp");
+        this.re.btnBuscarFotoEmp.addActionListener(this);
+        
+        
     }
 }

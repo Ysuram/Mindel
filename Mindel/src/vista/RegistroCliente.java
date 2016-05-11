@@ -49,7 +49,7 @@ public class RegistroCliente extends javax.swing.JDialog {
         txtCPCliente = new javax.swing.JTextField();
         etiFoto1 = new javax.swing.JLabel();
         etiFotoCliente = new javax.swing.JLabel();
-        btnBuscarFoto = new javax.swing.JButton();
+        btnBuscarFotoCli = new javax.swing.JButton();
         btnAceptarRegistrarCli = new javax.swing.JButton();
         btnCancelarRegistroCli = new javax.swing.JButton();
 
@@ -80,7 +80,7 @@ public class RegistroCliente extends javax.swing.JDialog {
 
         etiFotoCliente.setBorder(new javax.swing.border.MatteBorder(null));
 
-        btnBuscarFoto.setText("Buscar...");
+        btnBuscarFotoCli.setText("Buscar...");
 
         btnAceptarRegistrarCli.setText("Aceptar");
 
@@ -133,7 +133,7 @@ public class RegistroCliente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarFoto))
+                                .addComponent(btnBuscarFotoCli))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
                                 .addComponent(btnAceptarRegistrarCli)))
@@ -179,7 +179,7 @@ public class RegistroCliente extends javax.swing.JDialog {
                     .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(btnBuscarFoto))
+                        .addComponent(btnBuscarFotoCli))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(etiFoto1)))
@@ -234,7 +234,7 @@ public class RegistroCliente extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarRegistrarCli;
-    public javax.swing.JButton btnBuscarFoto;
+    public javax.swing.JButton btnBuscarFotoCli;
     public javax.swing.JButton btnCancelarRegistroCli;
     public javax.swing.JLabel etiCPCliente;
     public javax.swing.JLabel etiContrasenia1;

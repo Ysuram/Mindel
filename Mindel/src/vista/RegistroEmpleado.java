@@ -40,7 +40,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         etiRegistroEmpleado = new javax.swing.JLabel();
         etiFotoEmpleado = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
-        btnBuscarFoto = new javax.swing.JButton();
+        btnBuscarFotoEmp = new javax.swing.JButton();
         etiUserEmpleado = new javax.swing.JLabel();
         etiDNIEmpleado = new javax.swing.JLabel();
         txtDNIEmpleado = new javax.swing.JTextField();
@@ -73,7 +73,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiFotoEmpleado.setBorder(new javax.swing.border.MatteBorder(null));
 
-        btnBuscarFoto.setText("Buscar...");
+        btnBuscarFotoEmp.setText("Buscar...");
 
         etiUserEmpleado.setText("UserName: ");
 
@@ -138,7 +138,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(etiFotoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscarFoto))
+                        .addComponent(btnBuscarFotoEmp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(btnAceptarRegistrarEmp)
@@ -192,7 +192,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                     .addComponent(etiFotoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(btnBuscarFoto))
+                        .addComponent(btnBuscarFotoEmp))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(etiFoto1)))
@@ -247,7 +247,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarRegistrarEmp;
-    public javax.swing.JButton btnBuscarFoto;
+    public javax.swing.JButton btnBuscarFotoEmp;
     public javax.swing.JButton btnCancelarRegistroEmp;
     public javax.swing.JLabel etiCPEmpleado;
     public javax.swing.JLabel etiContrasenia1;
