@@ -131,5 +131,43 @@ public class modelo extends database {
         return false;
     }
     
+    public boolean registrarEmpleado(String nu, String pss, String n, String d, String dm, String p, String cd, String f) {
+        String insert = "INSERT INTO Empleados(nombre_usuario_empleado, password_usuario_empleado,"
+                + "nombre_empleado, dni_empleado, domicilio_empleado, provincia_empleado, "
+                + "cod_postal_empleado, foto_empleado) VALUES(?,?,?,?,?,?,?,?)";
+        FileInputStream fis = null;
+        PreparedStatement ps = null;
+        try {
+            this.getConexion().setAutoCommit(false);
+            File file = new File(f);
+            fis = new FileInputStream(file);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setString(1, nu);
+            ps.setString(2, pss);
+            ps.setString(3, n);
+            ps.setString(4, d);
+            ps.setString(5, dm);
+            ps.setString(6, p);
+            ps.setString(7, cd);
+            ps.setBinaryStream(8, fis, (int) file.length());
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+                fis.close();
+
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
     
 }

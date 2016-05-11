@@ -173,7 +173,7 @@ public class controlador implements ActionListener, MouseListener {
                 break;
             case _btnAceptarRegistrarEmp:
                 if (String.valueOf(this.re.jpfContrasenia1.getPassword()).equals(String.valueOf(this.re.jpfContrasenia2.getPassword()))) {
-                    if (this.modelo.registrarCliente(this.re.txtUserEmpleado.getText(),
+                    if (this.modelo.registrarEmpleado(this.re.txtUserEmpleado.getText(),
                             String.valueOf(this.re.jpfContrasenia1.getPassword()), this.re.txtNombreEmpleado.getText(),
                             this.re.txtDNIEmpleado.getText(), this.re.txtDomicilioEmpleado.getText(),
                             this.re.txtProvinciaEmpleado.getText(), this.re.txtCPEmpleado.getText(),
@@ -199,8 +199,6 @@ public class controlador implements ActionListener, MouseListener {
                 {
                     JOptionPane.showMessageDialog(vista, "Error: La contraseña no son iguales.");
                 }
-                this.re.dispose();
-                this.r.dispose();
                 break;
             case _btnCancelarRegistrarEmp:
                 this.re.etiFotoEmpleado.setIcon(null);
