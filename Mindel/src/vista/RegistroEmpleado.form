@@ -50,7 +50,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtNombreCliente" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombreEmpleado" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtDomicilioEmpleado" alignment="0" pref="100" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -118,7 +118,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="etiNombreEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombreEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="etiDNIEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtDNIEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -232,7 +232,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombreCliente">
+    <Component class="javax.swing.JTextField" name="txtNombreEmpleado">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

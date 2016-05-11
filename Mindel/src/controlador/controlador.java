@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -30,18 +31,19 @@ public class controlador implements ActionListener, MouseListener {
      */
     interfaz vista;
     Carro carro;
-    ContratarProveedor cp; 
-    CreacionOferta co; 
-    EnvioProveedorTienda ept; 
-    OfertaAplicada oa; 
-    ProveedorProductos pp; 
-    Registro r; 
+    ContratarProveedor cp;
+    CreacionOferta co;
+    EnvioProveedorTienda ept;
+    OfertaAplicada oa;
+    ProveedorProductos pp;
+    Registro r;
     RegistroCliente rc;
-    RegistroEmpleado re; 
-    Seccion s; 
+    RegistroEmpleado re;
+    Seccion s;
     menu m;
     JFileChooser dlg;
     int option;
+    String ruta;
     /**
      * instancia a nuestro(s) modelo(s)
      */
@@ -102,20 +104,56 @@ public class controlador implements ActionListener, MouseListener {
                 dlg = new JFileChooser(); //Objeto dialogo JFileChooser 
                 option = dlg.showOpenDialog(this.rc); //Abre la ventana de dialogo
                 if (option == JFileChooser.APPROVE_OPTION) { //Si click en abrir 
-                    String file = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
+                    ruta = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
                     //si solo quisiera el nombre, se usa getName()
+                    ImageIcon imgTemp = new ImageIcon(ruta);
+                    ImageIcon img = new ImageIcon(imgTemp.getImage().getScaledInstance(70, -1, Image.SCALE_DEFAULT));
 
+                    this.rc.etiFotoCliente.setIcon(img); //Carga el archivo imagen en la etiqueta del label central
                     this.rc.etiFotoCliente.getPreferredSize();
-                    this.rc.etiFotoCliente.setIcon(new ImageIcon(file)); //Carga el archivo imagen en la etiqueta del label central
                     this.rc.pack();
                 }
                 break;
             case _btnAceptarRegistrarCli:
-                
-                this.rc.dispose();
-                this.r.dispose();
+                if (String.valueOf(this.rc.jpfContrasenia1.getPassword()).equals(String.valueOf(this.rc.jpfContrasenia2.getPassword()))) {
+                    if (this.modelo.registrarCliente(this.rc.txtUserCliente.getText(),
+                            String.valueOf(this.rc.jpfContrasenia1.getPassword()), this.rc.txtNombreCliente.getText(),
+                            this.rc.txtDNICliente.getText(), this.rc.txtDomicilioCliente.getText(),
+                            this.rc.txtProvinciaCliente.getText(), this.rc.txtCPCliente.getText(),
+                            ruta)) {
+                        JOptionPane.showMessageDialog(vista, "Exito: Nuevo registro agregado.");
+                        this.rc.etiFotoCliente.setIcon(null);
+                        this.rc.txtCPCliente.setText("");
+                        this.rc.txtDNICliente.setText("");
+                        this.rc.txtDomicilioCliente.setText("");
+                        this.rc.txtNombreCliente.setText("");
+                        this.rc.txtProvinciaCliente.setText("");
+                        this.rc.txtUserCliente.setText("");
+                        this.rc.jpfContrasenia1.setText("");
+                        this.rc.jpfContrasenia2.setText("");
+                        this.ruta = "";
+                        this.rc.dispose();
+                        this.r.dispose();
+                    } else //ocurrio un error
+                    {
+                        JOptionPane.showMessageDialog(vista, "Error: Los datos son incorrectos.");
+                    }
+                } else //ocurrio un error
+                {
+                    JOptionPane.showMessageDialog(vista, "Error: La contraseña no son iguales.");
+                }
                 break;
             case _btnCancelarRegistrarCli:
+                this.rc.etiFotoCliente.setIcon(null);
+                this.rc.txtCPCliente.setText("");
+                this.rc.txtDNICliente.setText("");
+                this.rc.txtDomicilioCliente.setText("");
+                this.rc.txtNombreCliente.setText("");
+                this.rc.txtProvinciaCliente.setText("");
+                this.rc.txtUserCliente.setText("");
+                this.rc.jpfContrasenia1.setText("");
+                this.rc.jpfContrasenia2.setText("");
+                this.ruta = "";
                 this.rc.dispose();
                 this.r.setVisible(true);
                 break;
@@ -123,20 +161,58 @@ public class controlador implements ActionListener, MouseListener {
                 dlg = new JFileChooser(); //Objeto dialogo JFileChooser 
                 option = dlg.showOpenDialog(this.re); //Abre la ventana de dialogo
                 if (option == JFileChooser.APPROVE_OPTION) { //Si click en abrir 
-                    String file = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
+                    ruta = dlg.getSelectedFile().getPath(); //Obtiene ruta y nombre del archivo seleccionado
                     //si solo quisiera el nombre, se usa getName()
+                    ImageIcon imgTemp = new ImageIcon(ruta);
+                    ImageIcon img = new ImageIcon(imgTemp.getImage().getScaledInstance(70, -1, Image.SCALE_DEFAULT));
 
+                    this.re.etiFotoEmpleado.setIcon(img); //Carga el archivo imagen en la etiqueta del label central
                     this.re.etiFotoEmpleado.getPreferredSize();
-                    this.re.etiFotoEmpleado.setIcon(new ImageIcon(file)); //Carga el archivo imagen en la etiqueta del label central
                     this.re.pack();
                 }
                 break;
             case _btnAceptarRegistrarEmp:
-                
+                if (String.valueOf(this.re.jpfContrasenia1.getPassword()).equals(String.valueOf(this.re.jpfContrasenia2.getPassword()))) {
+                    if (this.modelo.registrarCliente(this.re.txtUserEmpleado.getText(),
+                            String.valueOf(this.re.jpfContrasenia1.getPassword()), this.re.txtNombreEmpleado.getText(),
+                            this.re.txtDNIEmpleado.getText(), this.re.txtDomicilioEmpleado.getText(),
+                            this.re.txtProvinciaEmpleado.getText(), this.re.txtCPEmpleado.getText(),
+                            ruta)) {
+                        JOptionPane.showMessageDialog(vista, "Exito: Nuevo registro agregado.");
+                        this.re.etiFotoEmpleado.setIcon(null);
+                        this.re.txtCPEmpleado.setText("");
+                        this.re.txtDNIEmpleado.setText("");
+                        this.re.txtDomicilioEmpleado.setText("");
+                        this.re.txtNombreEmpleado.setText("");
+                        this.re.txtProvinciaEmpleado.setText("");
+                        this.re.txtUserEmpleado.setText("");
+                        this.re.jpfContrasenia1.setText("");
+                        this.re.jpfContrasenia2.setText("");
+                        this.ruta = "";
+                        this.re.dispose();
+                        this.r.dispose();
+                    } else //ocurrio un error
+                    {
+                        JOptionPane.showMessageDialog(vista, "Error: Los datos son incorrectos.");
+                    }
+                } else //ocurrio un error
+                {
+                    JOptionPane.showMessageDialog(vista, "Error: La contraseña no son iguales.");
+                }
                 this.re.dispose();
                 this.r.dispose();
                 break;
             case _btnCancelarRegistrarEmp:
+                this.re.etiFotoEmpleado.setIcon(null);
+                this.re.txtCPEmpleado.setText("");
+                this.re.txtDNIEmpleado.setText("");
+                this.re.txtDomicilioEmpleado.setText("");
+                this.re.txtUserEmpleado.setText("");
+                this.re.txtProvinciaEmpleado.setText("");
+                this.re.txtUserEmpleado.setText("");
+                this.re.jpfContrasenia1.setText("");
+                this.re.jpfContrasenia2.setText("");
+                this.ruta = "";
                 this.re.dispose();
                 this.r.setVisible(true);
                 break;
@@ -203,8 +279,8 @@ public class controlador implements ActionListener, MouseListener {
      *
      * @param vista
      */
-    public controlador(interfaz vista, Carro carro, ContratarProveedor cp, CreacionOferta co, 
-            EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r, 
+    public controlador(interfaz vista, Carro carro, ContratarProveedor cp, CreacionOferta co,
+            EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r,
             RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m) {
         this.vista = vista;
         this.r = r;
@@ -223,34 +299,33 @@ public class controlador implements ActionListener, MouseListener {
 
         this.vista.btnRegistrar.setActionCommand("_btnRegistrar");
         this.vista.btnRegistrar.addActionListener(this);
-        
+
         this.vista.btnEntrar.setActionCommand("_btnEntrar");
         this.vista.btnEntrar.addActionListener(this);
-        
+
         this.r.btnRegistrarEmpleado.setActionCommand("_btnRegistrarEmpleado");
         this.r.btnRegistrarEmpleado.addActionListener(this);
-        
+
         this.r.btnRegistrarCliente.setActionCommand("_btnRegistrarCliente");
         this.r.btnRegistrarCliente.addActionListener(this);
-        
+
         this.rc.btnAceptarRegistrarCli.setActionCommand("_btnAceptarRegistrarCli");
         this.rc.btnAceptarRegistrarCli.addActionListener(this);
-        
+
         this.rc.btnCancelarRegistroCli.setActionCommand("_btnCancelarRegistrarCli");
         this.rc.btnCancelarRegistroCli.addActionListener(this);
-        
+
         this.rc.btnBuscarFotoCli.setActionCommand("_buscarFotoCli");
         this.rc.btnBuscarFotoCli.addActionListener(this);
-        
+
         this.re.btnAceptarRegistrarEmp.setActionCommand("_btnAceptarRegistrarEmp");
         this.re.btnAceptarRegistrarEmp.addActionListener(this);
-        
+
         this.re.btnCancelarRegistroEmp.setActionCommand("_btnCancelarRegistrarEmp");
         this.re.btnCancelarRegistroEmp.addActionListener(this);
-        
+
         this.re.btnBuscarFotoEmp.setActionCommand("_buscarFotoEmp");
         this.re.btnBuscarFotoEmp.addActionListener(this);
-        
-        
+
     }
 }

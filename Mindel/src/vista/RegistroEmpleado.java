@@ -39,7 +39,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         etiNombreEmpleado = new javax.swing.JLabel();
         etiRegistroEmpleado = new javax.swing.JLabel();
         etiFotoEmpleado = new javax.swing.JLabel();
-        txtNombreCliente = new javax.swing.JTextField();
+        txtNombreEmpleado = new javax.swing.JTextField();
         btnBuscarFotoEmp = new javax.swing.JButton();
         etiUserEmpleado = new javax.swing.JLabel();
         etiDNIEmpleado = new javax.swing.JLabel();
@@ -117,7 +117,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                             .addComponent(etiDomicilioEmpleado))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombreCliente)
+                            .addComponent(txtNombreEmpleado)
                             .addComponent(txtDomicilioEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +170,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiNombreEmpleado)
-                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiDNIEmpleado)
                     .addComponent(txtDNIEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -267,7 +267,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
     public javax.swing.JTextField txtCPEmpleado;
     public javax.swing.JTextField txtDNIEmpleado;
     public javax.swing.JTextField txtDomicilioEmpleado;
-    public javax.swing.JTextField txtNombreCliente;
+    public javax.swing.JTextField txtNombreEmpleado;
     public javax.swing.JTextField txtProvinciaEmpleado;
     public javax.swing.JTextField txtUserEmpleado;
     // End of variables declaration//GEN-END:variables

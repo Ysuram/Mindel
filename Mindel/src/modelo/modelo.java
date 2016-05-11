@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 public class modelo extends database {
@@ -91,18 +92,25 @@ public class modelo extends database {
         return tablemodel;
     }
     
-    public boolean guardarImagen(String ruta, String nombre, String tipo) {
-        String insert = "INSERT INTO campeon(nombre,tipo,imagen) VALUES(?,?,?)";
+    public boolean registrarCliente(String nu, String pss, String n, String d, String dm, String p, String cd, String f) {
+        String insert = "INSERT INTO Clientes(nombre_usuario_cliente, password_usuario_cliente,"
+                + "nombre_cliente, dni_cliente, domicilio_cliente, provincia_cliente, "
+                + "cod_postal_cliente, foto_cliente) VALUES(?,?,?,?,?,?,?,?)";
         FileInputStream fis = null;
         PreparedStatement ps = null;
         try {
             this.getConexion().setAutoCommit(false);
-            File file = new File(ruta);
+            File file = new File(f);
             fis = new FileInputStream(file);
             ps = this.getConexion().prepareStatement(insert);
-            ps.setString(1, nombre);
-            ps.setString(2, tipo);
-            ps.setBinaryStream(3, fis, (int) file.length());
+            ps.setString(1, nu);
+            ps.setString(2, pss);
+            ps.setString(3, n);
+            ps.setString(4, d);
+            ps.setString(5, dm);
+            ps.setString(6, p);
+            ps.setString(7, cd);
+            ps.setBinaryStream(8, fis, (int) file.length());
             ps.executeUpdate();
             this.getConexion().commit();
             return true;
@@ -122,5 +130,6 @@ public class modelo extends database {
         }
         return false;
     }
+    
     
 }
