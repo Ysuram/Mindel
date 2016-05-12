@@ -61,7 +61,7 @@ public class modelo extends database {
       String[] columNames = {"Nombre del Producto","Descripcion","Precio"};
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
-      try{
+       try{
          PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total GROUP BY seccion_producto FROM Productos");
          ResultSet res = pstm.executeQuery();
          res.next();
@@ -90,6 +90,46 @@ public class modelo extends database {
             System.err.println( e.getMessage() );
         }
         return tablemodel;
+    }
+    
+    public boolean loginCliente(String u, String p){
+        try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes");
+         ResultSet res = pstm.executeQuery();
+         String nombre, pass;
+         while(res.next()){
+                nombre = res.getString( "nombre_usuario_cliente" );
+                pass = res.getString( "password_usuario_cliente" );
+                if(nombre.equals(u) && pass.equals(p)){
+                    return true;
+                }
+         }
+         res.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return false;
+    }
+    
+    public boolean loginEmpleado(String u, String p){
+        try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Empleados");
+         ResultSet res = pstm.executeQuery();
+         String nombre, pass;
+         while(res.next()){
+                nombre = res.getString( "nombre_usuario_empleado" );
+                pass = res.getString( "password_usuario_empleado" );
+                if(nombre.equals(u) && pass.equals(p)){
+                    return true;
+                }
+         }
+         res.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return false;
     }
     
     public boolean registrarCliente(String nu, String pss, String n, String d, String dm, String p, String cd, String f) {

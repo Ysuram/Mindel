@@ -215,13 +215,29 @@ public class controlador implements ActionListener, MouseListener {
                 this.r.setVisible(true);
                 break;
             case _btnCancelarSeccion:
-
+                
                 break;
             case _btnAnadirSeccion:
-
+                
+                break;
+            case _btnVerCarro:
+                
+                break;
+                
+            case _cbSeccion:
+                
                 break;
             case _btnEntrar:
-
+                if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
+                    this.vista.dispose();
+                    this.m.setVisible(true);
+                } else if (this.modelo.loginCliente(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
+                    JOptionPane.showMessageDialog(null, "Correcto");
+                    this.vista.dispose();
+                    this.s.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error en la introduccion de datos");
+                }
                 break;
             case _btnRegistrar:
                 this.r.setVisible(true);
@@ -268,7 +284,7 @@ public class controlador implements ActionListener, MouseListener {
         _btnRegistrarCliente, _btnRegistrarEmpleado, _buscarFotoEmp, //vista.Registro
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
         _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
-        _btnCancelarSeccion, _btnAnadirSeccion, //vista.Seccion
+        _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, _cbSeccion, //vista.Seccion
         _btnEntrar, _btnRegistrar                                 //vista.interfaz
     }
 
@@ -281,9 +297,17 @@ public class controlador implements ActionListener, MouseListener {
             EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r,
             RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m) {
         this.vista = vista;
+        this.carro = carro;
+        this.cp = cp;
+        this.co = co;
+        this.ept = ept;
+        this.oa = oa;
+        this.pp = pp;
         this.r = r;
-        this.re = re;
         this.rc = rc;
+        this.re = re;
+        this.s = s;
+        this.m = m;
     }
 
     /**
@@ -325,5 +349,18 @@ public class controlador implements ActionListener, MouseListener {
         this.re.btnBuscarFotoEmp.setActionCommand("_buscarFotoEmp");
         this.re.btnBuscarFotoEmp.addActionListener(this);
 
+        this.s.btnAnadirSeccion.setActionCommand("_btnAnadirSeccion");
+        this.s.btnAnadirSeccion.addActionListener(this);
+        
+        this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
+        this.s.btnCancelarSeccion.addActionListener(this);
+        
+        this.s.btnVerCarro.setActionCommand("_btnVerCarro");
+        this.s.btnVerCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/carro.png")));
+        this.s.btnVerCarro.addActionListener(this);
+        
+        this.s.cbSeccion.setActionCommand("_cbSeccion");
+        this.s.cbSeccion.addActionListener(this);
+        
     }
 }

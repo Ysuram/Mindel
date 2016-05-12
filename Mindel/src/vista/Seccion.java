@@ -34,19 +34,18 @@ public class Seccion extends javax.swing.JDialog {
         cbSeccion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProductos = new javax.swing.JTable();
+        btnVerCarro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnCancelarSeccion.setText("Salir");
         btnCancelarSeccion.setMinimumSize(new java.awt.Dimension(60, 50));
         btnCancelarSeccion.setPreferredSize(new java.awt.Dimension(50, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         getContentPane().add(btnCancelarSeccion, gridBagConstraints);
-
-        btnAnadirSeccion.setText("Añadir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -78,6 +77,7 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPane1, gridBagConstraints);
+        getContentPane().add(btnVerCarro, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,10 +125,11 @@ public class Seccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnadirSeccion;
-    private javax.swing.JButton btnCancelarSeccion;
-    private javax.swing.JComboBox cbSeccion;
+    public javax.swing.JButton btnAnadirSeccion;
+    public javax.swing.JButton btnCancelarSeccion;
+    public javax.swing.JButton btnVerCarro;
+    public javax.swing.JComboBox cbSeccion;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTablaProductos;
+    public javax.swing.JTable jTablaProductos;
     // End of variables declaration//GEN-END:variables
 }
