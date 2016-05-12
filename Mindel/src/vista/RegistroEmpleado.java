@@ -34,7 +34,6 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         jpfContrasenia2 = new javax.swing.JPasswordField();
         etiCPEmpleado = new javax.swing.JLabel();
         etiContrasenia2 = new javax.swing.JLabel();
-        txtCPEmpleado = new javax.swing.JTextField();
         etiFoto1 = new javax.swing.JLabel();
         etiNombreEmpleado = new javax.swing.JLabel();
         etiRegistroEmpleado = new javax.swing.JLabel();
@@ -43,7 +42,6 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         btnBuscarFotoEmp = new javax.swing.JButton();
         etiUserEmpleado = new javax.swing.JLabel();
         etiDNIEmpleado = new javax.swing.JLabel();
-        txtDNIEmpleado = new javax.swing.JTextField();
         btnAceptarRegistrarEmp = new javax.swing.JButton();
         txtUserEmpleado = new javax.swing.JTextField();
         etiDomicilioEmpleado = new javax.swing.JLabel();
@@ -54,6 +52,8 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         etiProvinciaEmpleado = new javax.swing.JLabel();
         etiSeccion = new javax.swing.JLabel();
         jcbSeccion = new javax.swing.JComboBox<String>();
+        txtDNIEmpleado = new javax.swing.JFormattedTextField();
+        txtCPEmpleado = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Empleados");
@@ -93,6 +93,18 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         jcbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        try {
+            txtDNIEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtCPEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,7 +136,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiDNIEmpleado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDNIEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtDNIEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiProvinciaEmpleado)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -132,7 +144,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(etiCPEmpleado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCPEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCPEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(etiFoto1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -184,9 +196,9 @@ public class RegistroEmpleado extends javax.swing.JDialog {
                     .addComponent(etiCPEmpleado)
                     .addComponent(txtCPEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiSeccion)
-                    .addComponent(jcbSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiSeccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiFotoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,8 +276,8 @@ public class RegistroEmpleado extends javax.swing.JDialog {
     public javax.swing.JComboBox<String> jcbSeccion;
     public javax.swing.JPasswordField jpfContrasenia1;
     public javax.swing.JPasswordField jpfContrasenia2;
-    public javax.swing.JTextField txtCPEmpleado;
-    public javax.swing.JTextField txtDNIEmpleado;
+    public javax.swing.JFormattedTextField txtCPEmpleado;
+    public javax.swing.JFormattedTextField txtDNIEmpleado;
     public javax.swing.JTextField txtDomicilioEmpleado;
     public javax.swing.JTextField txtNombreEmpleado;
     public javax.swing.JTextField txtProvinciaEmpleado;

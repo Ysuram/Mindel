@@ -40,18 +40,18 @@ public class RegistroCliente extends javax.swing.JDialog {
         etiNombreCliente = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
         etiDNICliente = new javax.swing.JLabel();
-        txtDNICliente = new javax.swing.JTextField();
         etiDomicilioCliente = new javax.swing.JLabel();
         txtDomicilioCliente = new javax.swing.JTextField();
         etiProvinciaCliente = new javax.swing.JLabel();
         txtProvinciaCliente = new javax.swing.JTextField();
         etiCPCliente = new javax.swing.JLabel();
-        txtCPCliente = new javax.swing.JTextField();
         etiFoto1 = new javax.swing.JLabel();
         etiFotoCliente = new javax.swing.JLabel();
         btnBuscarFotoCli = new javax.swing.JButton();
         btnAceptarRegistrarCli = new javax.swing.JButton();
         btnCancelarRegistroCli = new javax.swing.JButton();
+        txtDNICliente = new javax.swing.JFormattedTextField();
+        txtCPCliente = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Clientes");
@@ -86,6 +86,18 @@ public class RegistroCliente extends javax.swing.JDialog {
 
         btnCancelarRegistroCli.setText("Cancelar");
 
+        try {
+            txtDNICliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            txtCPCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,26 +129,28 @@ public class RegistroCliente extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiDNICliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(etiProvinciaCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtProvinciaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(etiCPCliente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCPCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(etiFoto1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(etiCPCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBuscarFotoCli))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(btnAceptarRegistrarCli)))
+                                .addComponent(txtCPCliente)
+                                .addGap(35, 35, 35))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(etiFoto1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnBuscarFotoCli))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(78, 78, 78)
+                                    .addComponent(btnAceptarRegistrarCli))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelarRegistroCli)))
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -249,8 +263,8 @@ public class RegistroCliente extends javax.swing.JDialog {
     public javax.swing.JLabel etiUserCliente;
     public javax.swing.JPasswordField jpfContrasenia1;
     public javax.swing.JPasswordField jpfContrasenia2;
-    public javax.swing.JTextField txtCPCliente;
-    public javax.swing.JTextField txtDNICliente;
+    public javax.swing.JFormattedTextField txtCPCliente;
+    public javax.swing.JFormattedTextField txtDNICliente;
     public javax.swing.JTextField txtDomicilioCliente;
     public javax.swing.JTextField txtNombreCliente;
     public javax.swing.JTextField txtProvinciaCliente;
