@@ -238,4 +238,30 @@ public class modelo extends database {
         return false;
     }
     
+    public boolean crearOferta(String d, double c) {
+        String insert = "INSERT INTO Ofertas(descripcion_oferta, cantidad_oferta) VALUES(?,?)";
+        PreparedStatement ps = null;
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setString(1, d);
+            ps.setDouble(2, c);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
 }

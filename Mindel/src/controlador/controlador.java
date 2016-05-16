@@ -78,25 +78,25 @@ public class controlador implements ActionListener, MouseListener {
                 }
                 break;
             case _btnCancelarProveedor:
-
+                
                 break;
             case _btnCrearOferta:
-
+                
                 break;
             case _btnCancelarOferta:
-
+                
                 break;
             case _btnEnviar:
-
+                
                 break;
             case _btnCancelarEnvio:
-
+                
                 break;
             case _btnAceptarOfertaA:
-
+                
                 break;
             case _btnCancelarOfertaA:
-
+                
                 break;
             case _btnRegistrarCliente:
                 this.r.setVisible(false);
@@ -249,13 +249,13 @@ public class controlador implements ActionListener, MouseListener {
                 break;
             case _btnOfertaMenu:
                 this.m.setVisible(false);
+                this.co.setLocationRelativeTo(vista);
                 this.co.setVisible(true);
-                this.co.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnOfertaAMenu:
                 this.m.setVisible(false);
+                this.oa.setLocationRelativeTo(vista);
                 this.oa.setVisible(true);
-                this.oa.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnPedidoMenu:
                 this.m.setVisible(false);
@@ -268,20 +268,19 @@ public class controlador implements ActionListener, MouseListener {
                 break;
             case _btnProveedorMenu:
                 this.m.setVisible(false);
+                this.cp.setLocationRelativeTo(vista);
                 this.cp.setVisible(true);
-                this.cp.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case btnProveedorProMenu:
                 this.m.setVisible(false);
+                this.pnp.setLocationRelativeTo(vista);
                 this.pnp.setVisible(true);
-                this.pnp.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnEntrar:
                 if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     this.vista.dispose();
+                    this.m.setLocationRelativeTo(vista);
                     this.m.setVisible(true);
-                    this.m.setModal(false);
-                    this.m.setLocationRelativeTo(null);
                 } else if (this.modelo.loginCliente(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Correcto");
                     this.vista.dispose();
