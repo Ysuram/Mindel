@@ -210,4 +210,32 @@ public class modelo extends database {
         return false;
     }
     
+    public boolean registrarProveedor(String n, String d, int cp) {
+        String insert = "INSERT INTO Proveedores(nombre_proveedor, domicilio_proveedor,"
+                + "cod_postal_proveedor) VALUES(?,?,?)";
+        PreparedStatement ps = null;
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setString(1, n);
+            ps.setString(2, d);
+            ps.setInt(3, cp);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
 }

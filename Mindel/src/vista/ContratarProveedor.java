@@ -36,7 +36,7 @@ public class ContratarProveedor extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txtNombProvee = new javax.swing.JTextField();
         txtDomiProvee = new javax.swing.JTextField();
-        btnCPProvee = new javax.swing.JTextField();
+        txtCPProvee = new javax.swing.JTextField();
         btnContratarProveedor = new javax.swing.JButton();
         btnCancelarProveedor = new javax.swing.JButton();
 
@@ -78,7 +78,7 @@ public class ContratarProveedor extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNombProvee)
                     .addComponent(txtDomiProvee)
-                    .addComponent(btnCPProvee, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                    .addComponent(txtCPProvee, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
@@ -103,7 +103,7 @@ public class ContratarProveedor extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(btnCPProvee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPProvee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnContratarProveedor)
@@ -158,13 +158,13 @@ public class ContratarProveedor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField btnCPProvee;
     public javax.swing.JButton btnCancelarProveedor;
     public javax.swing.JButton btnContratarProveedor;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JLabel jLabel4;
+    public javax.swing.JTextField txtCPProvee;
     public javax.swing.JTextField txtDomiProvee;
     public javax.swing.JTextField txtNombProvee;
     // End of variables declaration//GEN-END:variables

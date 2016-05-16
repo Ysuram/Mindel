@@ -38,7 +38,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="txtNombProvee" max="32767" attributes="0"/>
                   <Component id="txtDomiProvee" max="32767" attributes="0"/>
-                  <Component id="btnCPProvee" pref="100" max="32767" attributes="0"/>
+                  <Component id="txtCPProvee" pref="100" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
@@ -69,7 +69,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCPProvee" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCPProvee" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -127,7 +127,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="btnCPProvee">
+    <Component class="javax.swing.JTextField" name="txtCPProvee">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

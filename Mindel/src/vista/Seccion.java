@@ -36,6 +36,7 @@ public class Seccion extends javax.swing.JDialog {
         jTablaProductos = new javax.swing.JTable();
         btnVerCarro = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 

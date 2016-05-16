@@ -69,7 +69,13 @@ public class controlador implements ActionListener, MouseListener {
 
                 break;
             case _btnContratarProveedor:
-
+                if(this.modelo.registrarProveedor(this.cp.txtNombProvee.getText(), this.cp.txtDomiProvee.getText()
+                        , Integer.parseInt(this.cp.txtCPProvee.getText()))){
+                    JOptionPane.showMessageDialog(null, "Registro completado");
+                    this.cp.txtNombProvee.setText("");
+                    this.cp.txtDomiProvee.setText("");
+                    this.cp.txtCPProvee.setText("");
+                }
                 break;
             case _btnCancelarProveedor:
 
@@ -224,7 +230,7 @@ public class controlador implements ActionListener, MouseListener {
                 this.vista.setVisible(true);
                 break;
             case _btnAnadirSeccion:
-                
+
                 break;
             case _btnVerCarro:
                 this.carro.setVisible(true);
@@ -234,41 +240,56 @@ public class controlador implements ActionListener, MouseListener {
                 break;
             case _btnComprarMenu:
                 this.m.setVisible(false);
+                this.carro.setModal(false);
+                this.s.setModal(false);
+                this.s.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
                 this.s.setVisible(true);
+                this.carro.setLocation((this.vista.getX() + 250), (this.vista.getY() - 100));
+                this.carro.setVisible(true);
                 break;
             case _btnOfertaMenu:
                 this.m.setVisible(false);
                 this.co.setVisible(true);
+                this.co.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnOfertaAMenu:
                 this.m.setVisible(false);
                 this.oa.setVisible(true);
+                this.oa.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnPedidoMenu:
                 this.m.setVisible(false);
+                this.plp.setModal(false);
+                this.pcp.setModal(false);
+                this.pcp.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
+                this.pcp.setVisible(true);
+                this.plp.setLocation((this.vista.getX() + 250), (this.vista.getY() - 100));
                 this.plp.setVisible(true);
                 break;
             case _btnProveedorMenu:
                 this.m.setVisible(false);
                 this.cp.setVisible(true);
+                this.cp.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case btnProveedorProMenu:
                 this.m.setVisible(false);
                 this.pnp.setVisible(true);
+                this.pnp.setLocation(this.vista.getX(), this.vista.getY());
                 break;
             case _btnEntrar:
                 if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     this.vista.dispose();
                     this.m.setVisible(true);
-                    this.m.setLocationRelativeTo(vista);
+                    this.m.setModal(false);
+                    this.m.setLocationRelativeTo(null);
                 } else if (this.modelo.loginCliente(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Correcto");
                     this.vista.dispose();
                     this.carro.setModal(false);
                     this.s.setModal(false);
-                    this.s.setLocation((this.vista.getX()-250),(this.vista.getY()-100));
+                    this.s.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
                     this.s.setVisible(true);
-                    this.carro.setLocation((this.vista.getX()+250), (this.vista.getY()-100));
+                    this.carro.setLocation((this.vista.getX() + 250), (this.vista.getY() - 100));
                     this.carro.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error en la introduccion de datos");
@@ -438,5 +459,8 @@ public class controlador implements ActionListener, MouseListener {
         this.m.btnProveedorProMenu.setActionCommand("_btnProveedorProMenu");
         this.m.btnProveedorProMenu.addActionListener(this);
 
+        this.cp.btnContratarProveedor.setActionCommand("_btnContratarProveedor");
+        this.cp.btnContratarProveedor.addActionListener(this);
+        
     }
 }

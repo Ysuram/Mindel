@@ -38,7 +38,7 @@ public class Carro extends javax.swing.JDialog {
         jTablaCarro = new javax.swing.JTable();
         btnEliminarCarro = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
