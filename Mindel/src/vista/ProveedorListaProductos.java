@@ -12,12 +12,12 @@ import javax.swing.UIManager;
  *
  * @author EQUIPO
  */
-public class ProveedorProductos extends javax.swing.JDialog {
+public class ProveedorListaProductos extends javax.swing.JDialog {
 
     /**
      * Creates new form Carro
      */
-    public ProveedorProductos(java.awt.Frame parent, boolean modal) {
+    public ProveedorListaProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -32,34 +32,34 @@ public class ProveedorProductos extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAceptarCarro = new javax.swing.JButton();
-        btnCancelarCarro = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablaCarro = new javax.swing.JTable();
-        btnEliminarCarro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAceptarPLP = new javax.swing.JButton();
+        btnCancelarPLP = new javax.swing.JButton();
+        jScrollPanePLP = new javax.swing.JScrollPane();
+        jTablaPLP = new javax.swing.JTable();
+        btnEliminarPLP = new javax.swing.JButton();
+        btnIngresarPLP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAceptarCarro.setText("Aceptar");
+        btnAceptarPLP.setText("Aceptar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 22;
         gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 77);
-        getContentPane().add(btnAceptarCarro, gridBagConstraints);
+        getContentPane().add(btnAceptarPLP, gridBagConstraints);
 
-        btnCancelarCarro.setText("Cancelar");
+        btnCancelarPLP.setText("Cancelar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
-        getContentPane().add(btnCancelarCarro, gridBagConstraints);
+        getContentPane().add(btnCancelarPLP, gridBagConstraints);
 
-        jTablaCarro.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaPLP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -70,27 +70,27 @@ public class ProveedorProductos extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTablaCarro);
+        jScrollPanePLP.setViewportView(jTablaPLP);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
-        getContentPane().add(jScrollPane2, gridBagConstraints);
+        getContentPane().add(jScrollPanePLP, gridBagConstraints);
 
-        btnEliminarCarro.setText("Eliminar Prod");
+        btnEliminarPLP.setText("Eliminar Prod");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 100);
-        getContentPane().add(btnEliminarCarro, gridBagConstraints);
+        getContentPane().add(btnEliminarPLP, gridBagConstraints);
 
-        jButton1.setText("Ingresar Prod");
+        btnIngresarPLP.setText("Ingresar Prod");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(0, 100, 0, 0);
-        getContentPane().add(jButton1, gridBagConstraints);
+        getContentPane().add(btnIngresarPLP, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,21 +109,23 @@ public class ProveedorProductos extends javax.swing.JDialog {
                 UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProveedorProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorListaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProveedorProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorListaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProveedorProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorListaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProveedorProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorListaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ProveedorProductos dialog = new ProveedorProductos(new javax.swing.JFrame(), true);
+                ProveedorListaProductos dialog = new ProveedorListaProductos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -136,11 +138,11 @@ public class ProveedorProductos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAceptarCarro;
-    public javax.swing.JButton btnCancelarCarro;
-    public javax.swing.JButton btnEliminarCarro;
-    public javax.swing.JButton jButton1;
-    public javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTablaCarro;
+    public javax.swing.JButton btnAceptarPLP;
+    public javax.swing.JButton btnCancelarPLP;
+    public javax.swing.JButton btnEliminarPLP;
+    public javax.swing.JButton btnIngresarPLP;
+    public javax.swing.JScrollPane jScrollPanePLP;
+    public javax.swing.JTable jTablaPLP;
     // End of variables declaration//GEN-END:variables
 }

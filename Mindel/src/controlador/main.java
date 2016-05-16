@@ -8,9 +8,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 import vista.Carro;
 import vista.ContratarProveedor;
 import vista.CreacionOferta;
-import vista.EnvioProveedorTienda;
+import vista.ProveedorNuevoProducto;
 import vista.OfertaAplicada;
-import vista.ProveedorProductos;
+import vista.ProveedorCarroProductos;
+import vista.ProveedorListaProductos;
 import vista.Registro;
 import vista.RegistroCliente;
 import vista.RegistroEmpleado;
@@ -29,8 +30,9 @@ public class main {
         }
         new controlador(new interfaz(), new Carro(new interfaz(), true),
                 new ContratarProveedor(new interfaz(), true), new CreacionOferta(new interfaz(), true),
-                new EnvioProveedorTienda(new interfaz(), true), new OfertaAplicada(new interfaz(), true),
-                new ProveedorProductos(new interfaz(), true), new Registro(new interfaz(), true),
+                new ProveedorNuevoProducto(new interfaz(), true), new ProveedorCarroProductos(new interfaz(), true),
+                new OfertaAplicada(new interfaz(), true),
+                new ProveedorListaProductos(new interfaz(), true), new Registro(new interfaz(), true),
                 new RegistroCliente(new interfaz(), true), new RegistroEmpleado(new interfaz(), true),
                 new Seccion(new interfaz(), true), new menu(new interfaz(), true)).iniciar();
     }

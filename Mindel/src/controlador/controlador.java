@@ -14,15 +14,16 @@ import modelo.modelo;
 import vista.Carro;
 import vista.ContratarProveedor;
 import vista.CreacionOferta;
-import vista.EnvioProveedorTienda;
+import vista.ProveedorNuevoProducto;
 import vista.OfertaAplicada;
-import vista.ProveedorProductos;
+import vista.ProveedorListaProductos;
 import vista.interfaz;
 import vista.Registro;
 import vista.RegistroCliente;
 import vista.RegistroEmpleado;
 import vista.Seccion;
 import vista.menu;
+import vista.ProveedorCarroProductos;
 
 public class controlador implements ActionListener, MouseListener {
 
@@ -33,9 +34,10 @@ public class controlador implements ActionListener, MouseListener {
     Carro carro;
     ContratarProveedor cp;
     CreacionOferta co;
-    EnvioProveedorTienda ept;
     OfertaAplicada oa;
-    ProveedorProductos pp;
+    ProveedorNuevoProducto pnp;
+    ProveedorCarroProductos pcp;
+    ProveedorListaProductos plp;
     Registro r;
     RegistroCliente rc;
     RegistroEmpleado re;
@@ -215,17 +217,44 @@ public class controlador implements ActionListener, MouseListener {
                 this.r.setVisible(true);
                 break;
             case _btnCancelarSeccion:
-                
+                this.s.dispose();
+                this.carro.dispose();
+                this.vista.txtContrasenia.setText("");
+                this.vista.txtUserName.setText("");
+                this.vista.setVisible(true);
                 break;
             case _btnAnadirSeccion:
-                
+
                 break;
             case _btnVerCarro:
-                
+                this.carro.setVisible(true);
                 break;
-                
             case _cbSeccion:
-                
+
+                break;
+            case _btnComprarMenu:
+                this.m.setVisible(false);
+                this.s.setVisible(true);
+                break;
+            case _btnOfertaMenu:
+                this.m.setVisible(false);
+                this.co.setVisible(true);
+                break;
+            case _btnOfertaAMenu:
+                this.m.setVisible(false);
+                this.oa.setVisible(true);
+                break;
+            case _btnPedidoMenu:
+                this.m.setVisible(false);
+                this.plp.setVisible(true);
+                break;
+            case _btnProveedorMenu:
+                this.m.setVisible(false);
+                this.cp.setVisible(true);
+                break;
+            case btnProveedorProMenu:
+                this.m.setVisible(false);
+                this.pnp.setVisible(true);
                 break;
             case _btnEntrar:
                 if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
@@ -234,6 +263,9 @@ public class controlador implements ActionListener, MouseListener {
                 } else if (this.modelo.loginCliente(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Correcto");
                     this.vista.dispose();
+                    this.carro.setModal(false);
+                    this.s.setModal(false);
+                    this.carro.setVisible(true);
                     this.s.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error en la introduccion de datos");
@@ -285,6 +317,7 @@ public class controlador implements ActionListener, MouseListener {
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
         _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
         _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, _cbSeccion, //vista.Seccion
+        _btnComprarMenu, _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, btnProveedorProMenu, //vista.menu
         _btnEntrar, _btnRegistrar                                 //vista.interfaz
     }
 
@@ -294,15 +327,16 @@ public class controlador implements ActionListener, MouseListener {
      * @param vista
      */
     public controlador(interfaz vista, Carro carro, ContratarProveedor cp, CreacionOferta co,
-            EnvioProveedorTienda ept, OfertaAplicada oa, ProveedorProductos pp, Registro r,
+            ProveedorNuevoProducto pnp, ProveedorCarroProductos pcp, OfertaAplicada oa, ProveedorListaProductos plp, Registro r,
             RegistroCliente rc, RegistroEmpleado re, Seccion s, menu m) {
         this.vista = vista;
         this.carro = carro;
         this.cp = cp;
         this.co = co;
-        this.ept = ept;
+        this.pnp = pnp;
         this.oa = oa;
-        this.pp = pp;
+        this.plp = plp;
+        this.pcp = pcp;
         this.r = r;
         this.rc = rc;
         this.re = re;
@@ -351,16 +385,54 @@ public class controlador implements ActionListener, MouseListener {
 
         this.s.btnAnadirSeccion.setActionCommand("_btnAnadirSeccion");
         this.s.btnAnadirSeccion.addActionListener(this);
-        
+
         this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
         this.s.btnCancelarSeccion.addActionListener(this);
-        
+
         this.s.btnVerCarro.setActionCommand("_btnVerCarro");
         this.s.btnVerCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/carro.png")));
         this.s.btnVerCarro.addActionListener(this);
-        
+
+        this.s.btnAnadirSeccion.setActionCommand("_btnAnadirSeccion");
+        this.s.btnAnadirSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/anadirCarro.png")));
+        this.s.btnAnadirSeccion.addActionListener(this);
+
+        this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
+        this.s.btnCancelarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png")));
+        this.s.btnCancelarSeccion.addActionListener(this);
+
         this.s.cbSeccion.setActionCommand("_cbSeccion");
         this.s.cbSeccion.addActionListener(this);
-        
+
+        this.carro.btnAceptarCarro.setActionCommand("_btnAceptarCarro");
+        this.carro.btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png")));
+        this.carro.btnAceptarCarro.addActionListener(this);
+
+        this.carro.btnCancelarCarro.setActionCommand("_btnCancelarCarro");
+        this.carro.btnCancelarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/cancelarCompra.png")));
+        this.carro.btnCancelarCarro.addActionListener(this);
+
+        this.carro.btnEliminarCarro.setActionCommand("_btnEliminarCarro");
+        this.carro.btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/quitarCarro.png")));
+        this.carro.btnEliminarCarro.addActionListener(this);
+
+        this.m.btnComprarMenu.setActionCommand("_btnComprarMenu");
+        this.m.btnComprarMenu.addActionListener(this);
+
+        this.m.btnOfertaMenu.setActionCommand("_btnOfertaMenu");
+        this.m.btnOfertaMenu.addActionListener(this);
+
+        this.m.btnOfertaAMenu.setActionCommand("_btnOfertaAMenu");
+        this.m.btnOfertaAMenu.addActionListener(this);
+
+        this.m.btnPedidoMenu.setActionCommand("_btnPedidoMenu");
+        this.m.btnPedidoMenu.addActionListener(this);
+
+        this.m.btnProveedorMenu.setActionCommand("_btnProveedorMenu");
+        this.m.btnProveedorMenu.addActionListener(this);
+
+        this.m.btnProveedorProMenu.setActionCommand("_btnProveedorProMenu");
+        this.m.btnProveedorProMenu.addActionListener(this);
+
     }
 }

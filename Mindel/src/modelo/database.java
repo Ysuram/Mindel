@@ -21,7 +21,7 @@ public class database {
     /**
      * Cadena de conexion
      */
-    private String url = "jdbc:mysql://192.168.28.2/" + db;
+    private String url = "jdbc:mysql://192.168.28.3/" + db;
     /**
      * variable para trabajar con la conexion a la base de datos
      */
@@ -31,7 +31,7 @@ public class database {
      * Constructor de clase
      */
     public database() {
-        this.url = "jdbc:mysql://192.168.28.2/" + this.db;
+        this.url = "jdbc:mysql://192.168.28.3/" + this.db;
         try {
             //obtenemos el driver de para mysql
             Class.forName("com.mysql.jdbc.Driver");

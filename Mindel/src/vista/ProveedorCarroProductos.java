@@ -5,16 +5,19 @@
  */
 package vista;
 
+import javax.swing.JButton;
+import javax.swing.UIManager;
+
 /**
  *
- * @author Usuario
+ * @author EQUIPO
  */
-public class Seccion extends javax.swing.JDialog {
+public class ProveedorCarroProductos extends javax.swing.JDialog {
 
     /**
-     * Creates new form Seccion
+     * Creates new form Carro
      */
-    public Seccion(java.awt.Frame parent, boolean modal) {
+    public ProveedorCarroProductos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -29,36 +32,32 @@ public class Seccion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnCancelarSeccion = new javax.swing.JButton();
-        btnAnadirSeccion = new javax.swing.JButton();
-        cbSeccion = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTablaProductos = new javax.swing.JTable();
-        btnVerCarro = new javax.swing.JButton();
+        btnAceptarPCP = new javax.swing.JButton();
+        btnCancelarPCP = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTablaCarro = new javax.swing.JTable();
+        btnEliminarPCP = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnCancelarSeccion.setMinimumSize(new java.awt.Dimension(60, 50));
-        btnCancelarSeccion.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnAceptarPCP.setText("verificar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        getContentPane().add(btnCancelarSeccion, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(13, 13, 13, 13);
-        getContentPane().add(btnAnadirSeccion, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 77);
+        getContentPane().add(btnAceptarPCP, gridBagConstraints);
 
-        cbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnCancelarPCP.setText("cancelar compra");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 138);
-        getContentPane().add(cbSeccion, gridBagConstraints);
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        getContentPane().add(btnCancelarPCP, gridBagConstraints);
 
-        jTablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaCarro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,14 +68,19 @@ public class Seccion extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTablaProductos);
+        jScrollPane2.setViewportView(jTablaCarro);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
-        getContentPane().add(jScrollPane1, gridBagConstraints);
-        getContentPane().add(btnVerCarro, new java.awt.GridBagConstraints());
+        getContentPane().add(jScrollPane2, gridBagConstraints);
+
+        btnEliminarPCP.setText("Eliminar del carro");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(btnEliminarPCP, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -92,26 +96,24 @@ public class Seccion extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+                UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorCarroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorCarroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorCarroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorCarroProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Seccion dialog = new Seccion(new javax.swing.JFrame(), true);
+                ProveedorCarroProductos dialog = new ProveedorCarroProductos(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -124,11 +126,10 @@ public class Seccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAnadirSeccion;
-    public javax.swing.JButton btnCancelarSeccion;
-    public javax.swing.JButton btnVerCarro;
-    public javax.swing.JComboBox cbSeccion;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTablaProductos;
+    public javax.swing.JButton btnAceptarPCP;
+    public javax.swing.JButton btnCancelarPCP;
+    public javax.swing.JButton btnEliminarPCP;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTable jTablaCarro;
     // End of variables declaration//GEN-END:variables
 }

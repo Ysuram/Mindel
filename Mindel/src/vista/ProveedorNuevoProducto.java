@@ -11,12 +11,12 @@ import javax.swing.UIManager;
  *
  * @author EQUIPO
  */
-public class EnvioProveedorTienda extends javax.swing.JDialog {
+public class ProveedorNuevoProducto extends javax.swing.JDialog {
 
     /**
      * Creates new form EnvioProveedorTienda
      */
-    public EnvioProveedorTienda(java.awt.Frame parent, boolean modal) {
+    public ProveedorNuevoProducto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -44,6 +44,8 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
         SpinCantidadEnvio = new javax.swing.JSpinner();
         btnEnviar = new javax.swing.JButton();
         btnCancelarEnvio = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        CBProveedorEnvio = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Envio de producto");
@@ -51,7 +53,7 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jLabel1.setText("Envio Productos");
+        jLabel1.setText("Nuevo Producto");
 
         jLabel2.setText("Sección: ");
 
@@ -74,6 +76,10 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
         btnEnviar.setText("enviar");
 
         btnCancelarEnvio.setText("cancelar");
+
+        jLabel7.setText("Proveedor:");
+
+        CBProveedorEnvio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,7 +114,11 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnEnviar)
                                         .addGap(33, 33, 33)
-                                        .addComponent(btnCancelarEnvio)))))
+                                        .addComponent(btnCancelarEnvio))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CBProveedorEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -121,15 +131,19 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(CBSeccionEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(CBProveedorEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNombreEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(SpinPrecioEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,20 +175,21 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
                  UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EnvioProveedorTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorNuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EnvioProveedorTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorNuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EnvioProveedorTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorNuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EnvioProveedorTienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProveedorNuevoProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EnvioProveedorTienda dialog = new EnvioProveedorTienda(new javax.swing.JFrame(), true);
+                ProveedorNuevoProducto dialog = new ProveedorNuevoProducto(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -187,6 +202,7 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox CBProveedorEnvio;
     public javax.swing.JComboBox<String> CBSeccionEnvio;
     public javax.swing.JSpinner SpinCantidadEnvio;
     public javax.swing.JSpinner SpinPrecioEnvio;
@@ -198,6 +214,7 @@ public class EnvioProveedorTienda extends javax.swing.JDialog {
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtADescEnvio;
     public javax.swing.JTextField txtNombreEnvio;

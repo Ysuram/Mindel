@@ -28,20 +28,26 @@ public class menu extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnComprarMenu = new javax.swing.JButton();
+        btnProveedorMenu = new javax.swing.JButton();
+        btnOfertaMenu = new javax.swing.JButton();
+        btnPedidoMenu = new javax.swing.JButton();
+        btnOfertaAMenu = new javax.swing.JButton();
+        btnProveedorProMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("Comprar");
+        btnComprarMenu.setText("Comprar");
 
-        jButton2.setText("Contratar Proveedor");
+        btnProveedorMenu.setText("Contratar Proveedor");
 
-        jButton3.setText("Ofertas");
+        btnOfertaMenu.setText("Crear oferta");
 
-        jButton4.setText("Pedir un Envio");
+        btnPedidoMenu.setText("Pedir un Envio");
+
+        btnOfertaAMenu.setText("Aplicar oferta");
+
+        btnProveedorProMenu.setText("Nuevo Producto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,26 +58,36 @@ public class menu extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap(257, Short.MAX_VALUE))
+                            .addComponent(btnComprarMenu)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnProveedorMenu)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnProveedorProMenu)))
+                        .addContainerGap(130, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton3))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(btnPedidoMenu)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnOfertaMenu)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnOfertaAMenu)))
+                        .addGap(0, 182, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnComprarMenu)
                 .addGap(34, 34, 34)
-                .addComponent(jButton3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnOfertaMenu)
+                    .addComponent(btnOfertaAMenu))
                 .addGap(42, 42, 42)
-                .addComponent(jButton4)
+                .addComponent(btnPedidoMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProveedorMenu)
+                    .addComponent(btnProveedorProMenu))
                 .addGap(79, 79, 79))
         );
 
@@ -121,9 +137,11 @@ public class menu extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton btnComprarMenu;
+    public javax.swing.JButton btnOfertaAMenu;
+    public javax.swing.JButton btnOfertaMenu;
+    public javax.swing.JButton btnPedidoMenu;
+    public javax.swing.JButton btnProveedorMenu;
+    public javax.swing.JButton btnProveedorProMenu;
     // End of variables declaration//GEN-END:variables
 }
