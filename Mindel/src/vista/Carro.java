@@ -38,8 +38,8 @@ public class Carro extends javax.swing.JDialog {
         jTablaCarro = new javax.swing.JTable();
         btnEliminarCarro = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnAceptarCarro.setText("verificar");

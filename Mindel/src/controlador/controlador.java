@@ -217,14 +217,14 @@ public class controlador implements ActionListener, MouseListener {
                 this.r.setVisible(true);
                 break;
             case _btnCancelarSeccion:
-                this.s.dispose();
                 this.carro.dispose();
+                this.s.dispose();
                 this.vista.txtContrasenia.setText("");
                 this.vista.txtUserName.setText("");
                 this.vista.setVisible(true);
                 break;
             case _btnAnadirSeccion:
-
+                
                 break;
             case _btnVerCarro:
                 this.carro.setVisible(true);
@@ -260,13 +260,16 @@ public class controlador implements ActionListener, MouseListener {
                 if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     this.vista.dispose();
                     this.m.setVisible(true);
+                    this.m.setLocationRelativeTo(vista);
                 } else if (this.modelo.loginCliente(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     JOptionPane.showMessageDialog(null, "Correcto");
                     this.vista.dispose();
                     this.carro.setModal(false);
                     this.s.setModal(false);
-                    this.carro.setVisible(true);
+                    this.s.setLocation((this.vista.getX()-250),(this.vista.getY()-100));
                     this.s.setVisible(true);
+                    this.carro.setLocation((this.vista.getX()+250), (this.vista.getY()-100));
+                    this.carro.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error en la introduccion de datos");
                 }
@@ -351,6 +354,7 @@ public class controlador implements ActionListener, MouseListener {
     public void iniciar() {
         // Skin tipo jTattoo
         SwingUtilities.updateComponentTreeUI(vista);
+        this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
 
         this.vista.btnRegistrar.setActionCommand("_btnRegistrar");
