@@ -322,7 +322,7 @@ public class controlador implements ActionListener, MouseListener {
                 this.cp.setLocationRelativeTo(vista);
                 this.cp.setVisible(true);
                 break;
-            case btnProveedorProMenu:
+            case _btnProveedorProMenu:
                 this.me.setVisible(false);
                 this.pnp.setLocationRelativeTo(vista);
                 this.pnp.setVisible(true);
@@ -400,7 +400,7 @@ public class controlador implements ActionListener, MouseListener {
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
         _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
         _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, _cbSeccion, //vista.Seccion
-        _btnComprarMenu, _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, btnProveedorProMenu, _btnSalirMenu,//vista.menuEmpleado
+        _btnComprarMenu, _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, _btnProveedorProMenu, _btnSalirMenu,//vista.menuEmpleado
         _btnComprarMenuClien, _btnRevisarMenu, _btnSalirMenuClie,//vista.menuCliente
         _btnEntrar, _btnRegistrar                                 //vista.interfaz
     }

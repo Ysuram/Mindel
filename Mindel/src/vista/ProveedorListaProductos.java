@@ -44,7 +44,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAceptarPLP.setText("Aceptar");
+        btnAceptarPLP.setText("Añadir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
