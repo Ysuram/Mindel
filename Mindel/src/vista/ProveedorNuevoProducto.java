@@ -32,7 +32,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        CBSeccionEnvio = new javax.swing.JComboBox<String>();
+        CBSeccionEnvio = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtNombreEnvio = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -50,6 +50,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Envio de producto");
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -57,7 +58,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
 
         jLabel2.setText("Sección: ");
 
-        CBSeccionEnvio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBSeccionEnvio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("Nombre Producto: ");
 
@@ -69,7 +70,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
 
         jLabel5.setText("Precio: ");
 
-        SpinPrecioEnvio.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), null, null, Double.valueOf(1.0d)));
+        SpinPrecioEnvio.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 1.0d));
 
         jLabel6.setText("Cantidad: ");
 

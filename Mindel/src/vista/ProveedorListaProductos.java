@@ -41,7 +41,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setModal(true);
-        setResizable(false);
+        setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnAceptarPLP.setText("Aceptar");

@@ -51,13 +51,14 @@ public class RegistroEmpleado extends javax.swing.JDialog {
         jpfContrasenia1 = new javax.swing.JPasswordField();
         etiProvinciaEmpleado = new javax.swing.JLabel();
         etiSeccion = new javax.swing.JLabel();
-        jcbSeccion = new javax.swing.JComboBox<String>();
+        jcbSeccion = new javax.swing.JComboBox<>();
         txtDNIEmpleado = new javax.swing.JFormattedTextField();
         txtCPEmpleado = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Empleados");
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
 
         etiCPEmpleado.setText("Codigo Postal: ");
@@ -91,7 +92,7 @@ public class RegistroEmpleado extends javax.swing.JDialog {
 
         etiSeccion.setText("Sección: ");
 
-        jcbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcbSeccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         try {
             txtDNIEmpleado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));

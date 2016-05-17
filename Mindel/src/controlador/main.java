@@ -17,7 +17,8 @@ import vista.RegistroCliente;
 import vista.RegistroEmpleado;
 import vista.Seccion;
 import vista.interfaz;
-import vista.menu;
+import vista.menuCliente;
+import vista.menuEmpleado;
 
 public class main {
 
@@ -34,6 +35,7 @@ public class main {
                 new OfertaAplicada(new interfaz(), true),
                 new ProveedorListaProductos(new interfaz(), true), new Registro(new interfaz(), true),
                 new RegistroCliente(new interfaz(), true), new RegistroEmpleado(new interfaz(), true),
-                new Seccion(new interfaz(), true), new menu(new interfaz(), true)).iniciar();
+                new Seccion(new interfaz(), true), new menuCliente(new interfaz(), true),
+                new menuEmpleado(new interfaz(), true)).iniciar();
     }
 }

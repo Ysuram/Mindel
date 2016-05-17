@@ -9,12 +9,12 @@ package vista;
  *
  * @author Usuario
  */
-public class menu extends javax.swing.JDialog {
+public class menuEmpleado extends javax.swing.JDialog {
 
     /**
      * Creates new form menu
      */
-    public menu(java.awt.Frame parent, boolean modal) {
+    public menuEmpleado(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -34,8 +34,10 @@ public class menu extends javax.swing.JDialog {
         btnPedidoMenu = new javax.swing.JButton();
         btnOfertaAMenu = new javax.swing.JButton();
         btnProveedorProMenu = new javax.swing.JButton();
+        btnSalirMenu = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setUndecorated(true);
 
         btnComprarMenu.setText("Comprar");
 
@@ -49,6 +51,8 @@ public class menu extends javax.swing.JDialog {
 
         btnProveedorProMenu.setText("Nuevo Producto");
 
+        btnSalirMenu.setText("Salir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,12 +62,16 @@ public class menu extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnComprarMenu)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnComprarMenu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSalirMenu))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnProveedorMenu)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnProveedorProMenu)))
-                        .addContainerGap(130, Short.MAX_VALUE))
+                                .addComponent(btnProveedorProMenu)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnPedidoMenu)
@@ -77,7 +85,9 @@ public class menu extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnComprarMenu)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnComprarMenu)
+                    .addComponent(btnSalirMenu))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOfertaMenu)
@@ -111,20 +121,23 @@ public class menu extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(menuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                menu dialog = new menu(new javax.swing.JFrame(), true);
+                menuEmpleado dialog = new menuEmpleado(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -143,5 +156,6 @@ public class menu extends javax.swing.JDialog {
     public javax.swing.JButton btnPedidoMenu;
     public javax.swing.JButton btnProveedorMenu;
     public javax.swing.JButton btnProveedorProMenu;
+    public javax.swing.JButton btnSalirMenu;
     // End of variables declaration//GEN-END:variables
 }

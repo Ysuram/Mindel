@@ -22,6 +22,7 @@ public class database {
      * Cadena de conexion
      */
     private String url = "jdbc:mysql://192.168.28.3/" + db;
+    private String url1 = "jdbc:mysql://79.148.236.236/" + db;
     /**
      * variable para trabajar con la conexion a la base de datos
      */
@@ -36,7 +37,7 @@ public class database {
             //obtenemos el driver de para mysql
             Class.forName("com.mysql.jdbc.Driver");
             //obtenemos la conexión
-            conn = DriverManager.getConnection(this.url, this.user, this.password);
+            conn = DriverManager.getConnection(this.url1, this.user, this.password);
             System.out.println("EXITO");
         } catch (SQLException e) {
             System.err.println(e.getMessage());

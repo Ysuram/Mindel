@@ -12,12 +12,12 @@ import javax.swing.UIManager;
  *
  * @author EQUIPO
  */
-public class Carro extends javax.swing.JDialog {
+public class RevisarCompras extends javax.swing.JDialog {
 
     /**
      * Creates new form Carro
      */
-    public Carro(java.awt.Frame parent, boolean modal) {
+    public RevisarCompras(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -32,32 +32,24 @@ public class Carro extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        btnAceptarCarro = new javax.swing.JButton();
-        btnCancelarCarro = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTablaCarro = new javax.swing.JTable();
-        btnEliminarCarro = new javax.swing.JButton();
+        btnSalirRevisar = new javax.swing.JButton();
+        jScrollPaneRevisar = new javax.swing.JScrollPane();
+        jTablaRevisar = new javax.swing.JTable();
+        CBListaRevisar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        btnAceptarCarro.setText("verificar");
+        btnSalirRevisar.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 49, 10, 49);
-        getContentPane().add(btnAceptarCarro, gridBagConstraints);
-
-        btnCancelarCarro.setText("cancelar compra");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
-        getContentPane().add(btnCancelarCarro, gridBagConstraints);
+        getContentPane().add(btnSalirRevisar, gridBagConstraints);
 
-        jTablaCarro.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaRevisar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,19 +60,19 @@ public class Carro extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTablaCarro);
+        jScrollPaneRevisar.setViewportView(jTablaRevisar);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        getContentPane().add(jScrollPane2, gridBagConstraints);
-
-        btnEliminarCarro.setText("Eliminar del carro");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        getContentPane().add(btnEliminarCarro, gridBagConstraints);
+        getContentPane().add(jScrollPaneRevisar, gridBagConstraints);
+
+        CBListaRevisar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
+        getContentPane().add(CBListaRevisar, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -99,20 +91,21 @@ public class Carro extends javax.swing.JDialog {
                 UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Carro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RevisarCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Carro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RevisarCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Carro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RevisarCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Carro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RevisarCompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Carro dialog = new Carro(new javax.swing.JFrame(), true);
+                RevisarCompras dialog = new RevisarCompras(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -125,10 +118,9 @@ public class Carro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAceptarCarro;
-    public javax.swing.JButton btnCancelarCarro;
-    public javax.swing.JButton btnEliminarCarro;
-    public javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTablaCarro;
+    public javax.swing.JComboBox<String> CBListaRevisar;
+    public javax.swing.JButton btnSalirRevisar;
+    public javax.swing.JScrollPane jScrollPaneRevisar;
+    public javax.swing.JTable jTablaRevisar;
     // End of variables declaration//GEN-END:variables
 }

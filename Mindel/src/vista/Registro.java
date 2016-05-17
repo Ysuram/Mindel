@@ -34,9 +34,9 @@ public class Registro extends javax.swing.JDialog {
         btnRegistrarEmpleado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Registro");
         setMinimumSize(new java.awt.Dimension(200, 200));
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
@@ -45,6 +45,8 @@ public class Registro extends javax.swing.JDialog {
 
         btnRegistrarEmpleado.setText("EMPLEADO");
         getContentPane().add(btnRegistrarEmpleado);
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

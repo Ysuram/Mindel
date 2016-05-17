@@ -29,12 +29,14 @@ public class Seccion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         btnCancelarSeccion = new javax.swing.JButton();
         btnAnadirSeccion = new javax.swing.JButton();
         cbSeccion = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProductos = new javax.swing.JTable();
         btnVerCarro = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
@@ -78,6 +80,9 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPane1, gridBagConstraints);
         getContentPane().add(btnVerCarro, new java.awt.GridBagConstraints());
+
+        jToolBar1.setRollover(true);
+        getContentPane().add(jToolBar1, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,7 +134,9 @@ public class Seccion extends javax.swing.JDialog {
     public javax.swing.JButton btnCancelarSeccion;
     public javax.swing.JButton btnVerCarro;
     public javax.swing.JComboBox cbSeccion;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTablaProductos;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

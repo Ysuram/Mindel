@@ -132,6 +132,40 @@ public class modelo extends database {
         return false;
     }
     
+    public int getIdEmpleado(String n){
+        try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_empleado FROM Empleados WHERE nombre_usuario_empleado='"+n+"'");
+         ResultSet res = pstm.executeQuery();
+         int id;
+         while(res.next()){
+                id = res.getInt("cod_empleado" );
+                return id;
+         }
+         res.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return 0;
+    }
+    
+    public int getIdCliente(String n){
+        try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_cliente FROM Clientes WHERE nombre_usuario_cliente='"+n+"'");
+         ResultSet res = pstm.executeQuery();
+         int id;
+         while(res.next()){
+                id = res.getInt("cod_cliente" );
+                return id;
+         }
+         res.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return 0;
+    }
+    
     public boolean registrarCliente(String nu, String pss, String n, String d, String dm, String p, String cd, String f) {
         String insert = "INSERT INTO Clientes(nombre_usuario_cliente, password_usuario_cliente,"
                 + "nombre_cliente, dni_cliente, domicilio_cliente, provincia_cliente, "

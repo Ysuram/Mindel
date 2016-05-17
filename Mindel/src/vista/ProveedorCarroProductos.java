@@ -40,7 +40,6 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnAceptarPCP.setText("verificar");

@@ -41,6 +41,7 @@ public class CreacionOferta extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ofertas");
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -54,7 +55,11 @@ public class CreacionOferta extends javax.swing.JDialog {
 
         jLabel4.setText("Cantidad:");
 
-        txtCantidadOferta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        try {
+            txtCantidadOferta.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,7 +77,6 @@ public class CreacionOferta extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCantidadOferta)
                             .addComponent(txtDescOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -147,7 +151,7 @@ public class CreacionOferta extends javax.swing.JDialog {
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JFormattedTextField txtCantidadOferta;
+    public javax.swing.JFormattedTextField txtCantidadOferta;
     public javax.swing.JTextField txtDescOferta;
     // End of variables declaration//GEN-END:variables
 }

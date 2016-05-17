@@ -56,6 +56,7 @@ public class RegistroCliente extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Clientes");
         setModal(true);
+        setUndecorated(true);
 
         etiRegistroCliente.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         etiRegistroCliente.setText("Registro de Clientes");
@@ -151,7 +152,6 @@ public class RegistroCliente extends javax.swing.JDialog {
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(78, 78, 78)
                                     .addComponent(btnAceptarRegistrarCli))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCancelarRegistroCli)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );

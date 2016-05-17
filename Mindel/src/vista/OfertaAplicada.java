@@ -32,11 +32,11 @@ public class OfertaAplicada extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        CBSeccionOfertaA = new javax.swing.JComboBox<String>();
+        CBSeccionOfertaA = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        CBProductoOfertaA = new javax.swing.JComboBox<String>();
+        CBProductoOfertaA = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        CBOfertaOfertaA = new javax.swing.JComboBox<String>();
+        CBOfertaOfertaA = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnAceptarOfertaA = new javax.swing.JButton();
@@ -47,6 +47,7 @@ public class OfertaAplicada extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Aplicar Oferta");
         setModal(true);
+        setUndecorated(true);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
@@ -54,15 +55,15 @@ public class OfertaAplicada extends javax.swing.JDialog {
 
         jLabel2.setText("Sección: ");
 
-        CBSeccionOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBSeccionOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("Producto: ");
 
-        CBProductoOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBProductoOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setText("Oferta: ");
 
-        CBOfertaOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBOfertaOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Fecha de Inicio:");
 
