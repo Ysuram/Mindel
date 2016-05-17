@@ -44,7 +44,7 @@ public class OfertaAplicada extends javax.swing.JDialog {
         dateChooserInicio = new datechooser.beans.DateChooserCombo();
         dateChooserFin = new datechooser.beans.DateChooserCombo();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Aplicar Oferta");
         setModal(true);
         setUndecorated(true);

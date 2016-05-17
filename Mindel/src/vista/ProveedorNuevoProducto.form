@@ -2,7 +2,7 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="defaultCloseOperation" type="int" value="0"/>
     <Property name="title" type="java.lang.String" value="Envio de producto"/>
     <Property name="modal" type="boolean" value="true"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -46,7 +46,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtNombreEnvio" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="txtNombrePNP" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -55,12 +55,12 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SpinPrecioEnvio" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="SpinCantidadEnvio" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="SpinPrecioPNP" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="SpinCantidadPNP" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnEnviar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEnviarPNP" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="btnCancelarEnvio" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCancelarPNP" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -95,7 +95,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNombreEnvio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombrePNP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -105,17 +105,17 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SpinPrecioEnvio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SpinPrecioPNP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SpinCantidadEnvio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SpinCantidadPNP" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnEnviar" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="btnCancelarEnvio" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEnviarPNP" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="btnCancelarPNP" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -166,7 +166,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombreEnvio">
+    <Component class="javax.swing.JTextField" name="txtNombrePNP">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -187,11 +187,14 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtADescEnvio">
+        <Component class="javax.swing.JTextArea" name="txtADescPNP">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -203,7 +206,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="SpinPrecioEnvio">
+    <Component class="javax.swing.JSpinner" name="SpinPrecioPNP">
       <Properties>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
@@ -221,12 +224,12 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JSpinner" name="SpinCantidadEnvio">
+    <Component class="javax.swing.JSpinner" name="SpinCantidadPNP">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnEnviar">
+    <Component class="javax.swing.JButton" name="btnEnviarPNP">
       <Properties>
         <Property name="text" type="java.lang.String" value="enviar"/>
       </Properties>
@@ -234,7 +237,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCancelarEnvio">
+    <Component class="javax.swing.JButton" name="btnCancelarPNP">
       <Properties>
         <Property name="text" type="java.lang.String" value="cancelar"/>
       </Properties>

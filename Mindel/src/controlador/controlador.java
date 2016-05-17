@@ -71,6 +71,9 @@ public class controlador implements ActionListener, MouseListener {
             case _btnEliminarCarro:
 
                 break;
+            case _btnSalirCarro:
+
+                break;
             case _btnContratarProveedor:
                 if (this.modelo.registrarProveedor(this.cp.txtNombProvee.getText(), this.cp.txtDomiProvee.getText(), Integer.parseInt(this.cp.txtCPProvee.getText()))) {
                     JOptionPane.showMessageDialog(null, "Registro completado");
@@ -100,17 +103,29 @@ public class controlador implements ActionListener, MouseListener {
                 this.co.setVisible(false);
                 this.me.setVisible(true);
                 break;
-            case _btnEnviar:
-
+            case _btnSalirPCP:
+                this.pcp.setVisible(false);
                 break;
-            case _btnCancelarEnvio:
-
+            case _btnEnviarPNP:
+                
+                break;
+            case _btnCancelarPNP:
+                this.pnp.txtNombrePNP.setText("");
+                this.pnp.txtADescPNP.setText("");
+                this.pnp.SpinCantidadPNP.setValue(0);
+                this.pnp.SpinPrecioPNP.setValue(0);
+                this.pnp.setVisible(false);
+                this.me.setVisible(true);
+                break;
+            case _btnSalirPLP:
+                this.plp.setVisible(false);
                 break;
             case _btnAceptarOfertaA:
 
                 break;
             case _btnCancelarOfertaA:
-
+                this.oa.setVisible(false);
+                this.me.setVisible(true);
                 break;
             case _btnRegistrarCliente:
                 this.r.setVisible(false);
@@ -374,10 +389,12 @@ public class controlador implements ActionListener, MouseListener {
      */
     public enum AccionProyecto {
 
-        _btnAceptarCarro, _btnCancelarCarro, _btnEliminarCarro, //vista.carro
+        _btnAceptarCarro, _btnCancelarCarro, _btnEliminarCarro, _btnSalirCarro, //vista.carro
         _btnContratarProveedor, _btnCancelarProveedor, //vista.ContratarProveedor
         _btnCrearOferta, _btnCancelarOferta, //vista.CreacionOferta
-        _btnEnviar, _btnCancelarEnvio, //vista.EnvioProveedorTienda
+        _btnSalirPCP, //vista.ProveedorCarroProductos
+        _btnAceptarPLP, _btnCancelarPLP, _btnEliminarPLP, _btnIngresarPLP, _btnSalirPLP, //vista.ProveedorListaProductos
+        _btnEnviarPNP, _btnCancelarPNP, //vista.ProveedorNuevoProductos
         _btnAceptarOfertaA, _btnCancelarOfertaA, //vista.OfertaAplicada
         _btnRegistrarCliente, _btnRegistrarEmpleado, _buscarFotoEmp, //vista.Registro
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
@@ -485,6 +502,9 @@ public class controlador implements ActionListener, MouseListener {
         this.carro.btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/quitarCarro.png")));
         this.carro.btnEliminarCarro.addActionListener(this);
 
+        this.carro.btnSalirCarro.setActionCommand("_btnSalirCarro");
+        this.carro.btnSalirCarro.addActionListener(this);
+
         this.me.btnComprarMenu.setActionCommand("_btnComprarMenu");
         this.me.btnComprarMenu.addActionListener(this);
 
@@ -514,7 +534,7 @@ public class controlador implements ActionListener, MouseListener {
 
         this.mc.btnSalirMenuClie.setActionCommand("_btnSalirMenuClie");
         this.mc.btnSalirMenuClie.addActionListener(this);
-        
+
         this.cp.btnContratarProveedor.setActionCommand("_btnContratarProveedor");
         this.cp.btnContratarProveedor.addActionListener(this);
 
@@ -542,23 +562,26 @@ public class controlador implements ActionListener, MouseListener {
         this.pcp.btnEliminarPCP.setActionCommand("_btnEliminarPCP");
         this.pcp.btnEliminarPCP.addActionListener(this);
 
+        this.pcp.btnSalirPCP.setActionCommand("_btnSalirPCP");
+        this.pcp.btnSalirPCP.addActionListener(this);
+
         this.plp.btnAceptarPLP.setActionCommand("_btnAceptarPLP");
         this.plp.btnAceptarPLP.addActionListener(this);
 
         this.plp.btnCancelarPLP.setActionCommand("_btnCancelarPLP");
         this.plp.btnCancelarPLP.addActionListener(this);
 
-        this.plp.btnEliminarPLP.setActionCommand("_btnEliminarPLP");
-        this.plp.btnEliminarPLP.addActionListener(this);
-
         this.plp.btnIngresarPLP.setActionCommand("_btnIngresarPLP");
         this.plp.btnIngresarPLP.addActionListener(this);
 
-        this.pnp.btnEnviar.setActionCommand("_btnEnviar");
-        this.pnp.btnEnviar.addActionListener(this);
+        this.plp.btnSalirPLP.setActionCommand("_btnSalirPLP");
+        this.plp.btnSalirPLP.addActionListener(this);
 
-        this.pnp.btnCancelarEnvio.setActionCommand("_btnCancelarEnvio");
-        this.pnp.btnCancelarEnvio.addActionListener(this);
+        this.pnp.btnEnviarPNP.setActionCommand("_btnEnviar");
+        this.pnp.btnEnviarPNP.addActionListener(this);
+
+        this.pnp.btnCancelarPNP.setActionCommand("_btnCancelarEnvio");
+        this.pnp.btnCancelarPNP.addActionListener(this);
 
     }
 }
