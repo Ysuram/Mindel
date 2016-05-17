@@ -37,7 +37,7 @@ public class RevisarCompras extends javax.swing.JDialog {
         jTablaRevisar = new javax.swing.JTable();
         CBListaRevisar = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());

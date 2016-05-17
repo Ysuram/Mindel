@@ -38,6 +38,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         jTablaPLP = new javax.swing.JTable();
         btnIngresarPLP = new javax.swing.JButton();
         btnSalirPLP = new javax.swing.JButton();
+        btnCarroPLP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setModal(true);
@@ -93,6 +94,14 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 14, 14, 24);
         getContentPane().add(btnSalirPLP, gridBagConstraints);
 
+        btnCarroPLP.setText("Ver Carro");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(14, 34, 14, 18);
+        getContentPane().add(btnCarroPLP, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,6 +150,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarPLP;
     public javax.swing.JButton btnCancelarPLP;
+    public javax.swing.JButton btnCarroPLP;
     public javax.swing.JButton btnIngresarPLP;
     public javax.swing.JButton btnSalirPLP;
     public javax.swing.JScrollPane jScrollPanePLP;
