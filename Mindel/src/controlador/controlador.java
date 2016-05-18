@@ -624,9 +624,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.plp.btnCancelarPLP.setActionCommand("_btnCancelarPLP");
         this.plp.btnCancelarPLP.addActionListener(this);
 
-        this.plp.btnIngresarPLP.setActionCommand("_btnIngresarPLP");
-        this.plp.btnIngresarPLP.addActionListener(this);
-
         this.plp.btnCarroPLP.setActionCommand("_btnCarroPLP");
         this.plp.btnCarroPLP.addActionListener(this);
         
