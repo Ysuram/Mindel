@@ -44,8 +44,6 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
         SpinCantidadPNP = new javax.swing.JSpinner();
         btnEnviarPNP = new javax.swing.JButton();
         btnCancelarPNP = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        CBProveedorEnvio = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Envio de producto");
@@ -74,13 +72,9 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
 
         jLabel6.setText("Cantidad: ");
 
-        btnEnviarPNP.setText("enviar");
+        btnEnviarPNP.setText("Aceptar");
 
         btnCancelarPNP.setText("cancelar");
-
-        jLabel7.setText("Proveedor:");
-
-        CBProveedorEnvio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,11 +109,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnEnviarPNP)
                                         .addGap(33, 33, 33)
-                                        .addComponent(btnCancelarPNP))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(CBProveedorEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnCancelarPNP)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -133,10 +123,6 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(CBSeccionEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(CBProveedorEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNombrePNP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -153,10 +139,10 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(SpinCantidadPNP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEnviarPNP, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelarPNP))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarPNP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEnviarPNP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -203,7 +189,6 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JComboBox CBProveedorEnvio;
     public javax.swing.JComboBox<String> CBSeccionEnvio;
     public javax.swing.JSpinner SpinCantidadPNP;
     public javax.swing.JSpinner SpinPrecioPNP;
@@ -215,7 +200,6 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextArea txtADescPNP;
     public javax.swing.JTextField txtNombrePNP;

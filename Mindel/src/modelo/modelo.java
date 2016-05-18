@@ -297,14 +297,16 @@ public class modelo extends database {
         return false;
     }
 
-    public boolean crearProducto(String d, double c) {
-        String insert = "INSERT INTO Ofertas(descripcion_oferta, cantidad_oferta) VALUES(?,?)";
+    public boolean crearProducto(String n, String d, String s, double p) {
+        String insert = "INSERT INTO Productos(nombre_producto, descripcion_producto, seccion_producto, precio_producto) VALUES(?,?,?,?)";
         PreparedStatement ps = null;
         try {
             this.getConexion().setAutoCommit(false);
             ps = this.getConexion().prepareStatement(insert);
-            ps.setString(1, d);
-            ps.setDouble(2, c);
+            ps.setString(1, n);
+            ps.setString(2, d);
+            ps.setString(3, s);
+            ps.setDouble(4, p);
             ps.executeUpdate();
             this.getConexion().commit();
             return true;

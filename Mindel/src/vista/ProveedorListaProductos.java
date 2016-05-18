@@ -39,6 +39,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         btnSalirPLP = new javax.swing.JButton();
         btnCarroPLP = new javax.swing.JButton();
         CBProveedorPLP = new javax.swing.JComboBox<>();
+        btnNuevoProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setModal(true);
@@ -51,12 +52,12 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 31, 0, 31);
+        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 45);
         getContentPane().add(btnAceptarPLP, gridBagConstraints);
 
         btnCancelarPLP.setText("Cancelar");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(btnCancelarPLP, gridBagConstraints);
@@ -85,7 +86,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 17, 14, 27);
+        gridBagConstraints.insets = new java.awt.Insets(14, 0, 14, 0);
         getContentPane().add(btnSalirPLP, gridBagConstraints);
 
         btnCarroPLP.setText("Ver Carro");
@@ -100,6 +101,13 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(13, 17, 13, 17);
         getContentPane().add(CBProveedorPLP, gridBagConstraints);
+
+        btnNuevoProducto.setText("Nuevo Producto");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
+        getContentPane().add(btnNuevoProducto, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -151,6 +159,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
     public javax.swing.JButton btnAceptarPLP;
     public javax.swing.JButton btnCancelarPLP;
     public javax.swing.JButton btnCarroPLP;
+    public javax.swing.JButton btnNuevoProducto;
     public javax.swing.JButton btnSalirPLP;
     public javax.swing.JScrollPane jScrollPanePLP;
     public javax.swing.JTable jTablaPLP;

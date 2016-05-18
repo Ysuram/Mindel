@@ -39,6 +39,7 @@ public class Seccion extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(484, 500));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnCancelarSeccion.setMinimumSize(new java.awt.Dimension(60, 50));

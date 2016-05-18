@@ -77,7 +77,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
 
                 break;
             case _btnSalirCarro:
-
+                this.carro.setVisible(false);
                 break;
             case _btnContratarProveedor:
                 if (this.modelo.registrarProveedor(this.cp.txtNombProvee.getText(), this.cp.txtDomiProvee.getText(), Integer.parseInt(this.cp.txtCPProvee.getText()))) {
@@ -116,7 +116,12 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.pcp.setVisible(false);
                 break;
             case _btnEnviarPNP:
-
+                if(this.modelo.crearProducto(this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(), String.valueOf(this.pnp.CBSeccionEnvio.getSelectedIndex()) , (double) this.pnp.SpinPrecioPNP.getValue())){
+                    this.pnp.txtNombrePNP.setText("");
+                    this.pnp.txtADescPNP.setText("");
+                    this.pnp.SpinCantidadPNP.setValue(0);
+                    this.pnp.SpinPrecioPNP.setValue(0);
+                }
                 break;
             case _btnCancelarPNP:
                 this.pnp.txtNombrePNP.setText("");
@@ -124,7 +129,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.pnp.SpinCantidadPNP.setValue(0);
                 this.pnp.SpinPrecioPNP.setValue(0);
                 this.pnp.setVisible(false);
-                this.me.setVisible(true);
                 break;
             case _btnCarroPLP:
                 this.pcp.setVisible(true);
@@ -135,7 +139,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.me.setVisible(true);
                 break;
             case _btnAceptarOfertaA:
-
+                
                 break;
             case _btnCancelarOfertaA:
                 this.oa.setVisible(false);
@@ -303,15 +307,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.vista.txtUserName.setText("");
                 this.vista.setVisible(true);
                 break;
-            case _btnComprarMenu:
-                this.me.setVisible(false);
-                this.carro.setModal(false);
-                this.s.setModal(false);
-                this.s.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
-                this.s.setVisible(true);
-                this.carro.setLocation((this.vista.getX() + 250), (this.vista.getY() - 100));
-                this.carro.setVisible(true);
-                break;
             case _btnOfertaMenu:
                 this.me.setVisible(false);
                 this.co.setLocationRelativeTo(vista);
@@ -336,11 +331,10 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.cp.setLocationRelativeTo(vista);
                 this.cp.setVisible(true);
                 break;
-            case _btnProveedorProMenu:
-                this.me.setVisible(false);
+            case _btnNuevoProducto:
                 this.pnp.setLocationRelativeTo(vista);
+                this.pnp.setModal(true);
                 this.pnp.setVisible(true);
-                
                 break;
             case _btnSalirMenu:
                 this.me.setVisible(false);
@@ -403,7 +397,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-            JOptionPane.showMessageDialog(null, "hola");
             if (this.vista.isVisible() == true) {
                 if (this.modelo.loginEmpleado(this.vista.txtUserName.getText(), String.valueOf(this.vista.txtContrasenia.getPassword()))) {
                     this.idEmpleado = this.modelo.getIdEmpleado(this.vista.txtUserName.getText());
@@ -443,14 +436,14 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         _btnContratarProveedor, _btnCancelarProveedor, //vista.ContratarProveedor
         _btnCrearOferta, _btnCancelarOferta, //vista.CreacionOferta
         _btnSalirPCP, //vista.ProveedorCarroProductos
-        _btnAceptarPLP, _btnCancelarPLP, _btnEliminarPLP, _btnIngresarPLP, _btnCarroPLP, _btnSalirPLP, //vista.ProveedorListaProductos
+        _btnAceptarPLP, _btnCancelarPLP, _btnEliminarPLP, _btnCarroPLP, _btnNuevoProducto, _btnSalirPLP, //vista.ProveedorListaProductos
         _btnEnviarPNP, _btnCancelarPNP, //vista.ProveedorNuevoProductos
         _btnAceptarOfertaA, _btnCancelarOfertaA, //vista.OfertaAplicada
         _btnRegistrarCliente, _btnRegistrarEmpleado, _buscarFotoEmp, //vista.Registro
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
         _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
         _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, _cbSeccion, //vista.Seccion
-        _btnComprarMenu, _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, _btnProveedorProMenu, _btnSalirMenu,//vista.menuEmpleado
+        _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, _btnSalirMenu,//vista.menuEmpleado
         _btnComprarMenuClien, _btnRevisarMenu, _btnSalirMenuClie,//vista.menuCliente
         _btnEntrar, _btnRegistrar, _txtLogin                                 //vista.interfaz
     }
@@ -558,9 +551,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.carro.btnSalirCarro.setActionCommand("_btnSalirCarro");
         this.carro.btnSalirCarro.addActionListener(this);
 
-        this.me.btnComprarMenu.setActionCommand("_btnComprarMenu");
-        this.me.btnComprarMenu.addActionListener(this);
-
         this.me.btnOfertaMenu.setActionCommand("_btnOfertaMenu");
         this.me.btnOfertaMenu.addActionListener(this);
 
@@ -572,9 +562,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
 
         this.me.btnProveedorMenu.setActionCommand("_btnProveedorMenu");
         this.me.btnProveedorMenu.addActionListener(this);
-
-        this.me.btnProveedorProMenu.setActionCommand("_btnProveedorProMenu");
-        this.me.btnProveedorProMenu.addActionListener(this);
 
         this.me.btnSalirMenu.setActionCommand("_btnSalirMenu");
         this.me.btnSalirMenu.addActionListener(this);
@@ -629,7 +616,12 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         
         this.plp.btnSalirPLP.setActionCommand("_btnSalirPLP");
         this.plp.btnSalirPLP.addActionListener(this);
-
+        
+        this.plp.btnNuevoProducto.setActionCommand("_btnNuevoProducto");
+        this.plp.btnNuevoProducto.addActionListener(this);
+        
+        this.plp.CBProveedorPLP.setModel(this.modelo.cbProveedor());
+        
         this.pnp.btnEnviarPNP.setActionCommand("_btnEnviar");
         this.pnp.btnEnviarPNP.addActionListener(this);
 
@@ -637,7 +629,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.pnp.btnCancelarPNP.addActionListener(this);
         
         this.pnp.CBSeccionEnvio.setModel(this.mcb);
-        this.pnp.CBProveedorEnvio.setModel(this.modelo.cbProveedor());
         
     }
 }
