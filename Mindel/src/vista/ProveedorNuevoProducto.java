@@ -203,7 +203,7 @@ public class ProveedorNuevoProducto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox CBProveedorEnvio;
+    public javax.swing.JComboBox CBProveedorEnvio;
     public javax.swing.JComboBox<String> CBSeccionEnvio;
     public javax.swing.JSpinner SpinCantidadPNP;
     public javax.swing.JSpinner SpinPrecioPNP;

@@ -39,6 +39,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         btnIngresarPLP = new javax.swing.JButton();
         btnSalirPLP = new javax.swing.JButton();
         btnCarroPLP = new javax.swing.JButton();
+        CBProveedorPLP = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setModal(true);
@@ -76,31 +77,35 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPanePLP, gridBagConstraints);
 
         btnIngresarPLP.setText("Ingresar Prod");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
         getContentPane().add(btnIngresarPLP, gridBagConstraints);
 
         btnSalirPLP.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 14, 14, 24);
+        gridBagConstraints.insets = new java.awt.Insets(14, 17, 14, 27);
         getContentPane().add(btnSalirPLP, gridBagConstraints);
 
         btnCarroPLP.setText("Ver Carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 34, 14, 18);
         getContentPane().add(btnCarroPLP, gridBagConstraints);
+
+        CBProveedorPLP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(13, 17, 13, 17);
+        getContentPane().add(CBProveedorPLP, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,6 +153,7 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JComboBox<String> CBProveedorPLP;
     public javax.swing.JButton btnAceptarPLP;
     public javax.swing.JButton btnCancelarPLP;
     public javax.swing.JButton btnCarroPLP;

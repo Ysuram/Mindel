@@ -7,11 +7,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import modelo.miComboBox;
 import modelo.modelo;
 import vista.Carro;
 import vista.ContratarProveedor;
@@ -55,11 +57,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
      * instancia a nuestro(s) modelo(s)
      */
     modelo modelo = new modelo();
-
+    miComboBox mcb = new miComboBox();
     
-
-    
-
     public enum AccionMVC {
 
     }
@@ -341,6 +340,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.me.setVisible(false);
                 this.pnp.setLocationRelativeTo(vista);
                 this.pnp.setVisible(true);
+                
                 break;
             case _btnSalirMenu:
                 this.me.setVisible(false);
@@ -638,6 +638,9 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
 
         this.pnp.btnCancelarPNP.setActionCommand("_btnCancelarPNP");
         this.pnp.btnCancelarPNP.addActionListener(this);
-
+        
+        this.pnp.CBSeccionEnvio.setModel(this.mcb);
+        this.pnp.CBProveedorEnvio.setModel(this.modelo.cbProveedor());
+        
     }
 }
