@@ -11,6 +11,7 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class modelo extends database {
 
@@ -24,7 +25,7 @@ public class modelo extends database {
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total WHERE seccion_producto = '" + s + "' FROM Productos");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Productos WHERE seccion_producto = '" + s + "'");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -36,7 +37,7 @@ public class modelo extends database {
         Object[][] data = new String[registros][4];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Productos");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT nombre_producto, descripcion_producto, precio_producto FROM Productos WHERE seccion_producto = '" + s + "'");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
@@ -325,6 +326,14 @@ public class modelo extends database {
         return false;
     }
 
+    public DefaultTableModel tablaVaciaCarro(){
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        String[] columNames = {"Nombre del Producto", "Descripcion", "Precio"};
+        Object [][] data = new String[20][3];
+        tablemodel.setDataVector(data, columNames);
+        return tablemodel;
+    } 
+    
     public ComboBoxModel cbProveedor() {
         DefaultComboBoxModel m = new DefaultComboBoxModel();
         String r = null;

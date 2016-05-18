@@ -3,6 +3,8 @@ package controlador;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -13,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
 import modelo.miComboBox;
 import modelo.modelo;
 import vista.Carro;
@@ -30,7 +33,7 @@ import vista.menuCliente;
 import vista.ProveedorCarroProductos;
 import vista.menuEmpleado;
 
-public class controlador implements ActionListener, MouseListener, KeyListener {
+public class controlador implements ActionListener, MouseListener, KeyListener, ItemListener {
 
     /**
      * instancia nuestra (s) interfaz
@@ -50,15 +53,18 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
     menuCliente mc;
     menuEmpleado me;
     JFileChooser dlg;
-    int option, idCliente, idEmpleado;
+    int option, cont = 0, cant = 1, idCliente, idEmpleado;
     String ruta;
+    Object lc[][];
     boolean tipoUsu;
     /**
      * instancia a nuestro(s) modelo(s)
      */
     modelo modelo = new modelo();
     miComboBox mcb = new miComboBox();
-    
+    DefaultTableModel tc = new DefaultTableModel(
+            new Object[1][3], new String[]{"Nombre del Producto", "Descripcion", "Precio"});
+
     public enum AccionMVC {
 
     }
@@ -116,7 +122,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.pcp.setVisible(false);
                 break;
             case _btnEnviarPNP:
-                if(this.modelo.crearProducto(this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(), String.valueOf(this.pnp.CBSeccionEnvio.getSelectedIndex()) , (double) this.pnp.SpinPrecioPNP.getValue())){
+                if (this.modelo.crearProducto(this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(), String.valueOf(this.pnp.CBSeccionEnvio.getSelectedIndex()), (double) this.pnp.SpinPrecioPNP.getValue())) {
                     this.pnp.txtNombrePNP.setText("");
                     this.pnp.txtADescPNP.setText("");
                     this.pnp.SpinCantidadPNP.setValue(0);
@@ -139,7 +145,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 this.me.setVisible(true);
                 break;
             case _btnAceptarOfertaA:
-                
+
                 break;
             case _btnCancelarOfertaA:
                 this.oa.setVisible(false);
@@ -281,19 +287,23 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 }
                 break;
             case _btnAnadirSeccion:
+                String n = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0));
+                String d = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1));
+                String p = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2));
+                Object nuevo[] = {tc.getRowCount() + 1, "", ""};
+                tc.addRow(nuevo);
 
                 break;
             case _btnVerCarro:
                 this.carro.setVisible(true);
                 break;
-            case _cbSeccion:
-
-                break;
             case _btnComprarMenuClien:
                 this.mc.setVisible(false);
                 this.carro.setModal(false);
+                this.s.cbSeccion.setSelectedIndex(0);
+                this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
                 this.s.setModal(false);
-                this.s.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
+                this.s.setLocation((this.vista.getX() - 300), (this.vista.getY() - 100));
                 this.s.setVisible(true);
                 this.carro.setLocation((this.vista.getX() + 250), (this.vista.getY() - 100));
                 this.carro.setVisible(true);
@@ -422,9 +432,46 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            if (this.s.isVisible() == true) {
+                switch (String.valueOf(this.s.cbSeccion.getSelectedItem())) {
+                    case "Carniceria":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Pescaderia":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Charcuteria":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Limpieza":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Fruteria":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Congelados":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Panaderia":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Higiene":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Frio":
+                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                }
+            }
+        }
     }
 
     /**
@@ -442,7 +489,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         _btnRegistrarCliente, _btnRegistrarEmpleado, _buscarFotoEmp, //vista.Registro
         _btnAceptarRegistrarCli, _btnCancelarRegistrarCli, _buscarFotoCli, //vista.RegistroCliente
         _btnAceptarRegistrarEmp, _btnCancelarRegistrarEmp, //vista.RegistroEmpleado
-        _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, _cbSeccion, //vista.Seccion
+        _btnCancelarSeccion, _btnAnadirSeccion, _btnVerCarro, //vista.Seccion
         _btnOfertaMenu, _btnOfertaAMenu, _btnPedidoMenu, _btnProveedorMenu, _btnSalirMenu,//vista.menuEmpleado
         _btnComprarMenuClien, _btnRevisarMenu, _btnSalirMenuClie,//vista.menuCliente
         _btnEntrar, _btnRegistrar, _txtLogin                                 //vista.interfaz
@@ -482,7 +529,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
 
-        this.vista.txtContrasenia.setActionCommand("_txtLogin");
+        this.vista.txtUserName.addKeyListener(this);
+
         this.vista.txtContrasenia.addKeyListener(this);
 
         this.vista.btnRegistrar.setActionCommand("_btnRegistrar");
@@ -533,8 +581,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.s.btnCancelarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png")));
         this.s.btnCancelarSeccion.addActionListener(this);
 
-        this.s.cbSeccion.setActionCommand("_cbSeccion");
-        this.s.cbSeccion.addActionListener(this);
+        this.s.cbSeccion.setModel(this.mcb);
+        this.s.cbSeccion.addItemListener(this);
 
         this.carro.btnAceptarCarro.setActionCommand("_btnAceptarCarro");
         this.carro.btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png")));
@@ -550,6 +598,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
 
         this.carro.btnSalirCarro.setActionCommand("_btnSalirCarro");
         this.carro.btnSalirCarro.addActionListener(this);
+
+        this.carro.jTablaCarro.setModel(this.tc);
 
         this.me.btnOfertaMenu.setActionCommand("_btnOfertaMenu");
         this.me.btnOfertaMenu.addActionListener(this);
@@ -613,22 +663,22 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
 
         this.plp.btnCarroPLP.setActionCommand("_btnCarroPLP");
         this.plp.btnCarroPLP.addActionListener(this);
-        
+
         this.plp.btnSalirPLP.setActionCommand("_btnSalirPLP");
         this.plp.btnSalirPLP.addActionListener(this);
-        
+
         this.plp.btnNuevoProducto.setActionCommand("_btnNuevoProducto");
         this.plp.btnNuevoProducto.addActionListener(this);
-        
+
         this.plp.CBProveedorPLP.setModel(this.modelo.cbProveedor());
-        
+
         this.pnp.btnEnviarPNP.setActionCommand("_btnEnviar");
         this.pnp.btnEnviarPNP.addActionListener(this);
 
         this.pnp.btnCancelarPNP.setActionCommand("_btnCancelarPNP");
         this.pnp.btnCancelarPNP.addActionListener(this);
-        
+
         this.pnp.CBSeccionEnvio.setModel(this.mcb);
-        
+
     }
 }

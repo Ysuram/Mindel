@@ -15,7 +15,7 @@ import javax.swing.ComboBoxModel;
 public class miComboBox extends AbstractListModel implements ComboBoxModel{
 
     private String[] tipos = {"Carniceria", "Pescaderia", "Charcuteria", "Limpieza", "Fruteria", 
-        "Congelados", "Panaderia", "Higiene"};
+        "Congelados", "Panaderia", "Higiene", "Frio"};
     private String seleccionado = null;
 
     public miComboBox() {

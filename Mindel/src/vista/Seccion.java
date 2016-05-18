@@ -36,10 +36,13 @@ public class Seccion extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablaProductos = new javax.swing.JTable();
         btnVerCarro = new javax.swing.JButton();
+        SpinCantidad = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(460, 550));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(484, 500));
+        setPreferredSize(new java.awt.Dimension(460, 560));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnCancelarSeccion.setMinimumSize(new java.awt.Dimension(60, 50));
@@ -47,17 +50,19 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         getContentPane().add(btnCancelarSeccion, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(13, 13, 13, 13);
+        gridBagConstraints.insets = new java.awt.Insets(13, 67, 13, 67);
         getContentPane().add(btnAnadirSeccion, gridBagConstraints);
 
         cbSeccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 138);
         getContentPane().add(cbSeccion, gridBagConstraints);
 
@@ -77,11 +82,21 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         getContentPane().add(jScrollPane1, gridBagConstraints);
-        getContentPane().add(btnVerCarro, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        getContentPane().add(btnVerCarro, gridBagConstraints);
+
+        SpinCantidad.setPreferredSize(new java.awt.Dimension(40, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        getContentPane().add(SpinCantidad, gridBagConstraints);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -127,6 +142,7 @@ public class Seccion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JSpinner SpinCantidad;
     public javax.swing.JButton btnAnadirSeccion;
     public javax.swing.JButton btnCancelarSeccion;
     public javax.swing.JButton btnVerCarro;

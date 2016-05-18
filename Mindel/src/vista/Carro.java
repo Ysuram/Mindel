@@ -34,7 +34,7 @@ public class Carro extends javax.swing.JDialog {
 
         btnAceptarCarro = new javax.swing.JButton();
         btnCancelarCarro = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneCarro = new javax.swing.JScrollPane();
         jTablaCarro = new javax.swing.JTable();
         btnEliminarCarro = new javax.swing.JButton();
         btnSalirCarro = new javax.swing.JButton();
@@ -69,13 +69,13 @@ public class Carro extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTablaCarro);
+        jScrollPaneCarro.setViewportView(jTablaCarro);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
-        getContentPane().add(jScrollPane2, gridBagConstraints);
+        getContentPane().add(jScrollPaneCarro, gridBagConstraints);
 
         btnEliminarCarro.setText("Eliminar del carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -137,7 +137,7 @@ public class Carro extends javax.swing.JDialog {
     public javax.swing.JButton btnCancelarCarro;
     public javax.swing.JButton btnEliminarCarro;
     public javax.swing.JButton btnSalirCarro;
-    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPaneCarro;
     public javax.swing.JTable jTablaCarro;
     // End of variables declaration//GEN-END:variables
 }
