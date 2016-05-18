@@ -35,7 +35,7 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
         btnAceptarPCP = new javax.swing.JButton();
         btnCancelarPCP = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTablaCarro = new javax.swing.JTable();
+        jTablaCarroPCP = new javax.swing.JTable();
         btnEliminarPCP = new javax.swing.JButton();
         btnSalirPCP = new javax.swing.JButton();
 
@@ -57,7 +57,7 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(btnCancelarPCP, gridBagConstraints);
 
-        jTablaCarro.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaCarroPCP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,7 +68,7 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTablaCarro);
+        jScrollPane2.setViewportView(jTablaCarroPCP);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -138,6 +138,6 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
     public javax.swing.JButton btnEliminarPCP;
     public javax.swing.JButton btnSalirPCP;
     public javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTable jTablaCarro;
+    public javax.swing.JTable jTablaCarroPCP;
     // End of variables declaration//GEN-END:variables
 }

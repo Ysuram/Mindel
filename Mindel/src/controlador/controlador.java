@@ -65,7 +65,9 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     miComboBox mcb = new miComboBox();
     DefaultTableModel tc = new DefaultTableModel(
             new Object[0][3], new String[]{"Nombre del Producto", "Descripcion", "Precio"});
-    
+    DefaultTableModel tcp = new DefaultTableModel(
+            new Object[0][7], new String[]{"Nombre del Producto", "Descripcion", "Seccion", "Proveedor", "Cantidad", "Precio"});
+
     public enum AccionMVC {
 
     }
@@ -123,11 +125,23 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 this.pcp.setVisible(false);
                 break;
             case _btnEnviarPNP:
-                if (this.modelo.crearProducto(this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(), String.valueOf(this.pnp.CBSeccionEnvio.getSelectedIndex()), (double) this.pnp.SpinPrecioPNP.getValue())) {
+                if (!this.pnp.txtNombrePNP.getText().equals("")
+                        && !this.pnp.txtADescPNP.getText().equals("")
+                        && (double) this.pnp.SpinPrecioPNP.getValue() != 0
+                        && (int) this.pnp.SpinCantidadPNP.getValue() != 0) {
+                    tcp = (DefaultTableModel) this.pcp.jTablaCarroPCP.getModel();
+                    int i = tcp.getRowCount();
+                    Object nuevo[] = {this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(),
+                        this.pnp.CBSeccionEnvio.getSelectedItem().toString(),
+                        this.plp.CBProveedorPLP.getSelectedItem().toString(),
+                        this.pnp.SpinCantidadPNP.getValue().toString(), this.pnp.SpinPrecioPNP.getValue().toString(),
+                        };
+                    tcp.addRow(nuevo);
                     this.pnp.txtNombrePNP.setText("");
                     this.pnp.txtADescPNP.setText("");
                     this.pnp.SpinCantidadPNP.setValue(0);
                     this.pnp.SpinPrecioPNP.setValue(0);
+                    this.pnp.setVisible(false);
                 }
                 break;
             case _btnCancelarPNP:
@@ -294,7 +308,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 String d = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString();
                 String p = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString();
                 tca = (DefaultTableModel) this.carro.jTablaCarro.getModel();
-                Object nuevo[] = {n,d,p};
+                Object nuevo[] = {n, d, p};
                 tca.addRow(nuevo);
 
                 break;
@@ -305,7 +319,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 this.mc.setVisible(false);
                 this.carro.setModal(false);
                 this.s.cbSeccion.setSelectedIndex(0);
-                this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(this.s.cbSeccion.getSelectedItem().toString()));
                 this.s.setModal(false);
                 this.s.setLocation((this.vista.getX() - 300), (this.vista.getY() - 100));
                 this.s.setVisible(true);
@@ -659,6 +673,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.pcp.btnSalirPCP.setActionCommand("_btnSalirPCP");
         this.pcp.btnSalirPCP.addActionListener(this);
 
+        this.pcp.jTablaCarroPCP.setModel(tcp);
+
         this.plp.btnAceptarPLP.setActionCommand("_btnAceptarPLP");
         this.plp.btnAceptarPLP.addActionListener(this);
 
@@ -676,7 +692,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
 
         this.plp.CBProveedorPLP.setModel(this.modelo.cbProveedor());
 
-        this.pnp.btnEnviarPNP.setActionCommand("_btnEnviar");
+        this.pnp.btnEnviarPNP.setActionCommand("_btnEnviarPNP");
         this.pnp.btnEnviarPNP.addActionListener(this);
 
         this.pnp.btnCancelarPNP.setActionCommand("_btnCancelarPNP");
