@@ -329,7 +329,7 @@ public class modelo extends database {
     public DefaultTableModel tablaVaciaCarro(){
         DefaultTableModel tablemodel = new DefaultTableModel();
         String[] columNames = {"Nombre del Producto", "Descripcion", "Precio"};
-        Object [][] data = new String[20][3];
+        Object [][] data = new String[0][3];
         tablemodel.setDataVector(data, columNames);
         return tablemodel;
     } 

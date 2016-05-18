@@ -53,6 +53,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     menuCliente mc;
     menuEmpleado me;
     JFileChooser dlg;
+    DefaultTableModel tca;
     int option, cont = 0, cant = 1, idCliente, idEmpleado;
     String ruta;
     Object lc[][];
@@ -63,8 +64,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     modelo modelo = new modelo();
     miComboBox mcb = new miComboBox();
     DefaultTableModel tc = new DefaultTableModel(
-            new Object[1][3], new String[]{"Nombre del Producto", "Descripcion", "Precio"});
-
+            new Object[0][3], new String[]{"Nombre del Producto", "Descripcion", "Precio"});
+    
     public enum AccionMVC {
 
     }
@@ -287,11 +288,14 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 }
                 break;
             case _btnAnadirSeccion:
-                String n = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0));
-                String d = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1));
-                String p = String.valueOf(this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2));
-                Object nuevo[] = {tc.getRowCount() + 1, "", ""};
-                tc.addRow(nuevo);
+                int f = this.s.jTablaProductos.getSelectedRow();
+                tca = (DefaultTableModel) this.s.jTablaProductos.getModel();
+                String n = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0).toString();
+                String d = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString();
+                String p = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString();
+                tca = (DefaultTableModel) this.carro.jTablaCarro.getModel();
+                Object nuevo[] = {n,d,p};
+                tca.addRow(nuevo);
 
                 break;
             case _btnVerCarro:
