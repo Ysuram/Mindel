@@ -18,7 +18,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import modelo.miComboBox;
 import modelo.modelo;
-import vista.Carro;
+import vista.ProveedorCarroProductos;
 import vista.ContratarProveedor;
 import vista.CreacionOferta;
 import vista.ProveedorNuevoProducto;
@@ -30,7 +30,7 @@ import vista.RegistroCliente;
 import vista.RegistroEmpleado;
 import vista.Seccion;
 import vista.menuCliente;
-import vista.ProveedorCarroProductos;
+import vista.Carro;
 import vista.menuEmpleado;
 
 public class controlador implements ActionListener, MouseListener, KeyListener, ItemListener {
@@ -63,8 +63,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
      */
     modelo modelo = new modelo();
     miComboBox mcb = new miComboBox();
-    DefaultTableModel tc = new DefaultTableModel(
-            new Object[0][3], new String[]{"Nombre del Producto", "Descripcion", "Precio"});
     DefaultTableModel tcp = new DefaultTableModel(
             new Object[0][7], new String[]{"Nombre del Producto", "Descripcion", "Seccion", "Proveedor", "Cantidad", "Precio"});
 
@@ -302,14 +300,11 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 }
                 break;
             case _btnAnadirSeccion:
-                int f = this.s.jTablaProductos.getSelectedRow();
-                tc = (DefaultTableModel) this.s.jTablaProductos.getModel();
-                String n = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0).toString();
-                String d = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString();
-                String p = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString();
-                tc = (DefaultTableModel) this.carro.jTablaCarro.getModel();
-                Object nuevo[] = {n, d, p};
-                tc.addRow(nuevo);
+                Object nuevo[] = {
+                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0).toString(), 
+                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString(), 
+                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString()};
+                
 
                 break;
             case _btnVerCarro:
@@ -617,7 +612,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.carro.btnSalirCarro.setActionCommand("_btnSalirCarro");
         this.carro.btnSalirCarro.addActionListener(this);
 
-        this.carro.jTablaCarro.setModel(this.tc);
+        this.carro.jTablaCarroCarro.setModel(this.modelo.tablaVaciaCarro());
 
         this.me.btnOfertaMenu.setActionCommand("_btnOfertaMenu");
         this.me.btnOfertaMenu.addActionListener(this);

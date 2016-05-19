@@ -35,20 +35,19 @@ public class Carro extends javax.swing.JDialog {
         btnAceptarCarro = new javax.swing.JButton();
         btnCancelarCarro = new javax.swing.JButton();
         jScrollPaneCarro = new javax.swing.JScrollPane();
-        jTablaCarro = new javax.swing.JTable();
+        jTablaCarroCarro = new javax.swing.JTable();
         btnEliminarCarro = new javax.swing.JButton();
         btnSalirCarro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
-        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         btnAceptarCarro.setText("verificar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 49, 10, 49);
+        gridBagConstraints.insets = new java.awt.Insets(0, 52, 0, 52);
         getContentPane().add(btnAceptarCarro, gridBagConstraints);
 
         btnCancelarCarro.setText("cancelar compra");
@@ -58,7 +57,7 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         getContentPane().add(btnCancelarCarro, gridBagConstraints);
 
-        jTablaCarro.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaCarroCarro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -69,7 +68,7 @@ public class Carro extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneCarro.setViewportView(jTablaCarro);
+        jScrollPaneCarro.setViewportView(jTablaCarroCarro);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -87,7 +86,7 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(14, 52, 14, 7);
+        gridBagConstraints.insets = new java.awt.Insets(7, 54, 7, 6);
         getContentPane().add(btnSalirCarro, gridBagConstraints);
 
         pack();
@@ -116,6 +115,9 @@ public class Carro extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(Carro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -138,6 +140,6 @@ public class Carro extends javax.swing.JDialog {
     public javax.swing.JButton btnEliminarCarro;
     public javax.swing.JButton btnSalirCarro;
     public javax.swing.JScrollPane jScrollPaneCarro;
-    public javax.swing.JTable jTablaCarro;
+    public javax.swing.JTable jTablaCarroCarro;
     // End of variables declaration//GEN-END:variables
 }
