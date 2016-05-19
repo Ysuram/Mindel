@@ -33,7 +33,7 @@ import vista.menuCliente;
 import vista.Carro;
 import vista.menuEmpleado;
 
-public class controlador implements ActionListener, MouseListener, KeyListener {
+public class controlador implements ActionListener, MouseListener, KeyListener, ItemListener {
 
     /**
      * instancia nuestra (s) interfaz
@@ -63,8 +63,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
      */
     modelo modelo = new modelo();
     miComboBox mcb = new miComboBox();
-    DefaultTableModel tcp = new DefaultTableModel(
-            new Object[0][7], new String[]{"Nombre del Producto", "Descripcion", "Seccion", "Proveedor", "Cantidad", "Precio"});
 
     public enum AccionMVC {
 
@@ -127,14 +125,13 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                         && !this.pnp.txtADescPNP.getText().equals("")
                         && (double) this.pnp.SpinPrecioPNP.getValue() != 0
                         && (int) this.pnp.SpinCantidadPNP.getValue() != 0) {
-                    tcp = (DefaultTableModel) this.pcp.jTablaCarroPCP.getModel();
-                    int i = tcp.getRowCount();
+                    tc = (DefaultTableModel) this.pcp.jTablaCarroPCP.getModel();
+                    int i = tc.getRowCount();
                     Object nuevo[] = {this.pnp.txtNombrePNP.getText(), this.pnp.txtADescPNP.getText(),
                         this.pnp.CBSeccionEnvio.getSelectedItem().toString(),
                         this.plp.CBProveedorPLP.getSelectedItem().toString(),
-                        this.pnp.SpinCantidadPNP.getValue().toString(), this.pnp.SpinPrecioPNP.getValue().toString(),
-                        };
-                    tcp.addRow(nuevo);
+                        this.pnp.SpinCantidadPNP.getValue().toString(), this.pnp.SpinPrecioPNP.getValue().toString(),};
+                    tc.addRow(nuevo);
                     this.pnp.txtNombrePNP.setText("");
                     this.pnp.txtADescPNP.setText("");
                     this.pnp.SpinCantidadPNP.setValue(0);
@@ -301,13 +298,32 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 }
                 break;
             case _btnAnadirSeccion:
+                int c = (int) this.s.SpinCantidad.getValue();
+                boolean res = true;
                 Object nuevo[] = {
-                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 0).toString(), 
-                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 1).toString(), 
+                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 0).toString(),
+                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 1).toString(),
                     this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 2).toString(),
                     this.s.SpinCantidad.getValue()};
                 tc = (DefaultTableModel) this.carro.jTablaCarroCarro.getModel();
-                tc.addRow(nuevo);
+                for (int i = 0; i < this.carro.jTablaCarroCarro.getRowCount(); i++) {
+                    if (this.carro.jTablaCarroCarro.getValueAt(i, 0).equals(
+                            this.s.jTablaProductosSeccion.getValueAt(
+                                    this.s.jTablaProductosSeccion.getSelectedRow(), 0).toString())
+                            && this.carro.jTablaCarroCarro.getValueAt(i, 1).equals(
+                                    this.s.jTablaProductosSeccion.getValueAt(
+                                            this.s.jTablaProductosSeccion.getSelectedRow(), 1).toString())
+                            && this.carro.jTablaCarroCarro.getValueAt(i, 2).equals(
+                                    this.s.jTablaProductosSeccion.getValueAt(
+                                            this.s.jTablaProductosSeccion.getSelectedRow(), 2).toString())) {
+                        c += (int) this.carro.jTablaCarroCarro.getValueAt(i, 3);
+                        this.carro.jTablaCarroCarro.setValueAt(c, i, 3);
+                        res = false;
+                    }
+                }
+                if (res) {
+                    tc.addRow(nuevo);
+                }
                 break;
             case _btnVerCarro:
                 this.carro.setVisible(true);
@@ -343,6 +359,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
                 break;
             case _btnPedidoMenu:
                 this.me.setVisible(false);
+                this.plp.CBProveedorPLP.setSelectedIndex(0);
                 this.plp.setModal(false);
                 this.pcp.setModal(false);
                 this.plp.setLocation((this.vista.getX() - 250), (this.vista.getY() - 100));
@@ -451,7 +468,44 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
-    
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            if (this.s.isVisible() == true) {
+                switch (String.valueOf(this.s.cbSeccion.getSelectedItem())) {
+                    case "Carniceria":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Pescaderia":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Charcuteria":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Limpieza":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Fruteria":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Congelados":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Panaderia":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Higiene":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                    case "Frio":
+                        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
+                        break;
+                }
+            } else if (this.plp.isVisible() == true) {
+                this.plp.jTablaPLP.setModel(this.modelo.getTablaProvProd(this.plp.CBProveedorPLP.getSelectedIndex()));
+            }
+        }
+    }
 
     /**
      * Enumera TODOs los metodos que tendrá nuestro proyecto
@@ -557,9 +611,13 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.s.btnCancelarSeccion.addActionListener(this);
 
         this.s.cbSeccion.setModel(this.mcb);
+        this.s.cbSeccion.addItemListener(this);
+
+        this.s.SpinCantidad.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        this.s.SpinCantidad.setValue(1);
 
         this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(this.s.cbSeccion.getSelectedItem().toString()));
-        
+
         this.carro.btnAceptarCarro.setActionCommand("_btnAceptarCarro");
         this.carro.btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png")));
         this.carro.btnAceptarCarro.addActionListener(this);
@@ -631,7 +689,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.pcp.btnSalirPCP.setActionCommand("_btnSalirPCP");
         this.pcp.btnSalirPCP.addActionListener(this);
 
-        this.pcp.jTablaCarroPCP.setModel(tcp);
+        this.pcp.jTablaCarroPCP.setModel(this.modelo.tablaVaciaProveedor());
 
         this.plp.btnAceptarPLP.setActionCommand("_btnAceptarPLP");
         this.plp.btnAceptarPLP.addActionListener(this);
@@ -649,6 +707,9 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.plp.btnNuevoProducto.addActionListener(this);
 
         this.plp.CBProveedorPLP.setModel(this.modelo.cbProveedor());
+        this.plp.CBProveedorPLP.addItemListener(this);
+
+        this.plp.jTablaPLP.setModel(this.modelo.getTablaProvProd(this.modelo.getIdProveedor(ruta)));
 
         this.pnp.btnEnviarPNP.setActionCommand("_btnEnviarPNP");
         this.pnp.btnEnviarPNP.addActionListener(this);
@@ -657,6 +718,5 @@ public class controlador implements ActionListener, MouseListener, KeyListener {
         this.pnp.btnCancelarPNP.addActionListener(this);
 
         this.pnp.CBSeccionEnvio.setModel(this.mcb);
-
     }
 }

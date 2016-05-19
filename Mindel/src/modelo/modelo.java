@@ -165,6 +165,23 @@ public class modelo extends database {
         }
         return 0;
     }
+    
+    public int getIdProveedor(String n) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_proveedor FROM Proveedores WHERE nombre_proveedor='" + n + "'");
+            ResultSet res = pstm.executeQuery();
+            int id;
+            while (res.next()) {
+                id = res.getInt("cod_proveedor");
+                return id;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return 0;
+    }
 
     public boolean registrarCliente(String nu, String pss, String n, String d, String dm, String p, String cd, String f) {
         String insert = "INSERT INTO Clientes(nombre_usuario_cliente, password_usuario_cliente,"
@@ -334,6 +351,16 @@ public class modelo extends database {
         return tablemodel;
     } 
     
+    public DefaultTableModel tablaVaciaProveedor(){
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        String[] columNames = {"Nombre del Producto", "Descripcion", "Seccion", "Proveedor", "Cantidad", "Precio"};
+        Object [][] data = new String[0][7];
+        tablemodel.setDataVector(data, columNames);
+        return tablemodel;
+    }
+    
+    
+    
     public ComboBoxModel cbProveedor() {
         DefaultComboBoxModel m = new DefaultComboBoxModel();
         String r = null;
@@ -354,4 +381,41 @@ public class modelo extends database {
         return m;
     }
 
+    public DefaultTableModel getTablaProvProd(int num) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"Nombre del Producto", "Descripcion", "Precio"};
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT COUNT(*) as total FROM Envios WHERE proveedor_cod="+num);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][5];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT p.* FROM Productos p, Envios e WHERE e.producto_cod=p.cod_producto AND e.proveedor_cod="+num);
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("nombre_producto");
+                data[i][1] = res.getString("descripcion_producto");
+                data[i][2] = res.getString("precio_producto");
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+    
 }
