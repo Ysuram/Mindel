@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +12,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -17,6 +20,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import modelo.miComboBox;
+import modelo.miComboBoxEstado;
 import modelo.modelo;
 import vista.ProveedorCarroProductos;
 import vista.ContratarProveedor;
@@ -54,6 +58,9 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     menuEmpleado me;
     JFileChooser dlg;
     DefaultTableModel tc;
+    ImageIcon iico;
+    Icon ico;
+    Graphics g;
     int option, cont = 0, cant = 1, idCliente, idEmpleado;
     String ruta;
     Object lc[][];
@@ -63,17 +70,14 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
      */
     modelo modelo = new modelo();
     miComboBox mcb = new miComboBox();
-
-    public enum AccionMVC {
-
-    }
+    miComboBoxEstado mcbe = new miComboBoxEstado();
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         switch (AccionProyecto.valueOf(e.getActionCommand())) {
             case _btnAceptarCarro:
-
+                
                 break;
             case _btnCancelarCarro:
 
@@ -163,11 +167,15 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 break;
             case _btnRegistrarCliente:
                 this.r.setVisible(false);
+                this.rc.setModal(false);
+                this.rc.setLocationRelativeTo(vista);
                 this.rc.setVisible(true);
                 this.rc.setModal(true);
                 break;
             case _btnRegistrarEmpleado:
                 this.r.setVisible(false);
+                this.re.setModal(false);
+                this.re.setLocationRelativeTo(vista);
                 this.re.setVisible(true);
                 this.re.setModal(true);
                 break;
@@ -561,42 +569,66 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         SwingUtilities.updateComponentTreeUI(vista);
         this.vista.setLocationRelativeTo(null);
         this.vista.setVisible(true);
-
+        this.vista.etiContrasenia.setOpaque(true);
+        this.vista.etiUserName.setOpaque(true);
+        this.vista.etiMINDEL.setOpaque(true);
+        this.vista.etiContrasenia.setBackground(Color.white);
+        this.vista.etiMINDEL.setBackground(Color.white);
+        this.vista.etiUserName.setBackground(Color.white);
+        iico = new ImageIcon(getClass().getResource("/Archivos/login.jpg"));
+        this.vista.lblFondo.setIcon(new ImageIcon(iico.getImage().getScaledInstance(this.vista.getWidth(), this.vista.getHeight(), Image.SCALE_DEFAULT)));
+        
         this.vista.txtUserName.addKeyListener(this);
 
         this.vista.txtContrasenia.addKeyListener(this);
 
         this.vista.btnRegistrar.setActionCommand("_btnRegistrar");
+        iico = new ImageIcon(getClass().getResource("/Archivos/registro.png"));
+        this.vista.btnRegistrar.setIcon(new ImageIcon(iico.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
         this.vista.btnRegistrar.addActionListener(this);
 
         this.vista.btnEntrar.setActionCommand("_btnEntrar");
+        iico = new ImageIcon(getClass().getResource("/Archivos/entrar.png"));
+        this.vista.btnEntrar.setIcon(new ImageIcon(iico.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT)));
         this.vista.btnEntrar.addActionListener(this);
 
         this.r.btnRegistrarEmpleado.setActionCommand("_btnRegistrarEmpleado");
+        iico = new ImageIcon(getClass().getResource("/Archivos/empleado.png"));
+        this.r.btnRegistrarEmpleado.setIcon(new ImageIcon(iico.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
         this.r.btnRegistrarEmpleado.addActionListener(this);
 
         this.r.btnRegistrarCliente.setActionCommand("_btnRegistrarCliente");
+        iico = new ImageIcon(getClass().getResource("/Archivos/clientes.png"));
+        this.r.btnRegistrarCliente.setIcon(new ImageIcon(iico.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
         this.r.btnRegistrarCliente.addActionListener(this);
 
         this.rc.btnAceptarRegistrarCli.setActionCommand("_btnAceptarRegistrarCli");
+        this.rc.btnAceptarRegistrarCli.setIcon(new ImageIcon(getClass().getResource("/Archivos/Vverde.png")));
         this.rc.btnAceptarRegistrarCli.addActionListener(this);
 
         this.rc.btnCancelarRegistroCli.setActionCommand("_btnCancelarRegistrarCli");
+        this.rc.btnCancelarRegistroCli.setIcon(new ImageIcon(getClass().getResource("/Archivos/Xrojo.png")));
         this.rc.btnCancelarRegistroCli.addActionListener(this);
 
         this.rc.btnBuscarFotoCli.setActionCommand("_buscarFotoCli");
+        iico = new ImageIcon(getClass().getResource("/Archivos/buscar.png"));
+        this.rc.btnBuscarFotoCli.setIcon(new ImageIcon(iico.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
         this.rc.btnBuscarFotoCli.addActionListener(this);
 
         this.re.btnAceptarRegistrarEmp.setActionCommand("_btnAceptarRegistrarEmp");
+        this.re.btnAceptarRegistrarEmp.setIcon(new ImageIcon(getClass().getResource("/Archivos/Vverde.png")));
         this.re.btnAceptarRegistrarEmp.addActionListener(this);
 
         this.re.btnCancelarRegistroEmp.setActionCommand("_btnCancelarRegistrarEmp");
+        this.re.btnCancelarRegistroEmp.setIcon(new ImageIcon(getClass().getResource("/Archivos/Xrojo.png")));
         this.re.btnCancelarRegistroEmp.addActionListener(this);
 
         this.re.btnBuscarFotoEmp.setActionCommand("_buscarFotoEmp");
+        iico = new ImageIcon(getClass().getResource("/Archivos/buscar.png"));
+        this.re.btnBuscarFotoEmp.setIcon(new ImageIcon(iico.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
         this.re.btnBuscarFotoEmp.addActionListener(this);
-        this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
-        this.s.btnCancelarSeccion.addActionListener(this);
+        
+        this.re.jcbSeccion.setModel(mcb);
 
         this.s.btnVerCarro.setActionCommand("_btnVerCarro");
         this.s.btnVerCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/carro.png")));
@@ -607,7 +639,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.s.btnAnadirSeccion.addActionListener(this);
 
         this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
-        this.s.btnCancelarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Xrojo.png")));
+        this.s.btnCancelarSeccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/flechaAtras.png")));
         this.s.btnCancelarSeccion.addActionListener(this);
 
         this.s.cbSeccion.setModel(this.mcb);
@@ -619,7 +651,8 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(this.s.cbSeccion.getSelectedItem().toString()));
 
         this.carro.btnAceptarCarro.setActionCommand("_btnAceptarCarro");
-        this.carro.btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png")));
+        iico = new ImageIcon(getClass().getResource("/Archivos/buscar.png"));
+        this.carro.btnAceptarCarro.setIcon(new ImageIcon(iico.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
         this.carro.btnAceptarCarro.addActionListener(this);
 
         this.carro.btnCancelarCarro.setActionCommand("_btnCancelarCarro");
@@ -627,7 +660,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.carro.btnCancelarCarro.addActionListener(this);
 
         this.carro.btnEliminarCarro.setActionCommand("_btnEliminarCarro");
-        this.carro.btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/quitarCarro.png")));
+        this.carro.btnEliminarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/eliminarCarro.png")));
         this.carro.btnEliminarCarro.addActionListener(this);
 
         this.carro.btnSalirCarro.setActionCommand("_btnSalirCarro");

@@ -20,72 +20,45 @@ public class interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtUserName = new javax.swing.JTextField();
         etiMINDEL = new javax.swing.JLabel();
         etiUserName = new javax.swing.JLabel();
         etiContrasenia = new javax.swing.JLabel();
-        txtUserName = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        txtContrasenia = new javax.swing.JPasswordField();
+        lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MINDEL ™");
+        setMinimumSize(new java.awt.Dimension(550, 370));
+        setPreferredSize(new java.awt.Dimension(550, 370));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 150, -1));
 
+        etiMINDEL.setBackground(new java.awt.Color(255, 255, 255));
         etiMINDEL.setText("MINDEL");
+        etiMINDEL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(etiMINDEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
 
+        etiUserName.setBackground(new java.awt.Color(255, 255, 255));
         etiUserName.setText("UserName: ");
+        etiUserName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(etiUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
 
+        etiContrasenia.setBackground(new java.awt.Color(255, 255, 255));
         etiContrasenia.setText("Password: ");
+        etiContrasenia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(etiContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
+        getContentPane().add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 150, -1));
+        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, -1, -1));
 
-        btnEntrar.setText("Entrar");
-
-        btnRegistrar.setText("Registrar");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(etiMINDEL))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiUserName)
-                            .addComponent(etiContrasenia))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtContrasenia)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnEntrar)
-                        .addGap(84, 84, 84)
-                        .addComponent(btnRegistrar)))
-                .addContainerGap(108, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(etiMINDEL)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiUserName)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiContrasenia)
-                    .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntrar)
-                    .addComponent(btnRegistrar))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
+        lblFondo.setMaximumSize(new java.awt.Dimension(353, 206));
+        lblFondo.setMinimumSize(new java.awt.Dimension(353, 206));
+        lblFondo.setPreferredSize(new java.awt.Dimension(353, 206));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,6 +101,7 @@ public class interfaz extends javax.swing.JFrame {
     public javax.swing.JLabel etiContrasenia;
     public javax.swing.JLabel etiMINDEL;
     public javax.swing.JLabel etiUserName;
+    public javax.swing.JLabel lblFondo;
     public javax.swing.JPasswordField txtContrasenia;
     public javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables

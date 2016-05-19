@@ -38,9 +38,9 @@ public class Seccion extends javax.swing.JDialog {
         SpinCantidad = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(460, 550));
+        setMinimumSize(new java.awt.Dimension(484, 560));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(460, 560));
+        setPreferredSize(new java.awt.Dimension(484, 560));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -86,12 +86,14 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 17);
         getContentPane().add(btnVerCarro, gridBagConstraints);
 
         SpinCantidad.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(14, 14, 14, 14);
         getContentPane().add(SpinCantidad, gridBagConstraints);
 
         pack();

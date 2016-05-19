@@ -81,12 +81,6 @@ public class RegistroCliente extends javax.swing.JDialog {
 
         etiFotoCliente.setBorder(new javax.swing.border.MatteBorder(null));
 
-        btnBuscarFotoCli.setText("Buscar...");
-
-        btnAceptarRegistrarCli.setText("Aceptar");
-
-        btnCancelarRegistroCli.setText("Cancelar");
-
         try {
             txtDNICliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
         } catch (java.text.ParseException ex) {
@@ -140,18 +134,18 @@ public class RegistroCliente extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(etiCPCliente)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCPCliente)
-                                .addGap(35, 35, 35))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(etiFoto1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnBuscarFotoCli))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(78, 78, 78)
-                                    .addComponent(btnAceptarRegistrarCli))))
+                                .addComponent(txtCPCliente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(etiFoto1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(2, 2, 2)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscarFotoCli))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(btnAceptarRegistrarCli)
+                        .addGap(77, 77, 77)
                         .addComponent(btnCancelarRegistroCli)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
@@ -192,16 +186,14 @@ public class RegistroCliente extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiFotoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnBuscarFotoCli))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(etiFoto1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(etiFoto1))
+                    .addComponent(btnBuscarFotoCli))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelarRegistroCli)
                     .addComponent(btnAceptarRegistrarCli))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
