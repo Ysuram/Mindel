@@ -29,12 +29,11 @@ public class Seccion extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLayeredPane1 = new javax.swing.JLayeredPane();
         btnCancelarSeccion = new javax.swing.JButton();
         btnAnadirSeccion = new javax.swing.JButton();
         cbSeccion = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTablaProductos = new javax.swing.JTable();
+        jScrollPaneSeccion = new javax.swing.JScrollPane();
+        jTablaProductosSeccion = new javax.swing.JTable();
         btnVerCarro = new javax.swing.JButton();
         SpinCantidad = new javax.swing.JSpinner();
 
@@ -66,7 +65,7 @@ public class Seccion extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 138, 0, 138);
         getContentPane().add(cbSeccion, gridBagConstraints);
 
-        jTablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+        jTablaProductosSeccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -77,13 +76,13 @@ public class Seccion extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTablaProductos);
+        jScrollPaneSeccion.setViewportView(jTablaProductosSeccion);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
-        getContentPane().add(jScrollPane1, gridBagConstraints);
+        getContentPane().add(jScrollPaneSeccion, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -147,8 +146,7 @@ public class Seccion extends javax.swing.JDialog {
     public javax.swing.JButton btnCancelarSeccion;
     public javax.swing.JButton btnVerCarro;
     public javax.swing.JComboBox cbSeccion;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTablaProductos;
+    private javax.swing.JScrollPane jScrollPaneSeccion;
+    public javax.swing.JTable jTablaProductosSeccion;
     // End of variables declaration//GEN-END:variables
 }

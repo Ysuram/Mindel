@@ -33,7 +33,7 @@ import vista.menuCliente;
 import vista.Carro;
 import vista.menuEmpleado;
 
-public class controlador implements ActionListener, MouseListener, KeyListener, ItemListener {
+public class controlador implements ActionListener, MouseListener, KeyListener {
 
     /**
      * instancia nuestra (s) interfaz
@@ -53,7 +53,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     menuCliente mc;
     menuEmpleado me;
     JFileChooser dlg;
-    DefaultTableModel tca;
+    DefaultTableModel tc;
     int option, cont = 0, cant = 1, idCliente, idEmpleado;
     String ruta;
     Object lc[][];
@@ -289,6 +289,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 this.r.setVisible(true);
                 break;
             case _btnCancelarSeccion:
+                this.carro.jTablaCarroCarro.removeAll();
                 if (this.tipoUsu == true) {
                     this.carro.dispose();
                     this.s.dispose();
@@ -301,11 +302,12 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 break;
             case _btnAnadirSeccion:
                 Object nuevo[] = {
-                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0).toString(), 
-                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString(), 
-                    this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString()};
-                
-
+                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 0).toString(), 
+                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 1).toString(), 
+                    this.s.jTablaProductosSeccion.getValueAt(this.s.jTablaProductosSeccion.getSelectedRow(), 2).toString(),
+                    this.s.SpinCantidad.getValue()};
+                tc = (DefaultTableModel) this.carro.jTablaCarroCarro.getModel();
+                tc.addRow(nuevo);
                 break;
             case _btnVerCarro:
                 this.carro.setVisible(true);
@@ -314,7 +316,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 this.mc.setVisible(false);
                 this.carro.setModal(false);
                 this.s.cbSeccion.setSelectedIndex(0);
-                this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(this.s.cbSeccion.getSelectedItem().toString()));
                 this.s.setModal(false);
                 this.s.setLocation((this.vista.getX() - 300), (this.vista.getY() - 100));
                 this.s.setVisible(true);
@@ -450,42 +451,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     public void keyTyped(KeyEvent e) {
     }
 
-    @Override
-    public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange() == ItemEvent.SELECTED) {
-            if (this.s.isVisible() == true) {
-                switch (String.valueOf(this.s.cbSeccion.getSelectedItem())) {
-                    case "Carniceria":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Pescaderia":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Charcuteria":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Limpieza":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Fruteria":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Congelados":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Panaderia":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Higiene":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                    case "Frio":
-                        this.s.jTablaProductos.setModel(this.modelo.getTablaProducto(String.valueOf(this.s.cbSeccion.getSelectedItem())));
-                        break;
-                }
-            }
-        }
-    }
+    
 
     /**
      * Enumera TODOs los metodos que tendrá nuestro proyecto
@@ -575,10 +541,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
 
         this.re.btnBuscarFotoEmp.setActionCommand("_buscarFotoEmp");
         this.re.btnBuscarFotoEmp.addActionListener(this);
-
-        this.s.btnAnadirSeccion.setActionCommand("_btnAnadirSeccion");
-        this.s.btnAnadirSeccion.addActionListener(this);
-
         this.s.btnCancelarSeccion.setActionCommand("_btnCancelarSeccion");
         this.s.btnCancelarSeccion.addActionListener(this);
 
@@ -595,8 +557,9 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
         this.s.btnCancelarSeccion.addActionListener(this);
 
         this.s.cbSeccion.setModel(this.mcb);
-        this.s.cbSeccion.addItemListener(this);
 
+        this.s.jTablaProductosSeccion.setModel(this.modelo.getTablaProducto(this.s.cbSeccion.getSelectedItem().toString()));
+        
         this.carro.btnAceptarCarro.setActionCommand("_btnAceptarCarro");
         this.carro.btnAceptarCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/Verificarcompra.png")));
         this.carro.btnAceptarCarro.addActionListener(this);
