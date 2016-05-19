@@ -303,13 +303,13 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 break;
             case _btnAnadirSeccion:
                 int f = this.s.jTablaProductos.getSelectedRow();
-                tca = (DefaultTableModel) this.s.jTablaProductos.getModel();
+                tc = (DefaultTableModel) this.s.jTablaProductos.getModel();
                 String n = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 0).toString();
                 String d = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 1).toString();
                 String p = this.s.jTablaProductos.getValueAt(this.s.jTablaProductos.getSelectedRow(), 2).toString();
-                tca = (DefaultTableModel) this.carro.jTablaCarro.getModel();
+                tc = (DefaultTableModel) this.carro.jTablaCarro.getModel();
                 Object nuevo[] = {n, d, p};
-                tca.addRow(nuevo);
+                tc.addRow(nuevo);
 
                 break;
             case _btnVerCarro:

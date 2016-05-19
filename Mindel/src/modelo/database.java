@@ -37,7 +37,7 @@ public class database {
             //obtenemos el driver de para mysql
             Class.forName("com.mysql.jdbc.Driver");
             //obtenemos la conexión
-            conn = DriverManager.getConnection(this.url1, this.user, this.password);
+            conn = DriverManager.getConnection(this.url, this.user, this.password);
             System.out.println("EXITO");
         } catch (SQLException e) {
             System.err.println(e.getMessage());
