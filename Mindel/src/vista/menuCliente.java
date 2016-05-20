@@ -27,40 +27,24 @@ public class menuCliente extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        btnComprarMenuClien = new javax.swing.JButton();
         btnRevisarMenu = new javax.swing.JButton();
+        btnComprarMenuClien = new javax.swing.JButton();
         btnSalirMenuClie = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        btnComprarMenuClien.setText("Comprar");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 39, 34, 0);
-        getContentPane().add(btnComprarMenuClien, gridBagConstraints);
+        setPreferredSize(new java.awt.Dimension(396, 106));
+        getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
         btnRevisarMenu.setText("Revisar compras");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 41, 34, 0);
-        getContentPane().add(btnRevisarMenu, gridBagConstraints);
+        getContentPane().add(btnRevisarMenu);
+
+        btnComprarMenuClien.setText("Comprar");
+        getContentPane().add(btnComprarMenuClien);
 
         btnSalirMenuClie.setText("Salir");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 151, 0, 10);
-        getContentPane().add(btnSalirMenuClie, gridBagConstraints);
+        getContentPane().add(btnSalirMenuClie);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -27,47 +27,36 @@ public class menuEmpleado extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        btnProveedorMenu = new javax.swing.JButton();
+        btnRevisarMenu = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
+        btnOfertaMenu = new javax.swing.JButton();
         btnOfertaAMenu = new javax.swing.JButton();
         btnPedidoMenu = new javax.swing.JButton();
-        btnOfertaMenu = new javax.swing.JButton();
+        btnProveedorMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setPreferredSize(new java.awt.Dimension(366, 223));
+        getContentPane().setLayout(new java.awt.GridLayout(3, 2));
 
-        btnProveedorMenu.setText("Contratar Proveedor");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        getContentPane().add(btnProveedorMenu, gridBagConstraints);
+        btnRevisarMenu.setText("Revisar Compras");
+        getContentPane().add(btnRevisarMenu);
 
         btnSalirMenu.setText("Salir");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        getContentPane().add(btnSalirMenu, gridBagConstraints);
-
-        btnOfertaAMenu.setText("Aplicar oferta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        getContentPane().add(btnOfertaAMenu, gridBagConstraints);
-
-        btnPedidoMenu.setText("Pedir un Envio");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        getContentPane().add(btnPedidoMenu, gridBagConstraints);
+        getContentPane().add(btnSalirMenu);
 
         btnOfertaMenu.setText("Crear oferta");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        getContentPane().add(btnOfertaMenu, gridBagConstraints);
+        getContentPane().add(btnOfertaMenu);
+
+        btnOfertaAMenu.setText("Aplicar oferta");
+        getContentPane().add(btnOfertaAMenu);
+
+        btnPedidoMenu.setText("Pedir un Envio");
+        getContentPane().add(btnPedidoMenu);
+
+        btnProveedorMenu.setText("Contratar Proveedor");
+        getContentPane().add(btnProveedorMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -122,6 +111,7 @@ public class menuEmpleado extends javax.swing.JDialog {
     public javax.swing.JButton btnOfertaMenu;
     public javax.swing.JButton btnPedidoMenu;
     public javax.swing.JButton btnProveedorMenu;
+    public javax.swing.JButton btnRevisarMenu;
     public javax.swing.JButton btnSalirMenu;
     // End of variables declaration//GEN-END:variables
 }

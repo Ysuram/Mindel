@@ -2,6 +2,8 @@ package modelo;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,44 +56,7 @@ public class modelo extends database {
         }
         return tablemodel;
     }
-
-    public DefaultTableModel getTablaCarro() {
-        DefaultTableModel tablemodel = new DefaultTableModel();
-        int registros = 0;
-        String[] columNames = {"Nombre del Producto", "Descripcion", "Precio"};
-        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
-        //para formar la matriz de datos
-        try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total GROUP BY seccion_producto FROM Productos");
-            ResultSet res = pstm.executeQuery();
-            res.next();
-            registros = res.getInt("total");
-            res.close();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        //se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][5];
-        try {
-            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Productos");
-            ResultSet res = pstm.executeQuery();
-            int i = 0;
-            while (res.next()) {
-                data[i][0] = res.getString("nombre_producto");
-                data[i][1] = res.getString("descripcion_producto");
-                data[i][2] = res.getString("precio_producto");
-                i++;
-            }
-            res.close();
-            //se añade la matriz de datos en el DefaultTableModel
-            tablemodel.setDataVector(data, columNames);
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return tablemodel;
-    }
-
+    
     public boolean loginCliente(String u, String p) {
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
@@ -157,23 +122,6 @@ public class modelo extends database {
             int id;
             while (res.next()) {
                 id = res.getInt("cod_cliente");
-                return id;
-            }
-            res.close();
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-        return 0;
-    }
-    
-    public int getIdProveedor(String n) {
-        try {
-            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_proveedor FROM Proveedores WHERE nombre_proveedor='" + n + "'");
-            ResultSet res = pstm.executeQuery();
-            int id;
-            while (res.next()) {
-                id = res.getInt("cod_proveedor");
                 return id;
             }
             res.close();
@@ -315,7 +263,7 @@ public class modelo extends database {
         return false;
     }
 
-    public boolean crearProducto(String n, String d, String s, double p) {
+    public boolean crearProducto(String n, String d, String s, Double p) {
         String insert = "INSERT INTO Productos(nombre_producto, descripcion_producto, seccion_producto, precio_producto) VALUES(?,?,?,?)";
         PreparedStatement ps = null;
         try {
@@ -363,9 +311,8 @@ public class modelo extends database {
     
     public ComboBoxModel cbProveedor() {
         DefaultComboBoxModel m = new DefaultComboBoxModel();
-        String r = null;
+        String r;
         try {
-            int i = 0;
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT nombre_proveedor FROM Proveedores");
             ResultSet res = pstm.executeQuery();
@@ -418,4 +365,387 @@ public class modelo extends database {
         return tablemodel;
     }
     
+    public boolean verificarProducto(String u) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Productos");
+            ResultSet res = pstm.executeQuery();
+            String nombre;
+            while (res.next()) {
+                nombre = res.getString("nombre_producto");
+                if (nombre.equals(u)) {
+                    return true;
+                }
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public int getIdProveedor(String n) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_proveedor FROM Proveedores WHERE nombre_proveedor='" + n + "'");
+            ResultSet res = pstm.executeQuery();
+            int id;
+            while (res.next()) {
+                id = res.getInt("cod_proveedor");
+                return id;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return 0;
+    }
+    
+    public String getSeccion(String n) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT seccion_producto FROM Productos WHERE nombre_producto='" + n + "'");
+            ResultSet res = pstm.executeQuery();
+            String x;
+            while (res.next()) {
+                x = res.getString("seccion_producto");
+                return x;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return "";
+    }
+
+    public int getIdProducto(String n) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_producto FROM Productos WHERE nombre_producto='" + n + "'");
+            ResultSet res = pstm.executeQuery();
+            int id;
+            while (res.next()) {
+                id = res.getInt("cod_producto");
+                return id;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return 0;
+    }
+
+    public boolean crearEnvio(String np, String npr, int c, double p, Date d) {
+        String insert = "INSERT INTO Envios(proveedor_cod, producto_cod, cantidad_productos, coste_envio, fecha_envio) VALUES(?,?,?,?,?)";
+        PreparedStatement ps = null;
+        int prod = this.getIdProducto(np);
+        int pro = this.getIdProveedor(npr);
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setInt(1, pro);
+            ps.setInt(2, prod);
+            ps.setInt(3, c);
+            ps.setDouble(4, p);
+            ps.setDate(5, d);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
+    public boolean aplicarOferta(String e, String x) {
+        int ido = this.getIdOferta(e);
+        String insert = "UPDATE Productos SET oferta_cod = "+ido+" WHERE nombre_producto = '"+x+"'";
+        PreparedStatement ps = null;
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
+    public boolean actualizarEstado(String np, int c) {
+        String insert = "UPDATE Pedidos SET estado_producto = '"+np+"' WHERE cod_pedido="+c;
+        PreparedStatement ps = null;
+        int prod = this.getIdProducto(np);
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+    
+    
+    public boolean crearPedido(String n, int c, int ca, Date f, double p, String e) {
+        String insert = "INSERT INTO Pedido(producto_cod, cliente_cod, cantidad_producto, fecha_pedido, coste_pedido, estado_pedido) "
+                + "VALUES(?,?,?,?,?,?)";
+        PreparedStatement ps = null;
+        int pr = this.getIdProducto(n);
+
+        try {
+            this.getConexion().setAutoCommit(false);
+            ps = this.getConexion().prepareStatement(insert);
+            ps.setInt(1, pr);
+            ps.setInt(2, c);
+            ps.setInt(3, ca);
+            ps.setDate(4, f);
+            ps.setDouble(5, p);
+            ps.setString(6, e);
+            ps.executeUpdate();
+            this.getConexion().commit();
+            return true;
+
+        } catch (Exception ex) {
+            Logger.getLogger(database.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                ps.close();
+            } catch (Exception ex) {
+                Logger.getLogger(database.class
+                        .getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return false;
+    }
+
+    public String getNombreEmpleado(int i) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT nombre_empleado FROM Empleados WHERE cod_empleado='" + i + "'");
+            ResultSet res = pstm.executeQuery();
+            String n;
+            while (res.next()) {
+                n = res.getString("nombre_empleado");
+                return n;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return "No atendido";
+    }
+    
+    public int getIdOferta(String x) {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT cod_oferta FROM Ofertas WHERE descripcion_oferta='" + x + "'");
+            ResultSet res = pstm.executeQuery();
+            int n;
+            while (res.next()) {
+                n = res.getInt("cod_oferta");
+                return n;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return 0;
+    }
+
+    public DefaultTableModel getTablaRevisarCompra(String s, int idc) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"Nombre del Producto", "Descripcion", "Seccion", "Cantidad", "Precio", "Estado"};
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedido WHERE cliente_cod = " + idc + " AND fecha_pedido = '" + s + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][8];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement(""
+                    + "SELECT p.nombre_producto, p.descripcion_producto, p.seccion_producto, pe.cantidad_producto, pe.coste_pedido, pe.estado_pedido FROM Pedido pe, Productos p "
+                    + "WHERE pe.producto_cod=p.cod_producto AND cliente_cod = '" + idc + "' AND fecha_pedido = '" + s + "'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("p.nombre_producto");
+                data[i][1] = res.getString("p.descripcion_producto");
+                data[i][2] = res.getString("p.seccion_producto");
+                data[i][3] = res.getString("cantidad_producto");
+                data[i][4] = res.getString("coste_pedido");
+                data[i][5] = res.getString("estado_pedido");
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+    
+    public DefaultTableModel getTablaRevisarCompra(String s) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"Nombre del Producto", "Descripcion", "Seccion", "Cantidad", "Precio", "Estado"};
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedido WHERE fecha_pedido = '" + s + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][8];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement(""
+                    + "SELECT p.nombre_producto, p.descripcion_producto, p.seccion_producto, pe.cantidad_producto, pe.coste_pedido, pe.estado_pedido FROM Pedido pe, Productos p "
+                    + "WHERE pe.producto_cod=p.cod_producto AND fecha_pedido = '" + s + "'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("p.nombre_producto");
+                data[i][1] = res.getString("p.descripcion_producto");
+                data[i][2] = res.getString("p.seccion_producto");
+                data[i][3] = res.getString("cantidad_producto");
+                data[i][4] = res.getString("coste_pedido");
+                data[i][5] = res.getString("estado_pedido");
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+
+    public ComboBoxModel cbCompra(int x) {
+        DefaultComboBoxModel m = new DefaultComboBoxModel();
+        String r = null;
+        try {
+            int i = 0;
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT DISTINCT fecha_pedido FROM Pedido WHERE cliente_cod=" + x + " GROUP BY fecha_pedido");
+            ResultSet res = pstm.executeQuery();
+            m.removeAllElements();
+            while (res.next()) {
+                r = res.getString("fecha_pedido");
+                m.addElement(r);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return m;
+    }
+    
+    public ComboBoxModel cbCompra() {
+        DefaultComboBoxModel m = new DefaultComboBoxModel();
+        String r = null;
+        try {
+            int i = 0;
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT fecha_pedido FROM Pedido GROUP BY fecha_pedido");
+            ResultSet res = pstm.executeQuery();
+            m.removeAllElements();
+            while (res.next()) {
+                r = res.getString("fecha_pedido");
+                m.addElement(r);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return m;
+    }
+    
+    public ComboBoxModel cbProducto(String x) {
+        DefaultComboBoxModel m = new DefaultComboBoxModel();
+        String r = null;
+        try {
+            int i = 0;
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT nombre_producto FROM Productos WHERE seccion_producto = '"+x+"'");
+            ResultSet res = pstm.executeQuery();
+            m.removeAllElements();
+            while (res.next()) {
+                r = res.getString("nombre_producto");
+                m.addElement(r);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return m;
+    }
+    
+    public ComboBoxModel cbOferta() {
+        DefaultComboBoxModel m = new DefaultComboBoxModel();
+        String r = null;
+        try {
+            int i = 0;
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT descripcion_oferta FROM Ofertas");
+            ResultSet res = pstm.executeQuery();
+            m.removeAllElements();
+            while (res.next()) {
+                r = res.getString("descripcion_oferta");
+                m.addElement(r);
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return m;
+    }
+
 }

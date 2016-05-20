@@ -35,7 +35,7 @@ public class RevisarCompras extends javax.swing.JDialog {
         btnSalirRevisar = new javax.swing.JButton();
         jScrollPaneRevisar = new javax.swing.JScrollPane();
         jTablaRevisar = new javax.swing.JTable();
-        CBListaRevisar = new javax.swing.JComboBox<>();
+        CBListaRevisar = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
@@ -67,7 +67,7 @@ public class RevisarCompras extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         getContentPane().add(jScrollPaneRevisar, gridBagConstraints);
 
-        CBListaRevisar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBListaRevisar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

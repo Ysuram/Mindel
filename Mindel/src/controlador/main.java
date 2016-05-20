@@ -15,6 +15,8 @@ import vista.ProveedorListaProductos;
 import vista.Registro;
 import vista.RegistroCliente;
 import vista.RegistroEmpleado;
+import vista.RevisarCompras;
+import vista.RevisarComprasEmpleado;
 import vista.Seccion;
 import vista.interfaz;
 import vista.menuCliente;
@@ -36,6 +38,7 @@ public class main {
                 new ProveedorListaProductos(new interfaz(), true), new Registro(new interfaz(), true),
                 new RegistroCliente(new interfaz(), true), new RegistroEmpleado(new interfaz(), true),
                 new Seccion(new interfaz(), true), new menuCliente(new interfaz(), true),
-                new menuEmpleado(new interfaz(), true)).iniciar();
+                new menuEmpleado(new interfaz(), true), new RevisarCompras(new interfaz(), true),
+                new RevisarComprasEmpleado(new interfaz(), true)).iniciar();
     }
 }
