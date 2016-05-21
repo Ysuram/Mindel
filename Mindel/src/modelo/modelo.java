@@ -36,7 +36,7 @@ public class modelo extends database {
             System.err.println(e.getMessage());
         }
         //se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][4];
+        Object[][] data = new String[registros][3];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT nombre_producto, descripcion_producto, precio_producto FROM Productos WHERE seccion_producto = '" + s + "'");
@@ -263,7 +263,7 @@ public class modelo extends database {
         return false;
     }
 
-    public boolean crearProducto(String n, String d, String s, Double p) {
+    public boolean crearProducto(String n, String d, String s, double p) {
         String insert = "INSERT INTO Productos(nombre_producto, descripcion_producto, seccion_producto, precio_producto) VALUES(?,?,?,?)";
         PreparedStatement ps = null;
         try {
@@ -491,8 +491,8 @@ public class modelo extends database {
         return false;
     }
     
-    public boolean actualizarEstado(String np, int c) {
-        String insert = "UPDATE Pedidos SET estado_producto = '"+np+"' WHERE cod_pedido="+c;
+    public boolean actualizarEstado(String np, int c, String f, int id) {
+        String insert = "UPDATE Pedido SET estado_pedido = '"+np+"', empleado_cod = "+id+" WHERE cod_pedido = "+c+" AND fecha_pedido = '"+f+"'";
         PreparedStatement ps = null;
         int prod = this.getIdProducto(np);
         try {
@@ -629,11 +629,11 @@ public class modelo extends database {
     public DefaultTableModel getTablaRevisarCompra(String s) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
-        String[] columNames = {"Nombre del Producto", "Descripcion", "Seccion", "Cantidad", "Precio", "Estado"};
+        String[] columNames = {"Id", "Nombre del Producto", "Descripcion", "Seccion", "Cantidad", "Precio", "Estado"};
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedido WHERE fecha_pedido = '" + s + "'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedido WHERE fecha_pedido = '" + s + "' AND estado_pedido != 'Entregado'");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -642,21 +642,22 @@ public class modelo extends database {
             System.err.println(e.getMessage());
         }
         //se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][8];
+        Object[][] data = new String[registros][7];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
             PreparedStatement pstm = this.getConexion().prepareStatement(""
-                    + "SELECT p.nombre_producto, p.descripcion_producto, p.seccion_producto, pe.cantidad_producto, pe.coste_pedido, pe.estado_pedido FROM Pedido pe, Productos p "
-                    + "WHERE pe.producto_cod=p.cod_producto AND fecha_pedido = '" + s + "'");
+                    + "SELECT pe.cod_pedido, p.nombre_producto, p.descripcion_producto, p.seccion_producto, pe.cantidad_producto, pe.coste_pedido, pe.estado_pedido FROM Pedido pe, Productos p "
+                    + "WHERE pe.producto_cod=p.cod_producto AND fecha_pedido = '" + s + "' AND estado_pedido != 'Entregado'");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
-                data[i][0] = res.getString("p.nombre_producto");
-                data[i][1] = res.getString("p.descripcion_producto");
-                data[i][2] = res.getString("p.seccion_producto");
-                data[i][3] = res.getString("cantidad_producto");
-                data[i][4] = res.getString("coste_pedido");
-                data[i][5] = res.getString("estado_pedido");
+                data[i][0] = res.getString("pe.cod_pedido");
+                data[i][1] = res.getString("p.nombre_producto");
+                data[i][2] = res.getString("p.descripcion_producto");
+                data[i][3] = res.getString("p.seccion_producto");
+                data[i][4] = res.getString("cantidad_producto");
+                data[i][5] = res.getString("coste_pedido");
+                data[i][6] = res.getString("estado_pedido");
                 i++;
             }
             res.close();

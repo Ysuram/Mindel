@@ -35,14 +35,14 @@ public class RevisarCompras extends javax.swing.JDialog {
         btnSalirRevisar = new javax.swing.JButton();
         jScrollPaneRevisar = new javax.swing.JScrollPane();
         jTablaRevisar = new javax.swing.JTable();
-        CBListaRevisar = new javax.swing.JComboBox<String>();
+        CBListaRevisar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 605));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(500, 605));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        btnSalirRevisar.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -67,7 +67,7 @@ public class RevisarCompras extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         getContentPane().add(jScrollPaneRevisar, gridBagConstraints);
 
-        CBListaRevisar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBListaRevisar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

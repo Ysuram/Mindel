@@ -38,19 +38,19 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
         jTablaCarroPCP = new javax.swing.JTable();
         btnEliminarPCP = new javax.swing.JButton();
         btnSalirPCP = new javax.swing.JButton();
+        lblPrecio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(570, 631));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(570, 631));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        btnAceptarPCP.setText("verificar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 52, 0, 52);
+        gridBagConstraints.insets = new java.awt.Insets(0, 69, 0, 69);
         getContentPane().add(btnAceptarPCP, gridBagConstraints);
-
-        btnCancelarPCP.setText("cancelar compra");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -75,19 +75,30 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPane2, gridBagConstraints);
-
-        btnEliminarPCP.setText("Eliminar del carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 30);
         getContentPane().add(btnEliminarPCP, gridBagConstraints);
-
-        btnSalirPCP.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(7, 54, 7, 6);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(16, 16, 16, 20);
         getContentPane().add(btnSalirPCP, gridBagConstraints);
+
+        lblPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        lblPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblPrecio.setMaximumSize(new java.awt.Dimension(50, 20));
+        lblPrecio.setMinimumSize(new java.awt.Dimension(50, 20));
+        lblPrecio.setOpaque(true);
+        lblPrecio.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(11, 11, 11, 11);
+        getContentPane().add(lblPrecio, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,5 +152,6 @@ public class ProveedorCarroProductos extends javax.swing.JDialog {
     public javax.swing.JButton btnSalirPCP;
     public javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTablaCarroPCP;
+    public javax.swing.JLabel lblPrecio;
     // End of variables declaration//GEN-END:variables
 }

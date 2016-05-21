@@ -42,17 +42,18 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         SpinCantidad = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(547, 645));
         setModal(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(547, 645));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        btnAceptarPLP.setText("Añadir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 22;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 45);
+        gridBagConstraints.insets = new java.awt.Insets(0, 61, 0, 61);
         getContentPane().add(btnAceptarPLP, gridBagConstraints);
 
         jTablaPLP.setModel(new javax.swing.table.DefaultTableModel(
@@ -73,16 +74,12 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPanePLP, gridBagConstraints);
-
-        btnSalirPLP.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(14, 0, 14, 18);
         getContentPane().add(btnSalirPLP, gridBagConstraints);
-
-        btnCarroPLP.setText("Ver Carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -101,6 +98,9 @@ public class ProveedorListaProductos extends javax.swing.JDialog {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(8, 8, 8, 8);
         getContentPane().add(btnNuevoProducto, gridBagConstraints);
+
+        SpinCantidad.setMinimumSize(new java.awt.Dimension(40, 20));
+        SpinCantidad.setPreferredSize(new java.awt.Dimension(40, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;

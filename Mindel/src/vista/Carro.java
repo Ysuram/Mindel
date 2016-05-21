@@ -38,6 +38,7 @@ public class Carro extends javax.swing.JDialog {
         jTablaCarroCarro = new javax.swing.JTable();
         btnEliminarCarro = new javax.swing.JButton();
         btnSalirCarro = new javax.swing.JButton();
+        lblPrecio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(629, 662));
@@ -92,6 +93,17 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(7, 54, 7, 6);
         getContentPane().add(btnSalirCarro, gridBagConstraints);
 
+        lblPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        lblPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblPrecio.setOpaque(true);
+        lblPrecio.setPreferredSize(new java.awt.Dimension(50, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 9);
+        getContentPane().add(lblPrecio, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,5 +156,6 @@ public class Carro extends javax.swing.JDialog {
     public javax.swing.JButton btnSalirCarro;
     public javax.swing.JScrollPane jScrollPaneCarro;
     public javax.swing.JTable jTablaCarroCarro;
+    public javax.swing.JLabel lblPrecio;
     // End of variables declaration//GEN-END:variables
 }

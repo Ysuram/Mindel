@@ -42,8 +42,6 @@ public class menuEmpleado extends javax.swing.JDialog {
 
         btnRevisarMenu.setText("Revisar Compras");
         getContentPane().add(btnRevisarMenu);
-
-        btnSalirMenu.setText("Salir");
         getContentPane().add(btnSalirMenu);
 
         btnOfertaMenu.setText("Crear oferta");
