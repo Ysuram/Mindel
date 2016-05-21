@@ -567,6 +567,36 @@ public class modelo extends database {
         return "No atendido";
     }
     
+    public boolean getRevisar() {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Pedido");
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                return true;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+    
+    public boolean getRevisarEmp() {
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Pedido WHERE estado_pedido != 'Entregado'");
+            ResultSet res = pstm.executeQuery();
+            while (res.next()) {
+                return true;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+    
     public int getIdOferta(String x) {
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"

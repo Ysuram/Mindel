@@ -13,13 +13,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.util.Calendar;
-import javax.swing.ComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import modelo.miComboBox;
 import modelo.miComboBoxEstado;
@@ -69,7 +67,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
     Calendar fe;
     Icon ico;
     Graphics g;
-    
+
     double cPrecio, cpPrecio;
     int option, cont = 0, cant = 1, idCliente, idEmpleado;
     String ruta;
@@ -216,6 +214,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                     tc.removeRow(i);
                     i--;
                 }
+                this.pcp.lblPrecio.setText(" €");
                 break;
             case _btnEnviarPNP:
                 if (!this.pnp.txtNombrePNP.getText().equals("")
@@ -230,12 +229,24 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                         this.pnp.CBSeccionEnvio.getSelectedItem().toString(),
                         this.plp.CBProveedorPLP.getSelectedItem().toString(),
                         this.pnp.SpinCantidadPNP.getValue().toString(), String.valueOf(ca)};
+                    
                     tc.addRow(nuevo);
+                    this.cpPrecio = 0;
+                    if (this.pcp.jTablaCarroPCP.getRowCount() != -1) {
+                        for (int d = 0; d < this.pcp.jTablaCarroPCP.getRowCount(); d++) {
+                            this.cpPrecio += Double.parseDouble(this.pcp.jTablaCarroPCP.getValueAt(d, 5).toString());
+                        }
+                        this.pcp.lblPrecio.setText(String.valueOf(cpPrecio) + " €");
+                        
+                    } else {
+                        this.pcp.lblPrecio.setText(String.valueOf(ca) + " €");
+                    }
                     this.pnp.txtNombrePNP.setText("");
                     this.pnp.txtADescPNP.setText("");
                     this.pnp.SpinCantidadPNP.setValue(1);
                     this.pnp.SpinPrecioPNP.setValue(1);
                     this.pnp.setVisible(false);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Error, campos vacios");
                 }
@@ -263,7 +274,6 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                     };
                     tc = (DefaultTableModel) this.pcp.jTablaCarroPCP.getModel();
                     if (this.pcp.jTablaCarroPCP.getRowCount() > 0) {
-                        int cant = this.pcp.jTablaCarroPCP.getRowCount() + 1;
                         for (int i = 0; i < this.pcp.jTablaCarroPCP.getRowCount(); i++) {
                             if (this.pcp.jTablaCarroPCP.getValueAt(i, 0).equals(
                                     this.plp.jTablaPLP.getValueAt(
@@ -286,10 +296,10 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                         for (int d = 0; d < this.pcp.jTablaCarroPCP.getRowCount(); d++) {
                             this.cpPrecio += Double.parseDouble(this.pcp.jTablaCarroPCP.getValueAt(d, 5).toString());
                         }
-                        this.pcp.lblPrecio.setText(String.valueOf(cpPrecio)+" €");
+                        this.pcp.lblPrecio.setText(String.valueOf(cpPrecio) + " €");
                         break;
                     }
-                    this.pcp.lblPrecio.setText(String.valueOf(ca)+" €");
+                    this.pcp.lblPrecio.setText(String.valueOf(ca) + " €");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error, selecciona una fila");
                 }
@@ -461,7 +471,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 break;
             case _btnAnadirSeccion:
                 if (this.s.jTablaProductosSeccion.getSelectedRow() != -1) {
-                    if(!this.carro.isVisible()){
+                    if (!this.carro.isVisible()) {
                         this.carro.setVisible(true);
                     }
                     int c = Integer.parseInt(this.s.SpinCantidad.getValue().toString());
@@ -494,10 +504,10 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                         for (int d = 0; d < this.carro.jTablaCarroCarro.getRowCount(); d++) {
                             this.cPrecio += Double.parseDouble(this.carro.jTablaCarroCarro.getValueAt(d, 2).toString());
                         }
-                        this.carro.lblPrecio.setText(String.valueOf(cPrecio)+" €");
+                        this.carro.lblPrecio.setText(String.valueOf(cPrecio) + " €");
                         break;
                     }
-                    this.carro.lblPrecio.setText(String.valueOf(ca)+" €");
+                    this.carro.lblPrecio.setText(String.valueOf(ca) + " €");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error, selecciona una fila");
                 }
@@ -516,22 +526,30 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 this.carro.setVisible(true);
                 break;
             case _btnRevisarMenu:
-                this.mc.setVisible(false);
-                this.rcom.CBListaRevisar.setModel(this.modelo.cbCompra(this.idCliente));
-                this.rcom.CBListaRevisar.setSelectedIndex(0);
-                this.rcom.jTablaRevisar.setModel(this.modelo.getTablaRevisarCompra(this.rcom.CBListaRevisar.getSelectedItem().toString(),
-                        this.idCliente));
-                this.rcom.setLocationRelativeTo(vista);
-                this.rcom.setVisible(true);
+                if (this.modelo.getRevisar()) {
+                    this.mc.setVisible(false);
+                    this.rcom.CBListaRevisar.setModel(this.modelo.cbCompra(this.idCliente));
+                    this.rcom.CBListaRevisar.setSelectedIndex(0);
+                    this.rcom.jTablaRevisar.setModel(this.modelo.getTablaRevisarCompra(this.rcom.CBListaRevisar.getSelectedItem().toString(),
+                            this.idCliente));
+                    this.rcom.setLocationRelativeTo(vista);
+                    this.rcom.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No, hay compras realizadas");
+                }
                 break;
             case _btnRevisarMenuEmp:
-                this.mc.setVisible(false);
-                this.rcome.CBListaRevisarEmp.setModel(this.modelo.cbCompra());
-                this.rcome.CBListaRevisarEmp.setSelectedIndex(0);
-                this.rcome.jTablaRevisarEmp.setModel(this.modelo.getTablaRevisarCompra(this.rcome.CBListaRevisarEmp.getSelectedItem().toString()));
+                if (this.modelo.getRevisarEmp()) {
+                    this.mc.setVisible(false);
+                    this.rcome.CBListaRevisarEmp.setModel(this.modelo.cbCompra());
+                    this.rcome.CBListaRevisarEmp.setSelectedIndex(0);
+                    this.rcome.jTablaRevisarEmp.setModel(this.modelo.getTablaRevisarCompra(this.rcome.CBListaRevisarEmp.getSelectedItem().toString()));
 
-                this.rcome.setLocationRelativeTo(vista);
-                this.rcome.setVisible(true);
+                    this.rcome.setLocationRelativeTo(vista);
+                    this.rcome.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No hay pedidos disponibles");
+                }
                 break;
             case _btnSalirRevisarEmp:
                 this.rcome.setVisible(false);
@@ -575,13 +593,13 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                 break;
             case _btnPedidoMenu:
                 this.me.setVisible(false);
-                this.plp.CBProveedorPLP.setSelectedIndex(0);
+                this.plp.CBProveedorPLP.setSelectedItem(1);
                 this.plp.jTablaPLP.setModel(this.modelo.getTablaProvProd(this.plp.CBProveedorPLP.getSelectedIndex() + 1));
                 this.plp.setModal(false);
                 this.pcp.setModal(false);
-                this.plp.setLocation((this.vista.getX() - 300), (this.vista.getY())-150);
+                this.plp.setLocation((this.vista.getX() - 300), (this.vista.getY()) - 150);
                 this.plp.setVisible(true);
-                this.pcp.setLocation((this.vista.getX() + 300), (this.vista.getY())-150);
+                this.pcp.setLocation((this.vista.getX() + 300), (this.vista.getY()) - 150);
                 this.pcp.setVisible(true);
                 break;
             case _btnProveedorMenu:
@@ -804,6 +822,21 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
      * crea el constructor con la interfaz principal de nuestro proyecto
      *
      * @param vista
+     * @param carro
+     * @param cp
+     * @param co
+     * @param pnp
+     * @param pcp
+     * @param oa
+     * @param plp
+     * @param r
+     * @param rc
+     * @param re
+     * @param s
+     * @param mc
+     * @param me
+     * @param rcom
+     * @param rcome
      */
     public controlador(interfaz vista, Carro carro, ContratarProveedor cp, CreacionOferta co,
             ProveedorNuevoProducto pnp, ProveedorCarroProductos pcp, OfertaAplicada oa, ProveedorListaProductos plp, Registro r,
