@@ -42,8 +42,6 @@ public class menuCliente extends javax.swing.JDialog {
 
         btnComprarMenuClien.setText("Comprar");
         getContentPane().add(btnComprarMenuClien);
-
-        btnSalirMenuClie.setText("Salir");
         getContentPane().add(btnSalirMenuClie);
 
         pack();

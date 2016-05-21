@@ -45,15 +45,11 @@ public class Carro extends javax.swing.JDialog {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(629, 662));
         getContentPane().setLayout(new java.awt.GridBagLayout());
-
-        btnAceptarCarro.setText("verificar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 41, 0, 41);
+        gridBagConstraints.insets = new java.awt.Insets(0, 82, 0, 82);
         getContentPane().add(btnAceptarCarro, gridBagConstraints);
-
-        btnCancelarCarro.setText("cancelar compra");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -78,15 +74,11 @@ public class Carro extends javax.swing.JDialog {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jScrollPaneCarro, gridBagConstraints);
-
-        btnEliminarCarro.setText("Eliminar del carro");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(btnEliminarCarro, gridBagConstraints);
-
-        btnSalirCarro.setText("Salir");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;

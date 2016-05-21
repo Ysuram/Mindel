@@ -49,10 +49,6 @@ public class CreacionOferta extends javax.swing.JDialog {
 
         jLabel3.setText("Descripción: ");
 
-        btnCrearOferta.setText("crear");
-
-        btnCancelarOferta.setText("cancelar");
-
         jLabel4.setText("Cantidad:");
 
         try {
@@ -66,21 +62,23 @@ public class CreacionOferta extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCantidadOferta)
+                                    .addComponent(txtDescOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
                         .addComponent(btnCrearOferta)
-                        .addGap(57, 57, 57)
-                        .addComponent(btnCancelarOferta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCantidadOferta)
-                            .addComponent(txtDescOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel4))
+                        .addGap(65, 65, 65)
+                        .addComponent(btnCancelarOferta)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -96,11 +94,11 @@ public class CreacionOferta extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtCantidadOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrearOferta)
-                    .addComponent(btnCancelarOferta))
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancelarOferta, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCrearOferta, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();

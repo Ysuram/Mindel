@@ -32,11 +32,11 @@ public class OfertaAplicada extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        CBSeccionOfertaA = new javax.swing.JComboBox<String>();
+        CBSeccionOfertaA = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        CBProductoOfertaA = new javax.swing.JComboBox<String>();
+        CBProductoOfertaA = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        CBOfertaOfertaA = new javax.swing.JComboBox<String>();
+        CBOfertaOfertaA = new javax.swing.JComboBox<>();
         btnAceptarOfertaA = new javax.swing.JButton();
         btnCancelarOfertaA = new javax.swing.JButton();
 
@@ -51,19 +51,15 @@ public class OfertaAplicada extends javax.swing.JDialog {
 
         jLabel2.setText("Sección: ");
 
-        CBSeccionOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBSeccionOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("Producto: ");
 
-        CBProductoOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBProductoOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setText("Oferta: ");
 
-        CBOfertaOfertaA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        btnAceptarOfertaA.setText("aceptar");
-
-        btnCancelarOfertaA.setText("cancelar");
+        CBOfertaOfertaA.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,11 +85,11 @@ public class OfertaAplicada extends javax.swing.JDialog {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(CBProductoOfertaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(73, 73, 73)
                         .addComponent(btnAceptarOfertaA)
                         .addGap(31, 31, 31)
                         .addComponent(btnCancelarOfertaA)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,11 +108,11 @@ public class OfertaAplicada extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(CBOfertaOfertaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptarOfertaA)
                     .addComponent(btnCancelarOfertaA))
-                .addGap(35, 35, 35))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
