@@ -46,6 +46,11 @@ public class database {
         }
     }
 
+    /**
+     * Método para conseguir la conexion
+     *
+     * @return
+     */
     public Connection getConexion() {
         return this.conn;
     }

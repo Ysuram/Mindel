@@ -12,11 +12,15 @@ import javax.swing.ComboBoxModel;
  *
  * @author LiyO
  */
-public class miComboBoxEstado extends AbstractListModel implements ComboBoxModel{
+public class miComboBoxEstado extends AbstractListModel implements ComboBoxModel {
 
+    // Object[] con los estados del pedido
     private String[] tipos = {"Espera", "Aceptado", "Rechazado", "Entregado"};
     private String seleccionado = null;
 
+    /**
+     * Constructor que devuelve el ComboBox con el primer Item seleccionado
+     */
     public miComboBoxEstado() {
         seleccionado = tipos[0];
     }
@@ -40,7 +44,5 @@ public class miComboBoxEstado extends AbstractListModel implements ComboBoxModel
     public Object getSelectedItem() {
         return seleccionado;
     }
-    
-    
-    
+
 }

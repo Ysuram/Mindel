@@ -229,7 +229,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                         this.pnp.CBSeccionEnvio.getSelectedItem().toString(),
                         this.plp.CBProveedorPLP.getSelectedItem().toString(),
                         this.pnp.SpinCantidadPNP.getValue().toString(), String.valueOf(ca)};
-                    
+
                     tc.addRow(nuevo);
                     this.cpPrecio = 0;
                     if (this.pcp.jTablaCarroPCP.getRowCount() != -1) {
@@ -237,7 +237,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                             this.cpPrecio += Double.parseDouble(this.pcp.jTablaCarroPCP.getValueAt(d, 5).toString());
                         }
                         this.pcp.lblPrecio.setText(String.valueOf(cpPrecio) + " €");
-                        
+
                     } else {
                         this.pcp.lblPrecio.setText(String.valueOf(ca) + " €");
                     }

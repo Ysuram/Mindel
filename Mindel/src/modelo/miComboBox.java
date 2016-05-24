@@ -12,12 +12,16 @@ import javax.swing.ComboBoxModel;
  *
  * @author LiyO
  */
-public class miComboBox extends AbstractListModel implements ComboBoxModel{
+public class miComboBox extends AbstractListModel implements ComboBoxModel {
 
-    private String[] tipos = {"Carniceria", "Pescaderia", "Charcuteria", "Limpieza", "Fruteria", 
+    // Object[+ con los nombres de cada seccion
+    private String[] tipos = {"Carniceria", "Pescaderia", "Charcuteria", "Limpieza", "Fruteria",
         "Congelados", "Panaderia", "Higiene", "Frio"};
     private String seleccionado = null;
 
+    /**
+     * Constructor que devuelve el ComboBox con el primer item seleccionado
+     */
     public miComboBox() {
         seleccionado = tipos[0];
     }
@@ -41,7 +45,5 @@ public class miComboBox extends AbstractListModel implements ComboBoxModel{
     public Object getSelectedItem() {
         return seleccionado;
     }
-    
-    
-    
+
 }
