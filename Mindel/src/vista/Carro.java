@@ -42,7 +42,6 @@ public class Carro extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(629, 662));
-        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(629, 662));
         getContentPane().setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();

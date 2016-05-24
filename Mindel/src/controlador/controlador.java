@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -22,6 +24,12 @@ import javax.swing.table.DefaultTableModel;
 import modelo.miComboBox;
 import modelo.miComboBoxEstado;
 import modelo.modelo;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vista.ProveedorCarroProductos;
 import vista.ContratarProveedor;
 import vista.CreacionOferta;
@@ -105,9 +113,23 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                     this.carro.setVisible(false);
                     this.s.setVisible(false);
                     this.mc.setVisible(true);
+
+                    /*String report = "/Reportes/report1.jasper";
+                    JasperReport jr = null;
+                    try {
+                        jr = (JasperReport) JRLoader.loadObjectFromFile(report);
+                        JasperPrint jp = JasperFillManager.fillReport(jr, null, this.modelo.getConexion());
+                        JasperViewer jv = new JasperViewer(jp);
+                        jv.setVisible(true);
+                        jv.setTitle(report);
+                    } catch (JRException ex) {
+                        Logger.getLogger(controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                     */
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: no ha hecho ninguna compra");
                 }
+
                 break;
             case _btnCancelarCarro:
                 tc = (DefaultTableModel) this.carro.jTablaCarroCarro.getModel();
