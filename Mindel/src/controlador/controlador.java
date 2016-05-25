@@ -27,11 +27,6 @@ import modelo.miComboBox;
 import modelo.miComboBoxEstado;
 import modelo.modelo;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;
 import vista.ProveedorCarroProductos;
 import vista.ContratarProveedor;
 import vista.CreacionOferta;
@@ -119,9 +114,7 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                     try {
                         Reportes reporte = new Reportes();
                         reporte.ReportePedido();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(controlador.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (JRException ex) {
+                    } catch (SQLException | JRException ex) {
                         Logger.getLogger(controlador.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
