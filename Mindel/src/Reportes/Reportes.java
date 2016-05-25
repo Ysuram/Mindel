@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package reportes;
+package Reportes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,22 +17,18 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author android-0174654321
+ * @author EQUIPO
  */
 public class Reportes {
-    
-    public void reporteContratos(Connection a) throws SQLException, JRException{
-    JasperReport contratos=null;
-        System.out.println("1");
-    contratos=(JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\beticaDeSeguros\\beticaDeSeguros\\src\\reportes\\AdminContratos.jasper");
-        System.out.println("2");
-    JasperPrint print=JasperFillManager.fillReport(contratos, null, a);
-        System.out.println("3");
-    JasperViewer ver= new JasperViewer(print);
-        System.out.println("4");
-    ver.setTitle("Contratos");
-    ver.setVisible(true);
-    }
-    
-}
 
+    public void ReportePedido() throws SQLException, JRException {
+        Connection a;
+        a = DriverManager.getConnection("jdbc:mysql://79.148.236.236/dam12_Mindel", "dam12", "salesianas");
+        JasperReport reporte = null;
+        reporte = (JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\EQUIPO\\Documents\\NetBeansProjects\\Mindel\\Mindel\\Mindel\\src\\Reportes\\Cliente.jasper");
+        JasperPrint print = JasperFillManager.fillReport(reporte, null, a);
+        JasperViewer ver = new JasperViewer(print);
+        ver.setTitle("Reporte factura");
+        ver.setVisible(true);
+    }
+}

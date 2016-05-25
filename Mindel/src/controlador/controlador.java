@@ -1,5 +1,6 @@
 package controlador;
 
+import Reportes.Reportes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -12,6 +13,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -114,18 +116,14 @@ public class controlador implements ActionListener, MouseListener, KeyListener, 
                     this.s.setVisible(false);
                     this.mc.setVisible(true);
 
-                    /*String report = "/Reportes/report1.jasper";
-                    JasperReport jr = null;
                     try {
-                        jr = (JasperReport) JRLoader.loadObjectFromFile(report);
-                        JasperPrint jp = JasperFillManager.fillReport(jr, null, this.modelo.getConexion());
-                        JasperViewer jv = new JasperViewer(jp);
-                        jv.setVisible(true);
-                        jv.setTitle(report);
+                        Reportes reporte = new Reportes();
+                        reporte.ReportePedido();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(controlador.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (JRException ex) {
                         Logger.getLogger(controlador.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                     */
                 } else {
                     JOptionPane.showMessageDialog(null, "Error: no ha hecho ninguna compra");
                 }
