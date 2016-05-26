@@ -25,7 +25,7 @@ public class Reportes {
         Connection a;
         a = DriverManager.getConnection("jdbc:mysql://79.148.236.236/dam12_Mindel", "dam12", "salesianas");
         JasperReport reporte = null;
-        reporte = (JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\EQUIPO\\Documents\\NetBeansProjects\\Mindel\\Mindel\\Mindel\\src\\Reportes\\Cliente.jasper");
+        reporte = (JasperReport) JRLoader.loadObjectFromFile("C:\\Program Files (x86)\\Mindel\\Mindel\\src\\Reportes\\Cliente.jasper");
         JasperPrint print = JasperFillManager.fillReport(reporte, null, a);
         JasperViewer ver = new JasperViewer(print);
         ver.setTitle("Reporte factura");

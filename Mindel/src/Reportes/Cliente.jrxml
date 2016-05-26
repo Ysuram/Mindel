@@ -14,7 +14,9 @@
      Pedido.`coste_pedido` AS Pedido_coste_pedido
 FROM
      `Clientes` Clientes INNER JOIN `Pedido` Pedido ON Clientes.`cod_cliente` = Pedido.`cliente_cod`
-     INNER JOIN `Productos` Productos ON Pedido.`producto_cod` = Productos.`cod_producto`]]>
+     INNER JOIN `Productos` Productos ON Pedido.`producto_cod` = Productos.`cod_producto`
+WHERE
+     Pedido.estado_pedido IS NOT 'Entregado']]>
 	</queryString>
 	<field name="Clientes_cod_cliente" class="java.lang.Integer"/>
 	<field name="Productos_cod_producto" class="java.lang.Integer"/>
